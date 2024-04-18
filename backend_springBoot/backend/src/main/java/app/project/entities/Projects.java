@@ -35,6 +35,6 @@ public class Projects{
 	@JoinColumn(name="fk_PersonneId")
 	private Personne person_projects; 
 	
-	
+	private int x;
 	 
 }
