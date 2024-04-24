@@ -1,7 +1,5 @@
 package app.project.entities;
 
-import java.util.Date;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,29 +9,32 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+
 @Entity
-@Table(name="Comments")
-public class Comments {
+@Table(name="Reports")
+public class Reports {
 
 	
 	  @Id
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  @Column(name="id")
-	  private int CommentId ; 
+	  private int Id ; 
 	  
-	  @Column(name="message_txt")
-	  private String message; 
+	  @Column(name="client_id")
+	  private int client_id; 
 	  
-	  @Column(name="Date")
-		private Date CommenttDate  ;
+	  @Column(name="prestataire_id")
+	  private int prestataire_id; 
 	  
+	  @Column(name="message")
+	  private String message;
+
+	   @Column(name="status")
+	  private boolean status;
 	  
 	  @ManyToOne
-	  @JoinColumn(name="fk_PersonneId")
-	  private Personne person_id_comments; 
-	  
-	  @ManyToOne
-	  @JoinColumn(name="fk_PostId")
-	  private Post post_id_posts; 
-	
+	  @JoinColumn(name="service_user_repored")
+	  private ServiceUser service_reported; 
+	  	
 }
+
