@@ -17,21 +17,89 @@ public class Message {
 	  @Id
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  @Column(name="id")
-	  private int MsgId ; 
+	  private Long MsgId ; 
 	  
 	  @Column(name="message_txt")
 	  private String message; 
 	  
 	  @Column(name="sender_id")
-	  private int sender_id; 
+	  private Long sender_id; 
 	  
 	  @Column(name="receiver_id")
-	  private int receiver_id;
+	  private Long receiver_id;
 	  
 	  
 	  @ManyToOne
 	  @JoinColumn(name="fk_PersonneId")
-	  private Personne person_receiver; 
+	  private Personne person_receiver;
+
+
+	public Message() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public Message(Long msgId, String message, Long sender_id, Long receiver_id, Personne person_receiver) {
+		super();
+		MsgId = msgId;
+		this.message = message;
+		this.sender_id = sender_id;
+		this.receiver_id = receiver_id;
+		this.person_receiver = person_receiver;
+	}
+
+
+	public Long getMsgId() {
+		return MsgId;
+	}
+
+
+	public void setMsgId(Long msgId) {
+		MsgId = msgId;
+	}
+
+
+	public String getMessage() {
+		return message;
+	}
+
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+
+	public Long getSender_id() {
+		return sender_id;
+	}
+
+
+	public void setSender_id(Long sender_id) {
+		this.sender_id = sender_id;
+	}
+
+
+	public Long getReceiver_id() {
+		return receiver_id;
+	}
+
+
+	public void setReceiver_id(Long receiver_id) {
+		this.receiver_id = receiver_id;
+	}
+
+
+	public Personne getPerson_receiver() {
+		return person_receiver;
+	}
+
+
+	public void setPerson_receiver(Personne person_receiver) {
+		this.person_receiver = person_receiver;
+	} 
+	  
+	 
 	  
 	
 	
