@@ -1,4 +1,4 @@
-package app.project.Services;
+package app.project.services;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.project.entities.Notifications;
-import app.project.repositorys.NotificationsRepository;
+import app.project.repository.NotificationsRepository;
 
 @Service
 public class NotificationsServiceImp implements NotificationsService {

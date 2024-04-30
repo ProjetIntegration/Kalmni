@@ -1,4 +1,4 @@
-package app.project.Services;
+package app.project.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.project.entities.Comments;
-import app.project.repositorys.CommentsRepository;
+import app.project.repository.CommentsRepository;
 
 @Service
 public class CommentsServiceImp implements CommentsService {

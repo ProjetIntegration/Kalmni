@@ -1,5 +1,9 @@
-package app.project.repositorys;
+package app.project.repository;
 
-public interface CommentsRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import app.project.entities.Comments;
+
+public interface CommentsRepository extends JpaRepository<Comments , Long> {
 
 }

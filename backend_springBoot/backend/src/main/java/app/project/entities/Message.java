@@ -1,6 +1,6 @@
 package app.project.entities;
 
-import app.project.repositorys.MessageRepository;
+import app.project.repository.MessageRepository;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package app.project.Services;
+package app.project.services;
 
 
 import java.util.List;
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.project.entities.Message;
-import app.project.repositorys.MessageRepository;
+import app.project.repository.MessageRepository;
 
 
 @Service
