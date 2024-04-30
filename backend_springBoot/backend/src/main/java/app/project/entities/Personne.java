@@ -34,7 +34,7 @@ public class Personne {
 	  private String password ;
 	  @Column(name="role_number")
 	  private int role_number  ;
-	  @Column(name="String")
+	  @Column(name="addresse")
 	  private String addresse ;
 	  @Column(name="Date")
 	  private Date date; 
@@ -231,6 +231,22 @@ public class Personne {
 	}
 	 
 	 
+	 
+	 public Personne()
+	 {
+		 super(); 
+	 }
+	 public Personne(String nom , String prenom , String email ,  String password , int role_number ,  String addresse ,  Date date)
+	 {
+		 this.nom=nom ; 
+		 this.prenom=prenom; 
+		 this.addresse=addresse; 
+		 this.date=date; 
+		 this.email=email; 
+		 this.role_number=role_number; 
+		 this.password=password; 
+		 
+	 }
 	 
 	 
 }
