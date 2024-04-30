@@ -1,5 +1,6 @@
 package app.project.entities;
 
+import app.project.repositorys.MessageRepository;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -63,6 +64,9 @@ public class Message {
 	public String getMessage() {
 		return message;
 	}
+	
+	
+	
 
 
 	public void setMessage(String message) {
