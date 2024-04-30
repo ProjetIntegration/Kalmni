@@ -26,10 +26,10 @@ public class Reviews {
 	  private String message; 
 	  
 	  @Column(name="userId_sender")
-	  private int user_id_sender;
+	  private Long user_id_sender;
 
      @Column(name="userId_receiver")
-	  private int user_id_receiver;
+	  private Long user_id_receiver;
          
       @Column(name="rate")
 	  private int rate;
