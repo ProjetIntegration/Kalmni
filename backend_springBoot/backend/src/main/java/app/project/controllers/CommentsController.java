@@ -1,4 +1,4 @@
-package app.project.controllers;
+package app.project.Controllers;
 
 public class CommentsController {
 
