@@ -17,16 +17,16 @@ public class Message {
 	  @Id
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  @Column(name="id")
-	  private int MsgId ; 
+	  private Long MsgId ; 
 	  
 	  @Column(name="message_txt")
 	  private String message; 
 	  
 	  @Column(name="sender_id")
-	  private int sender_id; 
+	  private Long sender_id; 
 	  
 	  @Column(name="receiver_id")
-	  private int receiver_id;
+	  private Long receiver_id;
 	  
 	  
 	  @ManyToOne

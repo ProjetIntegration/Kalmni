@@ -18,13 +18,13 @@ public class Reports {
 	  @Id
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  @Column(name="id")
-	  private int Id ; 
+	  private Long Id ; 
 	  
 	  @Column(name="client_id")
-	  private int client_id; 
+	  private Long client_id; 
 	  
 	  @Column(name="prestataire_id")
-	  private int prestataire_id; 
+	  private Long prestataire_id; 
 	  
 	  @Column(name="message")
 	  private String message;

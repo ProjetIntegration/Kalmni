@@ -20,7 +20,7 @@ public class Services {
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 @Column(name="id")
-private int ServiceId ;
+private Long ServiceId ;
 
 @Column(name="nom")
 private String nom;  

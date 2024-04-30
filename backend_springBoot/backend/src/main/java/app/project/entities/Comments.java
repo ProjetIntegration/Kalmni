@@ -19,7 +19,7 @@ public class Comments {
 	  @Id
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  @Column(name="id")
-	  private int CommentId ; 
+	  private Long CommentId ; 
 	  
 	  @Column(name="message_txt")
 	  private String message; 

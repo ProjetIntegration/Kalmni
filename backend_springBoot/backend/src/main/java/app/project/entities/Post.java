@@ -22,7 +22,7 @@ public class Post{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id")
-	private int ProjectId ;
+	private Long ProjectId ;
 	
 	@Column(name="name")
 	private String PostName  ;

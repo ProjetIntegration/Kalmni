@@ -17,10 +17,10 @@ public class Reviews {
 	  @Id
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  @Column(name="id")
-	  private int Id ; 
+	  private Long Id ; 
 	  
 	  @Column(name="service_id")
-	   private int service_id ; 
+	   private Long service_id ; 
 	  
 	  @Column(name="message")
 	  private String message; 

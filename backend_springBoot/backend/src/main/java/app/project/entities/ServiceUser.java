@@ -21,7 +21,7 @@ public class ServiceUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id")
-	private int UserServId ;
+	private Long UserServId ;
 	
 	@ManyToOne
 	@JoinColumn(name="service_related_to_user")
