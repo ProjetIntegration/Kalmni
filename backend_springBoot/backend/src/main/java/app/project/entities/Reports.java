@@ -68,11 +68,11 @@ public class Reports {
 		this.client_id = client_id;
 	}
 
-	public int getPrestataire_id() {
+	public Long getPrestataire_id() {
 		return prestataire_id;
 	}
 
-	public void setPrestataire_id(int prestataire_id) {
+	public void setPrestataire_id(Long prestataire_id) {
 		this.prestataire_id = prestataire_id;
 	}
 
