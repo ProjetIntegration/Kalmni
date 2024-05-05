@@ -1,14 +1,14 @@
 <template>
   <div>
     <Navbar></Navbar>
-    <profile></profile>
+    <Acceuil></Acceuil>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 
-import profile from "../components/Prestataire/profileComponent.vue";
+import Acceuil from "../components/Prestataire/AcceuilComponent.vue";
 import Navbar from "../components/NavbarComponent.vue";
 
 export default {
@@ -16,7 +16,7 @@ export default {
 
   components: {
     Navbar,
-    profile,
+    Acceuil,
   },
 };
 </script>
