@@ -1,10 +1,5 @@
 package app.project.entities;
 
-
-
-
-
-
 import java.util.Date;
 import java.util.Set;
 
@@ -62,33 +57,6 @@ public class Personne {
 	 
 	 @OneToMany(mappedBy="user_service_registrated")
 	 private Set<ServiceUser>Personnes_registrated;
-
-
-	public Personne(Long personneId, String nom, String prenom, String email, String password, int role_number,
-			String addresse, Date date, Set<Message> messages, Set<Notifications> notifs, Set<Post> posts,
-			Set<Comments> comments, Set<Projects> personProjects, Set<ServiceUser> personnes_registrated) {
-		super();
-		PersonneId = personneId;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-		this.password = password;
-		this.role_number = role_number;
-		this.addresse = addresse;
-		this.date = date;
-		this.messages = messages;
-		Notifs = notifs;
-		this.posts = posts;
-		this.comments = comments;
-		PersonProjects = personProjects;
-		Personnes_registrated = personnes_registrated;
-	}
-
-
-	public Personne() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 
 	public Long getPersonneId() {
