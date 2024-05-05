@@ -63,7 +63,7 @@
                         <img
                           src="../../assets/home_20dp_FILL0_wght400_GRAD0_opsz20.png"
                           alt=""
-                          class="w-5 h-5 mr-3"
+                          class="w-5 h-5 mr-2"
                         />
                         <span class="text-sm">Home</span>
                       </div>
