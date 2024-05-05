@@ -1,8 +1,8 @@
 <template>
-  <div class="max-w-screen-xl mx-auto relative">
+  <div class="max-w-screen-xl mx-auto relative mb-20">
     <img
       src="../assets/logo.png"
-      class="h-40 absolute -top-10 left-4 z-30"
+      class="h-40 absolute -top-28 left-4 z-30"
       alt="kalmni Logo"
     />
     <nav
@@ -25,11 +25,12 @@
           >
             sign in
           </button>
+
           <button
             type="button"
             class="text-white font-bold transition ease-in-out delay-150 bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-400 rounded-lg text-sm px-4 py-2 text-center dark:bg-amber-500 dark:focus:ring-amber-500 hover:-translate-y-1 hover:scale-110 dark:hover:bg-amber-500 duration-300 ..."
           >
-            sign up
+            <router-link to="/SigneUp">sign up</router-link>
           </button>
           <button
             data-collapse-toggle="navbar-sticky"
@@ -64,11 +65,12 @@
             class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-6 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
           >
             <li>
-              <a
-                href="#"
-                class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:dark:hover:text-amber-500 dark:text-white dark:hover:bg-amber-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
-                aria-current="page"
-                >Acceuil</a
+              <a href=""
+                ><router-link
+                  to="/"
+                  class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:dark:hover:text-amber-500 dark:text-white dark:hover:bg-amber-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
+                  >Acceuil</router-link
+                ></a
               >
             </li>
             <li class="text-gray-300">
@@ -88,10 +90,12 @@
               </svg>
             </li>
             <li>
-              <a
-                href="#"
-                class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:dark:hover:text-amber-500 dark:text-white dark:hover:bg-amber-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
-                >Trouver un pro</a
+              <a href=""
+                ><router-link
+                  to="/profile"
+                  class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:dark:hover:text-amber-500 dark:text-white dark:hover:bg-amber-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
+                  >Trouver un pro</router-link
+                ></a
               >
             </li>
             <li class="text-gray-300">
@@ -111,10 +115,12 @@
               </svg>
             </li>
             <li>
-              <a
-                href="#"
-                class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:dark:hover:text-amber-500 dark:text-white dark:hover:bg-amber-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
-                >Reserver un service</a
+              <a href=""
+                ><router-link
+                  to="/Dashbord"
+                  class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:dark:hover:text-amber-500 dark:text-white dark:hover:bg-amber-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
+                  >Reserver un service</router-link
+                ></a
               >
             </li>
             <li class="text-gray-300">
