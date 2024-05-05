@@ -41,9 +41,8 @@ public class Message {
 	}
 
 
-	public Message(Long msgId, String message, Long sender_id, Long receiver_id, Personne person_receiver) {
+	public Message(String message, Long sender_id, Long receiver_id, Personne person_receiver) {
 		super();
-		MsgId = msgId;
 		this.message = message;
 		this.sender_id = sender_id;
 		this.receiver_id = receiver_id;
