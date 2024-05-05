@@ -1,4 +1,3 @@
-
 <template>
   <div class="bg-gray-100">
     <div class="container mx-auto py-8">
@@ -59,14 +58,16 @@
                     data-twe-ripple-color="dark"
                     class="inline-block rounded bg-transparent px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-neutral-100 hover:text-primary-accent-300 focus:text-primary-accent-300 focus:outline-none focus:ring-0 active:text-primary-700 motion-reduce:transition-none dark:text-secondary dark:hover:bg-secondary-900"
                   >
-                    <div class="flex items-center">
-                      <img
-                        src="../../assets/home_20dp_FILL0_wght400_GRAD0_opsz20.png"
-                        alt=""
-                        class="w-5 h-5 mr-2"
-                      />
-                      <span class="text-sm">Home</span>
-                    </div>
+                    <router-link to="/Acceuill">
+                      <div class="flex items-center">
+                        <img
+                          src="../../assets/home_20dp_FILL0_wght400_GRAD0_opsz20.png"
+                          alt=""
+                          class="w-5 h-5 mr-2"
+                        />
+                        <span class="text-sm">Home</span>
+                      </div>
+                    </router-link>
                   </button>
                 </li>
               </ul>
@@ -247,4 +248,3 @@
     </div>
   </div>
 </template>
-
