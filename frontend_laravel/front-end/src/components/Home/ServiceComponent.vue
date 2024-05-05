@@ -139,3 +139,13 @@
     </div>
   </div>
 </template>
+<script>
+// import service from "../../router/Service";
+
+export default {
+  data() {
+    return {};
+  },
+  methods: {},
+};
+</script>

@@ -5,7 +5,7 @@
     >
       Services les plus demandés
     </h2>
-    <div class="flex flex-nowrap space-x-8 ... p-40">
+    <div class="flex flex-nowrap space-x-8 ... p-20">
       <div
         class="w-full flex max-w-xl .. shadow-2xl bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700"
       >
@@ -306,6 +306,14 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="relative flex justify-center items-center">
+      <button
+        type="submit"
+        class="text-black mb-10 font-bold block w-300 p-4 pl-10 pr-10 text-center border border-gray-300 rounded-lg bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm dark:bg-amber-500 dark:hover:bg-amber-400 dark:focus:ring-amber-500"
+      >
+        Voir plus ➕
+      </button>
     </div>
   </div>
 </template>
