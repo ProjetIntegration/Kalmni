@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreignId("service_id")->refrences("id")->on("services")->cascadeOnDelete();
-            $table->foreignId("personne_id")->refrences("id")->on("personnes")->cascadeOnDelete();
+            $table->foreignId("users_id")->refrences("id")->on("users")->cascadeOnDelete();
 
         });
     }
