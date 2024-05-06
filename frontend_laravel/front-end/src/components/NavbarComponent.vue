@@ -1,16 +1,18 @@
 <template>
-  <div class="max-w-screen-xl mx-auto relative mb-20">
-    <img
-      src="../assets/logo.png"
-      class="h-40 absolute -top-28 left-4 z-30"
-      alt="kalmni Logo"
-    />
+  <div class="max-w-screen-xl mb-20">
+    
     <nav
       class="bg-white shadow-2xl dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600"
     >
+    
       <div
-        class="max-w-screen-xl mr-10 flex items-center justify-between mx-auto p-4"
+        class="flex items-center justify-between w-full p-4"
       >
+      <img
+      src="../assets/logo2.png"
+      class="h-14 z-30"
+      alt="kalmni Logo"
+    />
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <img src="../assets/phone.png" class="pl-10" alt="" />
           <div class="pl-3">
