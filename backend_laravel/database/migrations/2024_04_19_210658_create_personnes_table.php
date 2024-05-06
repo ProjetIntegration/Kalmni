@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->integer('role_number');
             $table->string('photo');
-            $table->string('tel');
+            $table->string('tel'); 
             $table->string('adresse');
             $table->date("date");
             $table->rememberToken();
