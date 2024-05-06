@@ -14,14 +14,19 @@ class Services extends Model
     {
         return  $this->belongsTo(Category::class); 
     }
-    public function Owner()
+    public function User_owner()
     {
-        return $this->belongsTo(Personne::class); 
+        return $this->belongsTo(User::class); 
     }
 
-    public function   Users()
+    public function   Users_registrated()
     {
         return $this->hasMany(Services_users::class); 
+    }
+
+    public function   service_schedule()
+    {
+        return $this->hasMany(service_schedule::class); 
     }
 
 }
