@@ -15,12 +15,11 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string("nom"); 
+            $table->string("img_service")->nullable(); 
+            $table->string("img_certificat"); 
             $table->string("description") ; 
             $table->string("addresse"); 
-            $table->integer("heure_debut") ; 
-            $table->integer("heure_fin"); 
-            $table->date("Date"); 
-            $table->foreignId("owner_service")->refrences("id")->on("personnes")->cascadeOnDelete(); 
+            $table->foreignId("owner_service")->refrences("id")->on("users")->cascadeOnDelete();
             $table->foreignId("category_id")->references("id")->on("categories")->cascadeOnDelete();
         });
     }
