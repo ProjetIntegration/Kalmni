@@ -5,7 +5,7 @@
     >
       Services les plus demandés
     </h2>
-    <div class="flex flex-nowrap space-x-8 ... p-20">
+    <div class="flex flex-nowrap place-content-center space-x-8 ... p-20">
       <div
         class="w-full flex max-w-xl .. shadow-2xl bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700"
       >

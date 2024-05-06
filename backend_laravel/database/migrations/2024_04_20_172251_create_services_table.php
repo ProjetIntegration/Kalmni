@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("img_certificat"); 
             $table->string("description") ; 
             $table->string("addresse"); 
-            $table->foreignId("owner_service")->refrences("id")->on("personnes")->cascadeOnDelete();
+            $table->foreignId("owner_service")->refrences("id")->on("users")->cascadeOnDelete();
             $table->foreignId("category_id")->references("id")->on("categories")->cascadeOnDelete();
         });
     }
