@@ -41,7 +41,7 @@
             </div>
             <input type="text"  name="phone" id="phone-input" aria-describedby="helper-text-explanation"
               class="bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-amber-500 ps-10 p-2.5"
-              placeholder="12 213 214" required />
+              placeholder="12 213 214" v-model="form.tel" required />
             <p id="helper-text-explanation" class="mt-2 text-sm text-gray-500 dark:text-gray-400">Sélectionnez un numéro
               de téléphone qui correspond au format.</p>
           </div>
@@ -51,7 +51,7 @@
               class="bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-amber-500" placeholder="Enter password"
               required />
           </div>
-          <div class='w-full mb-6'>
+          <div class='w-full mb-2'>
             <label class="text-sm mb-2 block" for="confirm-password">Confirmer Mot de passe</label>
             <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
               :class="{ 'text-green-700 dark:text-green-500': passwordsMatch == true, 'text-red-700 dark:text-red-500': passwordsMatch == false }"
@@ -64,7 +64,13 @@
           </div>
           <div>
             <label class="text-sm mb-2 block" for="dob">Date de naissance</label>
-            <input  class="bg-gray-100 text-sm px-4 py-3.5 rounded-md" type="date" id="dob" required>
+            <input v-model="form.date"  class="bg-gray-100 text-sm px-4 py-3.5 rounded-md" type="date" id="dob" required>
+          </div>
+          <div>
+            <label class="text-sm mb-2 block" for="Adresse">Adresse</label>
+            <input v-model="form.adresse" name="Adresse" type="Adresse" id="Adresse"
+              class="bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-amber-500" placeholder="Enter votre adresse"
+              required />
           </div>
           <div class="w-80">
             <label class="text-sm mb-2 block">Selecter Role</label>
@@ -425,110 +431,11 @@
   </div>
 </template>
 <script>
-import signUpService from "../../router/SignUp"
+import signUpService from "../../service/SignUp"
 
-import { required, minLength, maxLength, numeric, email } from "vuelidate/lib/validators"
 
 export default {
 
-  validations: {
-    form: {
-      nom: {
-        required,
-        minlength: minLength(3),
-        maxLength: maxLength(10)
-      },
-      prenom: {
-        required,
-        minlength: minLength(3),
-        maxLength: maxLength(10)
-      },
-      tel: {
-        required,
-        numeric,
-        minlength: minLength(8),
-        maxLength: maxLength(8)
-      },
-      password: {
-        required,
-        minLength: minLength(6),
-        maxLength: maxLength(10),
-        containsUppercase: function (value) {
-          return /[A-Z]/.test(value);
-        },
-        containsLowercase: function (value) {
-          return /[a-z]/.test(value);
-        },
-        containsNumber: function (value) {
-          return /[0-9]/.test(value);
-        },
-        containsSpecial: function (value) {
-          return /[#?!@$%^&*-]/.test(value);
-        }
-      },
-      photo: {
-        typeFile(val) {
-          if (val === "") {
-            return true;
-          };
-          const regex = new RegExp('\.(gif|jpe?g|svg|png)$');
-          return regex.test(val.type);
-        }
-      },
-      email: {
-        required,
-        email,
-        async exist(val) {
-          if (val == "") {
-            return true;
-          }
-          const response = await service_info.TestExistEmail(val);
-          return response.data.success;
-        }
-      },
-      adresse: {
-        required,
-        minLength: minLength(5),
-        maxLength: maxLength(50),
-      },
-      date: {
-
-        required: true,
-        customValidation(value) {
-          // Check if the value is a valid date format (YYYY-MM-DD)
-          const regex = /^\d{4}-\d{2}-\d{2}$/;
-          if (!regex.test(value)) {
-            return "Date must be in the format YYYY-MM-DD";
-          }
-
-          // Check if the date is a valid date
-          const parts = value.split("-");
-          const year = parseInt(parts[0], 10);
-          const month = parseInt(parts[1], 10) - 1; // Month is zero-based
-          const day = parseInt(parts[2], 10);
-          const date = new Date(year, month, day);
-
-          if (
-            isNaN(date.getTime()) ||
-            date.getFullYear() !== year ||
-            date.getMonth() !== month ||
-            date.getDate() !== day
-          ) {
-            return "Invalid date";
-          }
-
-          return true; // Validation passed
-        }
-      }
-
-    },
-    classe_id: {
-      required
-    },
-    specialite_id: {
-      required
-    }
-  },
   data() {
     return {
       add: false,
@@ -579,16 +486,15 @@ export default {
       //   this.loading = false;
       //   return;
       // }
-      this.loading = true;
+      // this.loading = true;
       signUpService.signUp({
         "nom": this.form.nom,
         "prenom": this.form.prenom,
         "email": this.form.email,
         "tel": this.form.tel,
         "password": this.form.password,
-        "adresse": "dsfqsqsgsfsf",
-        // "adresse": this.form.adresse,
-        // "date": this.form.date,
+        "adresse": this.form.adresse,
+        "date": this.form.date,
         "photo": this.form.photo,
       }).then((res) => {
         this.form.nom = "";
@@ -597,7 +503,7 @@ export default {
         this.form.tel = "";
         this.form.password = "";
         this.form.adresse = "";
-        // this.form.date = "";
+        this.form.date = "";
         this.form.photo = "";
         this.$router.push({ name: "signin", query: { content: "Register successfully" } });
       }).catch((error) => {
@@ -612,3 +518,4 @@ export default {
 
 
 </script>
+../../service/SignUp
