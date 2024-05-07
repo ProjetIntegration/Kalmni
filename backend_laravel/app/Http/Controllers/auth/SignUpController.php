@@ -4,9 +4,12 @@ namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\User;
+
 use Illuminate\Http\Request;
 
+
+use App\Models\Personne;
+use App\Models\User;
 
 class SignUpController extends Controller
 {
@@ -30,11 +33,7 @@ class SignUpController extends Controller
             "role_number"=>$request->role_number,
             "tel"=>$request->tel,
             "adresse"=>$request->adresse,
-            // "date"=>$request->date,
-
-            
-
-            
+            // "date"=>$request->date,            
         ]);
         if($request->role_number==1){
             
