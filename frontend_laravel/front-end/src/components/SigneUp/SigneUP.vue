@@ -431,7 +431,7 @@
   </div>
 </template>
 <script>
-import signUpService from "../../source/SignUp"
+import signUpService from "../../service/SignUp"
 
 
 export default {
