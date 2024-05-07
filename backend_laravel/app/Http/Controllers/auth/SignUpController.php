@@ -4,9 +4,9 @@ namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
-use App\Models\Personne;
 
 class SignUpController extends Controller
 {
@@ -21,7 +21,7 @@ class SignUpController extends Controller
             $image_name=$request->nom[0].''.$request->prenom[0];
         }
 
-        $Personne=Personne::create([
+        $Personne=User::create([
             "nom"=>$request->nom,
             "prenom"=>$request->prenom,
             "email"=>$request->email,
