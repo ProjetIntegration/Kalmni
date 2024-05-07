@@ -69,7 +69,7 @@
         </div>
       </div>
     </section>
-    <div class="flex flex-row place-content-center mt-8 ">
+    <div class="flex flex-row place-content-center -mt-10 ">
       <div
         class="ml-20 shadow-xl flex flex-col  rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white md:max-w-sm md:flex-row"
       >

@@ -27,18 +27,19 @@ class SignUpController extends Controller
             "email"=>$request->email,
             "password"=>bcrypt($request->password),
             "photo" => $image_name,
-            "role_number"=>$request->role_number,
+            
+            "role"=>1,
+            "statut"=>0,
+            // "role_number"=>$request->role_number,
             "tel"=>$request->tel,
             "adresse"=>$request->adresse,
-            // "date"=>$request->date,
+            "date_naissance"=>$request->date,
 
             
 
             
         ]);
-        if($request->role_number==1){
-            
-        }
+        
         
         return response()->json(['data'=>"user created"],200);
     }
