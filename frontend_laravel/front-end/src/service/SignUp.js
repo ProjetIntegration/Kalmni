@@ -25,5 +25,7 @@ const ApiClient = axios.create({
         };
         console.log(user);
         return ApiClient.post("/auth/signup", data, config);
-    }
+    },
+
+    
   };

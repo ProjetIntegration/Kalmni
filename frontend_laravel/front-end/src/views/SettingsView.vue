@@ -1,22 +1,23 @@
 <template>
   <div>
     <Navbar></Navbar>
-    <Acceuil></Acceuil>
+    <Settings></Settings>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 
-import Acceuil from "../components/Prestataire/homePrestataire.vue";
+
 import Navbar from "../components/NavbarComponent.vue";
+import Settings from "../components/Prestataire/SettingsComponent.vue";
 
 export default {
-  name: "ProfileView",
+  name: "SettingsView",
 
   components: {
     Navbar,
-    Acceuil,
+    Settings,
   },
 };
 </script>
