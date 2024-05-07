@@ -32,14 +32,15 @@ class ServiceController extends Controller
 
     public function addServices(Request $request){
 
-        Services::create([
-            "nom"=>$request->nom,
-            "description"=>$request->description,
-            "addresse"=>$request->addresse,
-            "heure_debut"=>$request->heure_debut,
-            "heure_fin"=>$request->heure_fin,
-            "date"=>$request->date,
-        ]);
+
+        $service =new Services(); 
+        $service->nom=$request->nom; 
+        $service->descritpion=$request->description; 
+        $service->addresse= $request->addresse; 
+        $service->date=  now(); 
+       
+
+
         return response()->json(["message"=>"Services Added"],201);
     }
 
@@ -67,9 +68,17 @@ class ServiceController extends Controller
 
     }   
 
-    public function recherche_service()
+    public function recherche_service(Request $request)
     {
-            
+        $nom_service =$request->nom_service   ;
+        $location = $request->location ; 
+        $Services = Services::where('nom', 'like', "%$nom_service%")
+        ->orWhere('addresse', 'like', "%$location%")
+        ->get(); 
+        
+        return response()->json(['data'=>$Services],200);
     }
+
+
     //
 }

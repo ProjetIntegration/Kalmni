@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Personne;
+use App\Models\User;
 
 class SignUpController extends Controller
 {
@@ -21,7 +22,7 @@ class SignUpController extends Controller
             $image_name=$request->nom[0].''.$request->prenom[0];
         }
 
-        $Personne=Personne::create([
+        $Personne=User::create([
             "nom"=>$request->nom,
             "prenom"=>$request->prenom,
             "email"=>$request->email,
@@ -30,11 +31,7 @@ class SignUpController extends Controller
             "role_number"=>$request->role_number,
             "tel"=>$request->tel,
             "adresse"=>$request->adresse,
-            // "date"=>$request->date,
-
-            
-
-            
+            // "date"=>$request->date,            
         ]);
         if($request->role_number==1){
             
