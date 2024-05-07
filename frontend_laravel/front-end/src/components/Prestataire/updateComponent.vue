@@ -309,7 +309,7 @@
                   src="https://randomuser.me/api/portraits/men/94.jpg"
                   class="w-25 h-25 bg-gray-300 rounded-full mb-4 shrink-0"
                 />
-            <input type="file"  ref="photo"  id="formFile" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300   ">
+            <input type="file"   ref="photo"  id="formFile" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300   ">
           </div>
         </div>
 

@@ -1,6 +1,7 @@
 <template>
   <Navbar></Navbar>
   <SigneUP></SigneUP>
+  
 </template>
 <script>
 import Navbar from "../components/NavbarComponent.vue";

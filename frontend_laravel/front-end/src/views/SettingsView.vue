@@ -8,7 +8,7 @@
 <script>
 // @ is an alias to /src
 
-
+ 
 import Navbar from "../components/NavbarComponent.vue";
 import update from "@/components/Prestataire/updateComponent.vue";
 
