@@ -3,7 +3,7 @@
     <Navbar></Navbar>
     <search></search>
     <service></service>
-    <reserver></reserver>
+   <reserver></reserver>
     <Promo></Promo>
     <recommande></recommande>
     <footer2></footer2>

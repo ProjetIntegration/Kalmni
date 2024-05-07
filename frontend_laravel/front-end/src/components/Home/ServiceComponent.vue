@@ -5,7 +5,7 @@
     >
       Services les plus demandés
     </h2>
-    <div class="flex space-x-8 ... mt-24 ml-40">
+    <div class="flex space-x-8 ... place-content-center mt-24">
       <div
         class="w-full max-w-lg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
       >
@@ -67,7 +67,7 @@
         </div>
       </div>
     </div>
-    <div class="flex space-x-8 ... mt-6 ml-40 mb-20">
+    <div class="flex space-x-8 ... mt-6 place-content-center  mb-20">
       <div
         class="w-full max-w-lg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
       >

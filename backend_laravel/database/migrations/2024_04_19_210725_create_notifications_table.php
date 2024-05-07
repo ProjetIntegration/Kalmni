@@ -17,7 +17,10 @@ return new class extends Migration
             $table->string("message");
             $table->integer("recevied_id");
             $table->date("date");
+
             $table->foreignId("users_id")->references("id")->on("users")->cascadeOnDelete();
+
+
         });
     }
 

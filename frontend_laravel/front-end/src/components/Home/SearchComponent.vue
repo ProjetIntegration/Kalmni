@@ -69,9 +69,9 @@
         </div>
       </div>
     </section>
-    <div class="flex flex-row ... -mt-8 ml-80">
+    <div class="flex flex-row place-content-center mt-8 ">
       <div
-        class="ml-20 shadow-xl flex flex-col rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white md:max-w-sm md:flex-row"
+        class="ml-20 shadow-xl flex flex-col  rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white md:max-w-sm md:flex-row"
       >
         <img
           src="../../assets/briefcase.png"
@@ -79,8 +79,8 @@
           class="w-10 h-10 ml-6 mt-12 text-gray-500 dark:text-gray-400"
         />
         <div class="flex flex-col p-6">
-          <h5 class="mb-2 text-xl font-medium">Card title</h5>
-          <p class="mb-4 text-base">
+          <h5 class="mb-2 text-black font-medium">Card title</h5>
+          <p class="mb-4 text-black">
             Plus de 11677 prestataires de<br />
             service partout en Tunisie.
           </p>
@@ -95,8 +95,8 @@
           class="w-10 h-10 ml-6 mt-12 text-gray-500 dark:text-gray-400"
         />
         <div class="flex flex-col p-6">
-          <h5 class="mb-2 text-xl font-medium">96.000 Clients</h5>
-          <p class="mb-4 text-base">
+          <h5 class="mb-2 text-black font-medium">96.000 Clients</h5>
+          <p class="mb-4 text-black">
             Plus de 96.000 clients Satisfaits<br />
             partout en Tunisie.
           </p>
@@ -108,11 +108,11 @@
         <img
           src="../../assets/handshake.png"
           alt=""
-          class="w-10 h-10 ml-6 mt-12 text-gray-500 dark:text-gray-400"
+          class="w-10 h-10 ml-6 mt-12 text-gray-500 dark:text-black-400"
         />
         <div class="flex flex-col p-6">
-          <h5 class="mb-2 text-xl font-medium">+40.000 services livrés</h5>
-          <p class="mb-4 text-base">
+          <h5 class="mb-2 text-black font-medium">+40.000 services livrés</h5>
+          <p class="mb-4 text-black">
             Services livrés a nos clients<br />
             en toute simplicité
           </p>
