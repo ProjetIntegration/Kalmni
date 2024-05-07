@@ -32,15 +32,28 @@ class ServiceController extends Controller
 
     public function addServices(Request $request){
 
-
+        $image_service="";
+        $image_certif="";  
         $service =new Services(); 
         $service->nom=$request->nom; 
         $service->descritpion=$request->description; 
         $service->addresse= $request->addresse; 
         $service->date=  now(); 
        
+        if ($request->hasFile('photo')) {
+            $file_name = time() . '_' .$request->photo->getClientOriginalName();
+            $image=$request->file('photo')->storeAs('users',$file_name,'public');
+            $image_name='/storage/'.$image;
+        }else{
+            $image_name=$request->nom[0].''.$request->prenom[0];
+        }
 
-
+        $file_name_certif = time() . '_' .$request->photo_certif->getClientOriginalName();
+        $image_certif=$request->file('photo_certif')->storeAs('users',$file_name_certif,'public');
+        $image_name_certif='/storage/'.$image_certif;
+        $service->img_certif=$image_name_certif;
+        $service->img_service=$image_name; 
+        $service->save(); 
         return response()->json(["message"=>"Services Added"],201);
     }
 
