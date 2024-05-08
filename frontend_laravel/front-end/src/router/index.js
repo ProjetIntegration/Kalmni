@@ -2,11 +2,16 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import ProfileView from "@/views/ProfileView.vue";
 import SigneUpView from "@/views/SigneUpView.vue";
-import DashbordView from "@/views/DashbordView.vue";
-import ClientAdmin from "@/components/DashbordAdmin/ClientAdmin.vue";
+import DashbordView from "@/views/DashboardAdmin/DashbordView.vue";
 import SettingsView from "@/views/SettingsView.vue";
 import AcceuillView from "@/views/AcceuillView.vue";
+
 import ReserverServiceView from "@/views/ReserverService/ReserverServiceView";
+
+import ClientView from "@/views/DashboardAdmin/ClientView.vue";
+import DemandeView from "@/views/DashboardAdmin/DemandeView.vue";
+import PrestataireView from "@/views/DashboardAdmin/PrestataireView.vue";
+
 
 const routes = [
   {
@@ -30,6 +35,23 @@ const routes = [
     component: AcceuillView,
   },
   {
+    path: "/ClientAdmin",
+    name: "ClientView",
+    component: ClientView,
+  },
+  {
+    path: "/demandeAdmin",
+    name: "DemandeView",
+    component: DemandeView,
+  },
+  {
+    path: "/PrestataireAdmin",
+    name: "PrestataireView",
+    component: PrestataireView,
+  },
+
+
+  {
     path: "/profile",
     name: "profile",
     component: ProfileView,
@@ -39,11 +61,7 @@ const routes = [
     name: "SignUp",
     component: SigneUpView,
   },
-  {
-    path: "/ClientAdmin",
-    name: "ClientAdmin",
-    component: ClientAdmin,
-  },
+
   {
     path: "/Dashbord",
     name: "DashbordView",
