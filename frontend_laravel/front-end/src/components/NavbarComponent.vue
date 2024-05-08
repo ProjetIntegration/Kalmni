@@ -119,7 +119,7 @@
             <li>
               <a href=""
                 ><router-link
-                  to="/Dashbord"
+                  to="/ReserverService"
                   class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:dark:hover:text-amber-500 dark:text-white dark:hover:bg-amber-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
                   >Reserver un service</router-link
                 ></a
@@ -142,12 +142,15 @@
               </svg>
             </li>
             <li>
-              <a
-                href="#"
-                class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:dark:hover:text-amber-500 dark:text-white dark:hover:bg-amber-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
-                >Promos</a
+              <a href=""
+                ><router-link
+                  to="/Dashbord"
+                  class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:dark:hover:text-amber-500 dark:text-white dark:hover:bg-amber-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
+                  >Promos</router-link
+                ></a
               >
             </li>
+            
           </ul>
         </div>
       </div>

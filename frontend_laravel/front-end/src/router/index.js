@@ -5,9 +5,13 @@ import SigneUpView from "@/views/SigneUpView.vue";
 import DashbordView from "@/views/DashboardAdmin/DashbordView.vue";
 import SettingsView from "@/views/SettingsView.vue";
 import AcceuillView from "@/views/AcceuillView.vue";
+
+import ReserverServiceView from "@/views/ReserverService/ReserverServiceView";
+
 import ClientView from "@/views/DashboardAdmin/ClientView.vue";
 import DemandeView from "@/views/DashboardAdmin/DemandeView.vue";
 import PrestataireView from "@/views/DashboardAdmin/PrestataireView.vue";
+
 
 const routes = [
   {
@@ -19,6 +23,11 @@ const routes = [
     path: "/Settings",
     name: "Settings",
     component: SettingsView,
+  },
+  {
+    path: "/ReserverService",
+    name: "ReserverServiceView",
+    component: ReserverServiceView ,
   },
   {
     path: "/Acceuill",
