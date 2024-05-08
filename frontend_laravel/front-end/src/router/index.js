@@ -6,6 +6,7 @@ import DashbordView from "@/views/DashbordView.vue";
 import ClientAdmin from "@/components/DashbordAdmin/ClientAdmin.vue";
 import SettingsView from "@/views/SettingsView.vue";
 import AcceuillView from "@/views/AcceuillView.vue";
+import ReserverServiceView from "@/views/ReserverService/ReserverServiceView";
 
 const routes = [
   {
@@ -17,6 +18,11 @@ const routes = [
     path: "/Settings",
     name: "Settings",
     component: SettingsView,
+  },
+  {
+    path: "/ReserverService",
+    name: "ReserverServiceView",
+    component: ReserverServiceView ,
   },
   {
     path: "/Acceuill",
