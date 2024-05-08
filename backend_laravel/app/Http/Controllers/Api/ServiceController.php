@@ -54,6 +54,10 @@ class ServiceController extends Controller
         $service->img_certif=$image_name_certif;
         $service->img_service=$image_name; 
         $service->save(); 
+        for( int $i =0 ; $i<7 ;$i++){
+            $service_schedules = new service_schedules();
+            $service_schedules->nom=$jour[i]["nom"];
+            }
         return response()->json(["message"=>"Services Added"],201);
     }
 
