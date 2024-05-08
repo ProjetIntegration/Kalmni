@@ -478,7 +478,7 @@ export default {
     },
     saveImage() {
       this.form.photo = this.$refs.photo.files[0];
-      this.$v.form.photo.$touch();
+      
     },
     signUp() {
       // this.$v.form.$touch();
