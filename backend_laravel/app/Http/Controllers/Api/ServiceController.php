@@ -85,9 +85,26 @@ class ServiceController extends Controller
     {
         $nom_service =$request->nom_service   ;
         $location = $request->location ; 
-        $Services = Services::where('nom', 'like', "%$nom_service%")
-        ->orWhere('addresse', 'like', "%$location%")
+        $service="";
+        if(empty($location))
+        {
+            $Services = Services::where('nom', 'like', "%$nom_service%")
+            ->get(); 
+        }
+        else{
+            if(empty($nom_service))
+            {
+                $Services = Services::where('addresse', 'like', "%$location%")
+                ->get(); 
+            }
+            else{
+                $Services = Services::where('nom', 'like', "%$nom_service%")
+        ->where('addresse', 'like', "%$location%")
         ->get(); 
+            }
+        }
+     
+        
         
         return response()->json(['data'=>$Services],200);
     }

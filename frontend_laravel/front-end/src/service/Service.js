@@ -12,9 +12,11 @@
          {
 
             let data = new FormData();
-            data.append("nom_service", user.nom_service);
-            data.append("location", user.location);
+            data.append("nom_service", Service.nom_service);
+            data.append("location", Service.location);
 
+
+            return ApiClient.get("/Recherche",data); 
 
          }
  };
