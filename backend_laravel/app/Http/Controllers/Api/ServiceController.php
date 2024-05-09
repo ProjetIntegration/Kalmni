@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\service_schedule;
 use App\Models\Services;
 use Illuminate\Http\Request;
 
@@ -53,6 +54,19 @@ class ServiceController extends Controller
         $image_name_certif='/storage/'.$image_certif;
         $service->img_certif=$image_name_certif;
         $service->img_service=$image_name; 
+        $service->owner_service=$request->user_id;
+        $service->category_id=$request->category_id;
+        $service->save();
+        $tab=json_decode($request->tab_schedules, true );
+        for ($i=0; $i<count($tab);$i++){
+            $schedules=new service_schedule();
+           $schedules->heure_debut=$tab[$i]["heure_debut"];
+           $schedules-> heure_fin=$tab[$i]["heure_fin"];
+           $schedules->jour=$tab[$i]["jour"];
+           $schedules->service_id=$service->id;
+           $schedules->save();
+        }
+
         $service->save(); 
         for( int $i =0 ; $i<7 ;$i++){
             $service_schedules = new service_schedules();
