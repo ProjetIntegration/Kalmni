@@ -2,15 +2,16 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import ProfileView from "@/views/ProfileView.vue";
 import SigneUpView from "@/views/SigneUpView.vue";
+
 import DashbordView from "@/views/DashboardAdmin/DashbordView.vue";
 import SettingsView from "@/views/SettingsView.vue";
 import AcceuillView from "@/views/AcceuillView.vue";
-
 import ReserverServiceView from "@/views/ReserverService/ReserverServiceView";
-
 import ClientView from "@/views/DashboardAdmin/ClientView.vue";
 import DemandeView from "@/views/DashboardAdmin/DemandeView.vue";
 import PrestataireView from "@/views/DashboardAdmin/PrestataireView.vue";
+import SigneInView from "@/views/SigneInView.vue";
+
 
 
 const routes = [
@@ -61,6 +62,12 @@ const routes = [
     name: "SignUp",
     component: SigneUpView,
   },
+  {
+    path: "/SigneIn",
+    name: "SignIn",
+    component: SigneInView,
+  },
+ 
 
   {
     path: "/Dashbord",

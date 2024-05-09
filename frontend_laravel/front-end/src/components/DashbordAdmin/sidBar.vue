@@ -5,7 +5,8 @@
       </a>
       <ul class="mt-6">
         <li>
-          <a href="javascript:void(0)"
+          <router-link to="/">
+          <a 
             class="text-black hover:text-amber-600 text-sm flex items-center hover:bg-amber-50 rounded px-4 py-3 transition-all">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[18px] h-[18px] mr-4"
               viewBox="0 0 512 512">
@@ -15,6 +16,7 @@
             </svg>
             <span>Dashboard</span>
           </a>
+        </router-link>
         </li>
       </ul>
       <div class="mt-6">
