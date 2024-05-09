@@ -200,7 +200,7 @@ export default {
   data() {
     return {
       add: false,
-      SelectedRole: "",
+      SelectedRole: "Client",
       form: {
         nom: "",
         prenom: "",
@@ -278,6 +278,7 @@ export default {
         "photo": this.form.photo,
         "photo_certif": this.form.photo_certif,
         "role":this.SelectedRole,
+        
       }).then((res) => {
         this.form.nom = "";
         this.form.prenom = "";
@@ -292,11 +293,12 @@ export default {
         this.form.photo= "";
         this.form.photo_certif= "";
         this.SelectedRole="";
-        this.$router.push({ name: "signin", query: { content: "Register successfully" } });
+        
       }).catch((error) => {
         this.loading = false;
         console.log(error);
       })
+      this.$router.push({ name: "SigneInView", query: { content: "Register successfully" } });
     },
 
 
