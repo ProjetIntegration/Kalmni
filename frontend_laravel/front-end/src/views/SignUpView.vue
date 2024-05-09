@@ -4,7 +4,7 @@
 </template>
 <script>
 import Navbar from "../components/NavbarComponent.vue";
-import SigneUP from "../components/SigneUp/SigneUP.vue";
+import SigneUP from "../components/SigneUp/SignUP.vue";
 
 
 export default {
