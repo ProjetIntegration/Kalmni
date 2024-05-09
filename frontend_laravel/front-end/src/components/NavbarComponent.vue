@@ -25,7 +25,7 @@
             type="button"
             class="transition ease-in-out delay-150 text-black font-bold mr-3 hover:-translate-y-1 hover:scale-110 duration-300 ..."
           >
-            sign in
+          <router-link to="/SigneIn">sign in</router-link>
           </button>
 
           <button

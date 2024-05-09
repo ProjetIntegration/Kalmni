@@ -18,6 +18,10 @@ const ApiClient = axios.create({
         data.append("adresse", user.adresse);
         data.append("photo", user.photo);
         data.append("date", user.date);
+        data.append("title", user.title);
+        data.append("description", user.description);
+        data.append("photo_certif", user.photo_certif);
+        data.append("role", user.role);
         const config = {
             Headers: {
                 "content-type": "multipart/form-data",
