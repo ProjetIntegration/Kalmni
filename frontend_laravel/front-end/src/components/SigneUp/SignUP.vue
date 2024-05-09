@@ -12,7 +12,7 @@
       <form @submit.prevent="signUp()" enctype="multipart/form-data">
         <div class="grid sm:grid-cols-2 gap-y-7 gap-x-12">
           <div>
-            <label class="text-sm mb-2 block" for="name">Nom</label>
+            <label class="text-sm mb-2 block"  for="name">Nom</label>
             <input v-model="form.nom" name="name" type="text" id="name"
               class="bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-amber-500" placeholder="Enter name"
               required />
