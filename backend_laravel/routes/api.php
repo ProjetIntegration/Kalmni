@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\SignUpController;
 use Illuminate\Http\Request;
@@ -25,3 +27,5 @@ Route::group(["prefix"=>"/auth"],function(){
     Route::post('/signin',[LoginController::class,'LoginUser']);
     
 });
+
+Route::get('/Recherche',[ServiceController::class,'recherche_service']); 
