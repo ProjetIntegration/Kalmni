@@ -1,8 +1,8 @@
 <template>
   <div class="bg-gray-100 pl-96">
     <div class="container mx-auto py-8">
-      <div class="grid grid-cols-4 sm:grid-cols-12 gap-6 px-4">
-        <div class="col-span-4 sm:col-span-3">
+      <div class="flex flex-row gap-6">
+        <div class="flex justify-end basis-1/4">
           <div
             :style="{ width: '360px' }"
             class="bg-white rounded-lg p-6 fixed shadow-lg"
@@ -79,7 +79,7 @@
             </div>
           </div>
         </div>
-        <div class="col-span-4 sm:col-span-4 shadow-lg">
+        <div class="w-[40%] shadow-lg">
           <div
             class="bg-white shadow rounded-lg p-6 flex flex-col items-center"
           >
