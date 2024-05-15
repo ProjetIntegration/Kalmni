@@ -33,15 +33,13 @@ class ServiceController extends Controller
     
 
     public function addServices(Request $request){
-
         $image_service="";
         $image_certif="";  
         $service =new Services(); 
         $service->nom=$request->nom; 
-        $service->descritpion=$request->description; 
+        $service->description=$request->description; 
         $service->addresse= $request->addresse; 
-        $service->date=  now(); 
-       
+        //$service->date=  now(); 
         if ($request->hasFile('photo')) {
             $file_name = time() . '_' .$request->photo->getClientOriginalName();
             $image=$request->file('photo')->storeAs('users',$file_name,'public');
@@ -49,24 +47,25 @@ class ServiceController extends Controller
         }else{
             $image_name=$request->nom[0].''.$request->prenom[0];
         }
-
         $file_name_certif = time() . '_' .$request->photo_certif->getClientOriginalName();
         $image_certif=$request->file('photo_certif')->storeAs('users',$file_name_certif,'public');
         $image_name_certif='/storage/'.$image_certif;
-        $service->img_certif=$image_name_certif;
+        $service->img_certificat=$image_name_certif;
         $service->img_service=$image_name; 
         $service->owner_service=$request->user_id;
         $service->category_id=$request->category_id;
         $service->save();
         $tab=json_decode($request->tab_schedules, true );
         for ($i=0; $i<count($tab);$i++){
-            $schedules=new service_schedule();
+           $schedules=new service_schedule();
            $schedules->heure_debut=$tab[$i]["heure_debut"];
            $schedules-> heure_fin=$tab[$i]["heure_fin"];
            $schedules->jour=$tab[$i]["jour"];
            $schedules->service_id=$service->id;
            $schedules->save();
         }
+<<<<<<< HEAD
+=======
 
         $service->save(); 
         $days = 7; 
@@ -74,6 +73,7 @@ class ServiceController extends Controller
             $service_schedules = new service_schedule();
             $service_schedules->nom=$tab[$i]["nom"];
             }
+>>>>>>> 168db442bcb96f68c53d02e0b22160250b2b726c
         return response()->json(["message"=>"Services Added"],201);
     }
 
