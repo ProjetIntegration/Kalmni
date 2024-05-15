@@ -1,6 +1,7 @@
 package app.project.entities;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -34,29 +35,38 @@ public class Personne {
 	  @Column(name="Date")
 	  private Date date; 
 	  
+	  @OneToMany(mappedBy="Owner")
+	  private List<Services>  services; 
 	  
-	  
-	 @OneToMany(mappedBy="person_receiver")
-	 private Set<Message>messages;
+	 public List<Services> getServices() {
+		return services;
+	}
+
+
+	public void setServices(List<Services> services) {
+		this.services = services;
+	}
+	@OneToMany(mappedBy="person_receiver")
+	 private List<Message>messages;
 	
 	 @OneToMany(mappedBy="person_notifications_receiver")
-	 private Set<Notifications>Notifs; 
+	 private List<Notifications>Notifs; 
 	 
 	 
 	 @OneToMany(mappedBy="person_posts")
-	 private Set<Post>posts; 
+	 private List<Post>posts; 
 	 
 	
 	 
 	 @OneToMany(mappedBy="person_id_comments")
-	 private Set<Comments>comments; 
+	 private List<Comments>comments; 
 	 
 	 @OneToMany(mappedBy="person_projects")
-	 private Set<Projects>PersonProjects; 
+	 private List<Projects>PersonProjects; 
 	 
 	 
 	 @OneToMany(mappedBy="user_service_registrated")
-	 private Set<ServiceUser>Personnes_registrated;
+	 private List<ServiceUser>Personnes_registrated;
 
 
 	public Long getPersonneId() {
@@ -139,65 +149,65 @@ public class Personne {
 	}
 
 
-	public Set<Message> getMessages() {
+	public List<Message> getMessages() {
 		return messages;
 	}
 
 
-	public void setMessages(Set<Message> messages) {
+	public void setMessages(List<Message> messages) {
 		this.messages = messages;
 	}
 
 
-	public Set<Notifications> getNotifs() {
+	public List<Notifications> getNotifs() {
 		return Notifs;
 	}
 
 
-	public void setNotifs(Set<Notifications> notifs) {
+	public void setNotifs(List<Notifications> notifs) {
 		Notifs = notifs;
 	}
 
 
-	public Set<Post> getPosts() {
+	public List<Post> getPosts() {
 		return posts;
 	}
 
 
-	public void setPosts(Set<Post> posts) {
+	public void setPosts(List<Post> posts) {
 		this.posts = posts;
 	}
 
 
-	public Set<Comments> getComments() {
+	public List<Comments> getComments() {
 		return comments;
 	}
 
 
-	public void setComments(Set<Comments> comments) {
+	public void setComments(List<Comments> comments) {
 		this.comments = comments;
 	}
 
 
-	public Set<Projects> getPersonProjects() {
+	public List<Projects> getPersonProjects() {
 		return PersonProjects;
 	}
 
 
-	public void setPersonProjects(Set<Projects> personProjects) {
+	public void setPersonProjects(List<Projects> personProjects) {
 		PersonProjects = personProjects;
 	}
 
 
-	public Set<ServiceUser> getPersonnes_registrated() {
+	public List<ServiceUser> getPersonnes_registrated() {
 		return Personnes_registrated;
 	}
 
 
-	public void setPersonnes_registrated(Set<ServiceUser> personnes_registrated) {
+	public void setPersonnes_registrated(List<ServiceUser> personnes_registrated) {
 		Personnes_registrated = personnes_registrated;
 	}
-	 
+	
 	 
 	 
 	 public Personne()
