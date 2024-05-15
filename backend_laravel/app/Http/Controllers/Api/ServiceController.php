@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\service_schedule;
 use App\Models\Services;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ServiceController extends Controller
 {
@@ -68,9 +69,10 @@ class ServiceController extends Controller
         }
 
         $service->save(); 
-        for( int $i =0 ; $i<7 ;$i++){
-            $service_schedules = new service_schedules();
-            $service_schedules->nom=$jour[i]["nom"];
+        $days = 7; 
+        for(  $i =0 ; $i <$days ;$i++){
+            $service_schedules = new service_schedule();
+            $service_schedules->nom=$tab[$i]["nom"];
             }
         return response()->json(["message"=>"Services Added"],201);
     }
@@ -101,30 +103,37 @@ class ServiceController extends Controller
 
     public function recherche_service(Request $request)
     {
-        $nom_service =$request->nom_service   ;
-        $location = $request->location ; 
-        $service="";
-        if(empty($location))
+     
+        $nom_service2 =$request->nom_service;
+
+        $location2 =$request->location;
+    
+        if($location2 == null && $nom_service2!= null )
         {
-            $Services = Services::where('nom', 'like', "%$nom_service%")
-            ->get(); 
+        
+            $Services =Services::where('nom', 'like', '%'.$nom_service2.'%')->get();
+          
+            return response()->json(['data'=> $Services],200);
         }
         else{
-            if(empty($nom_service))
+            if($location2 != null && ($nom_service2)== null )
             {
-                $Services = Services::where('addresse', 'like', "%$location%")
-                ->get(); 
+                $Services =Services::where('nom', 'like', '%'.$location2.'%')->get();
+             
+              
+                return response()->json(['data'=>$Services],200);
             }
             else{
-                $Services = Services::where('nom', 'like', "%$nom_service%")
-        ->where('addresse', 'like', "%$location%")
-        ->get(); 
+                $Services = Services::where('nom', 'like', "%$nom_service2%")
+              ->where('addresse', 'like', "%$location2%")
+              ->get(); 
+              return response()->json(['data'=>$Services],200);
             }
         }
      
         
         
-        return response()->json(['data'=>$Services],200);
+       
     }
 
 

@@ -8,15 +8,7 @@
  });
  export default {
     
-        Service_recherche(Service)
-         {
-
-            let data = new FormData();
-            data.append("nom_service", Service.nom_service);
-            data.append("location", Service.location);
-
-
-            return ApiClient.get("/Recherche",data); 
-
-         }
+  Service_recherche(Service) {
+    return ApiClient.get("/Recherche", { params: Service });
+  },
  };

@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.project.entities.Personne;
+import app.project.entities.Services;
 import app.project.repository.PersonneRepository;
+import app.project.repository.ServiceRepository;
 
 @Service
 public class PersonneServiceImp  implements PersonneService{
@@ -15,12 +17,20 @@ public class PersonneServiceImp  implements PersonneService{
 	@Autowired
 	
 	PersonneRepository personneRepository ;
+	ServiceRepository servicerepository ; 
 
 
 	@Override
 	public Personne GetPersonneById(Long id) {
 	  return  personneRepository.findById(id).get();
 	     // or handle the case when personne is not found
+	}
+	
+	public List<Services>GetServicesOwner(Long id )
+	{
+	Personne  p =  personneRepository.findById(id).get(); 
+	List<Services> s = p.getServices(); 
+	return s; 
 	}
 
 	@Override

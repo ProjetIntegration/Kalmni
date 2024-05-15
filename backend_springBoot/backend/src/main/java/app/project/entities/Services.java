@@ -45,15 +45,21 @@ private int heure_fin;
 @JoinColumn(name="service_category")
 private Category category; 
 
-
+@ManyToOne
+private Personne Owner; 
 
 @OneToMany(mappedBy="service_user_registrated")
 private Set<ServiceUser>service_registrated;
 
 
 
+public void setOwner(Personne owner) {
+	Owner = owner;
+}
+
+
 public Services(Long serviceId, String nom, String description, Category category_id, String adresse, int heure_debut,
-		int heure_fin, Category category, Set<ServiceUser> service_registrated) {
+	int heure_fin, Category category, Set<ServiceUser> service_registrated) {
 	super();
 	ServiceId = serviceId;
 	this.nom = nom;
@@ -65,7 +71,6 @@ public Services(Long serviceId, String nom, String description, Category categor
 	this.category = category;
 	this.service_registrated = service_registrated;
 }
-
 
 
 public Services() {
@@ -115,7 +120,10 @@ public Category getCategory_id() {
 	return category_id;
 }
 
-
+public Personne getOwner  ()
+{
+	return  Owner; 
+}
 
 public void setCategory_id(Category category_id) {
 	this.category_id = category_id;
