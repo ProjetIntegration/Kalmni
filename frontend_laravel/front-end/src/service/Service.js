@@ -11,6 +11,7 @@
         Service_recherche(Service)
          {
             let data = new FormData();
+<<<<<<< HEAD
             data.append("nom_service", user.nom_service);
             data.append("location", user.location);
          },
@@ -32,6 +33,14 @@
           };
           console.log(data);
           return ApiClient.post("/service/AddService", payload, config);
+=======
+            data.append("nom_service", Service.nom_service);
+            data.append("location", Service.location);
+
+
+            return ApiClient.get("/Recherche",data); 
+
+>>>>>>> 168db442bcb96f68c53d02e0b22160250b2b726c
          }
 
 

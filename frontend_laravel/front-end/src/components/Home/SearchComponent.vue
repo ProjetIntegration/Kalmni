@@ -19,7 +19,7 @@
             Plateforme de service N°1 en Tunisie
           </h3>
           <form
-            class="bg-white max-w-2xl mx-auto p-1 border rounded-lg mt-6 flex"
+            class="bg-white max-w-2xl mx-auto p-1 border rounded-lg mt-6 flex" method="GET"
           >
             <div class="relative mr-2">
               <div
@@ -32,6 +32,7 @@
                 />
               </div>
               <input
+                v-model="nom_service"
                 type="search"
                 id="default-search"
                 class="block w-full p-4 ps-16 text-m text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
@@ -50,6 +51,7 @@
                 />
               </div>
               <input
+              v-model="location"
                 type="search"
                 id="default-search"
                 class="block w-full p-4 ps-16 text-m text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
@@ -59,7 +61,8 @@
             </div>
             <div class="relative">
               <button
-                type="submit"
+              @click="recherche_service()"
+                type="button"
                 class="text-black font-bold block w-full p-4 pl-10 pr-10 text-center border border-gray-300 rounded-lg bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm dark:bg-amber-500 dark:hover:bg-amber-400 dark:focus:ring-amber-500"
               >
                 Search
@@ -122,12 +125,34 @@
   </div>
 </template>
 <script>
-// import service from "../../router/Service";
+ import service from "../../service/Service";
 
 export default {
   data() {
-    return {};
+    return {
+
+      nom_service:"",
+      location:"",
+
+    };
   },
-  methods: {},
+  methods: {
+
+    recherche_service()
+    {
+
+     let data = {}; 
+     data.nom_service=this.nom_service;
+     data.location=this.location; 
+     console.log(data);
+
+      service.Service_recherche(data).then((res)=>{
+        console.log(this.res.data);
+      })
+
+    },
+
+
+  },
 };
 </script>
