@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100 pl-96">
+  <div class="bg-gray-100 pl-96 ">
     <div class="container mx-auto py-8">
       <div class="flex flex-row gap-6">
         <div class="flex justify-end basis-1/4">
@@ -412,16 +412,40 @@
             </div>
           </div>
         </div>
+        <div class="flex basis-1/3 ">
+                    <div :style="{ width: '360px', height:'600px'}" class="bg-white rounded-lg fixed p-6 shadow-lg ">
+                        <div class="flex  flex-col items-center">
+                            <div class="relative mr-2">
+                                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                    <img src="../../assets/search.png" alt=""
+                                        class="w-10 h-10 text-gray-500 dark:text-amber-400" />
+                                </div>
+                                <input name="search" type="search" id="search"
+                                    class="bg-gray-100 w-full shadow-lg p-4 ps-16 text-m px-4 py-3.5 rounded-md outline-amber-500"
+                                    placeholder="Quel prestataire recherchez . . ." />
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                </div>
       </div>
     </div>
+    <!-- <chat :recu_id="2" :envoi_id="1"></chat> -->
+    <!-- <chat v-if="chat == true" :recu_id="this.recu_id" :envoi_id="store.getuser['id']" @close-view="closeViewHandler">
+    </chat> -->
   </div>
 </template>
 
 <script>
 import comment from "./CommentComponent.vue";
+import chat from "../chat/chatComponent.vue"
 export default {
   components: {
     comment,
+  },
+  components: {
+    chat
   },
   data() {
     return {
