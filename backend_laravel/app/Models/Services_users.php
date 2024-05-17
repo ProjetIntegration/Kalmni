@@ -16,7 +16,7 @@ class Services_users extends Model
     }
     public function RegistratedUsers()
     {
-        return $this->hasMany(Personne::class); 
+        return $this->hasMany(User::class); 
     }
 
     public function Reports()

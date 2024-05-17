@@ -35,7 +35,8 @@ public class PostsServiceImp implements PostsService{
 	 }
 	
 	public List<Post> getPostsSortedByMontant() {
-        return postRepository.findAllSortedByMontantDesc();
+       // return postRepository.findAllSortedByMontantDesc();
+		return null ; 
     }
 	 
 

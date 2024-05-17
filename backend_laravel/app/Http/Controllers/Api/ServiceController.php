@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\service_schedule;
 use App\Models\Services;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ServiceController extends Controller
 {
@@ -32,15 +33,13 @@ class ServiceController extends Controller
     
 
     public function addServices(Request $request){
-
         $image_service="";
         $image_certif="";  
         $service =new Services(); 
         $service->nom=$request->nom; 
-        $service->descritpion=$request->description; 
+        $service->description=$request->description; 
         $service->addresse= $request->addresse; 
-        $service->date=  now(); 
-       
+        //$service->date=  now(); 
         if ($request->hasFile('photo')) {
             $file_name = time() . '_' .$request->photo->getClientOriginalName();
             $image=$request->file('photo')->storeAs('users',$file_name,'public');
@@ -48,30 +47,27 @@ class ServiceController extends Controller
         }else{
             $image_name=$request->nom[0].''.$request->prenom[0];
         }
-
         $file_name_certif = time() . '_' .$request->photo_certif->getClientOriginalName();
         $image_certif=$request->file('photo_certif')->storeAs('users',$file_name_certif,'public');
         $image_name_certif='/storage/'.$image_certif;
-        $service->img_certif=$image_name_certif;
+        $service->img_certificat=$image_name_certif;
         $service->img_service=$image_name; 
         $service->owner_service=$request->user_id;
         $service->category_id=$request->category_id;
         $service->save();
         $tab=json_decode($request->tab_schedules, true );
         for ($i=0; $i<count($tab);$i++){
-            $schedules=new service_schedule();
-           $schedules->heure_debut=$tab[$i]["heure_debut"];
-           $schedules-> heure_fin=$tab[$i]["heure_fin"];
-           $schedules->jour=$tab[$i]["jour"];
+            $schedules = new service_schedule();
+            $schedules->heure_debut = date('H:i:s', strtotime($tab[$i]["heure_debut"]));
+            $schedules->heure_fin = date('H:i:s', strtotime($tab[$i]["heure_fin"]));
+            $schedules->jour = $tab[$i]["jour"];
            $schedules->service_id=$service->id;
            $schedules->save();
         }
 
+
         $service->save(); 
-        for( int $i =0 ; $i<7 ;$i++){
-            $service_schedules = new service_schedules();
-            $service_schedules->nom=$jour[i]["nom"];
-            }
+
         return response()->json(["message"=>"Services Added"],201);
     }
 
@@ -101,32 +97,46 @@ class ServiceController extends Controller
 
     public function recherche_service(Request $request)
     {
-        $nom_service =$request->nom_service   ;
-        $location = $request->location ; 
-        $service="";
-        if(empty($location))
+     
+        $nom_service2 =$request->nom_service;
+
+        $location2 =$request->location;
+    
+        if($location2 == null && $nom_service2!= null )
         {
-            $Services = Services::where('nom', 'like', "%$nom_service%")
-            ->get(); 
+        
+            $Services =Services::where('nom', 'like', '%'.$nom_service2.'%')->get();
+          
+            return response()->json(['data'=> $Services],200);
         }
         else{
-            if(empty($nom_service))
+            if($location2 != null &&  $nom_service2== null )
             {
-                $Services = Services::where('addresse', 'like', "%$location%")
-                ->get(); 
+                $Services =Services::where('addresse', 'like', '%'.$location2.'%')->get();
+             
+              
+                return response()->json(['data'=>$Services],200);
             }
             else{
-                $Services = Services::where('nom', 'like', "%$nom_service%")
-        ->where('addresse', 'like', "%$location%")
-        ->get(); 
+                $Services = Services::where('nom', 'like', "%$nom_service2%")
+              ->where('addresse', 'like', "%$location2%")
+              ->get(); 
+              return response()->json(['data'=>$Services],200);
             }
         }
      
         
         
-        return response()->json(['data'=>$Services],200);
+       
+    }
+    public function nom_service(Request $request)
+    {
+        $nom_service2 = $request->nom; 
+        $Services =Services::where('nom', 'like', '%'.$nom_service2.'%') ->with('User_owner')->get();
+          
+        return response()->json(['data'=> $Services],200);
     }
 
 
-    //
+    
 }

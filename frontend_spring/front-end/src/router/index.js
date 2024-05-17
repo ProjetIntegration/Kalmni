@@ -1,5 +1,18 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import ProfileView from "@/views/ProfileView.vue";
+import SigneUpView from "@/views/SignUpView.vue";
+
+import DashbordView from "@/views/DashboardAdmin/DashbordView.vue";
+import SettingsView from "@/views/SettingsView.vue";
+import AcceuillView from "@/views/AcceuillView.vue";
+import ReserverServiceView from "@/views/ReserverService/ReserverServiceView";
+import ClientView from "@/views/DashboardAdmin/ClientView.vue";
+import DemandeView from "@/views/DashboardAdmin/DemandeView.vue";
+import PrestataireView from "@/views/DashboardAdmin/PrestataireView.vue";
+import SigneInView from "@/views/SignInView.vue";
+
+
 
 const routes = [
   {
@@ -8,13 +21,58 @@ const routes = [
     component: HomeView,
   },
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    path: "/Settings",
+    name: "Settings",
+    component: SettingsView,
+  },
+  {
+    path: "/ReserverService",
+    name: "ReserverServiceView",
+    component: ReserverServiceView ,
+  },
+  {
+    path: "/Acceuill",
+    name: "Acceuill",
+    component: AcceuillView,
+  },
+  {
+    path: "/ClientAdmin",
+    name: "ClientView",
+    component: ClientView,
+  },
+  {
+    path: "/demandeAdmin",
+    name: "DemandeView",
+    component: DemandeView,
+  },
+  {
+    path: "/PrestataireAdmin",
+    name: "PrestataireView",
+    component: PrestataireView,
+  },
+
+
+  {
+    path: "/profile",
+    name: "profile",
+    component: ProfileView,
+  },
+  {
+    path: "/SigneUp",
+    name: "SignUp",
+    component: SigneUpView,
+  },
+  {
+    path: "/SigneIn",
+    name: "SigneInView",
+    component: SigneInView,
+  },
+ 
+
+  {
+    path: "/Dashbord",
+    name: "DashbordView",
+    component: DashbordView,
   },
 ];
 

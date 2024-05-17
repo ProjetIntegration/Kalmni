@@ -6,6 +6,10 @@ use App\Http\Controllers\api\UserController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\SignUpController;
 use App\Http\Controllers\PersonneController;
+
+
+
+use App\Http\Controllers\chat\ChatController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +28,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
 Route::group(["prefix"=>"/auth"],function(){
     Route::post('/signup',[SignUpController::class,'Signup']);
     Route::post('/signin',[LoginController::class,'LoginUser']);
@@ -37,3 +42,18 @@ Route::post('/Accepter/{id}',[UserController::class,'acceptUser']);
 Route::post('/Rejeter/{id}',[UserController::class,'rejectUser']);
 
 Route::get('/DemandePrestataire',[UserController::class,'getUserByStatus']);
+
+Route::group(["prefix"=>"/service"],function(){
+    Route::post('/AddService',[ServiceController::class,'addServices']);
+});
+
+Route::get('/Recherche',[ServiceController::class,'recherche_service']);
+
+
+route::post("/sendChat",[ChatController::class,'createChat']);
+route::get("/getMessage",[ChatController::class,'getMessages']);
+
+route::get('/usersDetails/{id}',[UserController::class,'getUserById']);
+
+Route::get('/Recherche_par_nom',[ServiceController::class,'nom_service']);
+

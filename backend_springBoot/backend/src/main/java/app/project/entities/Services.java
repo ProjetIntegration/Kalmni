@@ -41,19 +41,39 @@ private int heure_debut;
 @Column(name="heure_fin")
 private int heure_fin; 
 
+@Column(length = 999999999) 
+private String Photo;
+
+public String getPhoto() {
+	return Photo;
+}
+
+
+public void setPhoto(String photo) {
+	Photo = photo;
+}
+
+
+
 @ManyToOne
 @JoinColumn(name="service_category")
 private Category category; 
 
-
+@ManyToOne
+private Personne Owner; 
 
 @OneToMany(mappedBy="service_user_registrated")
 private Set<ServiceUser>service_registrated;
 
 
 
+public void setOwner(Personne owner) {
+	Owner = owner;
+}
+
+
 public Services(Long serviceId, String nom, String description, Category category_id, String adresse, int heure_debut,
-		int heure_fin, Category category, Set<ServiceUser> service_registrated) {
+	int heure_fin,String photo) {
 	super();
 	ServiceId = serviceId;
 	this.nom = nom;
@@ -62,10 +82,8 @@ public Services(Long serviceId, String nom, String description, Category categor
 	this.adresse = adresse;
 	this.heure_debut = heure_debut;
 	this.heure_fin = heure_fin;
-	this.category = category;
-	this.service_registrated = service_registrated;
+	this.Photo = photo; 
 }
-
 
 
 public Services() {
@@ -115,7 +133,10 @@ public Category getCategory_id() {
 	return category_id;
 }
 
-
+public Personne getOwner  ()
+{
+	return  Owner; 
+}
 
 public void setCategory_id(Category category_id) {
 	this.category_id = category_id;
