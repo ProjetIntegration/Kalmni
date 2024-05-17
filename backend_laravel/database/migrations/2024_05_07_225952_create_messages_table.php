@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->String("message"); 
-            $table->date("Date"); 
             $table->foreignId("sender_id")->refrences("id")->on("users")->cascadeOnDelete();
             $table->foreignId("receiver_id")->refrences("id")->on("users")->cascadeOnDelete();
 

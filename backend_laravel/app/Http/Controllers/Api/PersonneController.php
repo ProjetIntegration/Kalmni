@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Notifications;
+
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notification;
 
-class UserController extends Controller
+class PersonneController extends Controller
 {
+
+    
     public function getUsers(){
         $users=User::where("role_number",0)->get();
         return response()->json(["data"=>$users],200);
@@ -33,7 +35,7 @@ class UserController extends Controller
     }
 
     public function GetNotif($id){
-        $notifs=Notifications::where("user_id",$id)->get();
+        $notifs=Notification::where("user_id",$id)->get();
         return response()->json(["data"=>$notifs],200);
     }
 

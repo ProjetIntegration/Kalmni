@@ -64,8 +64,7 @@ class ServiceController extends Controller
            $schedules->service_id=$service->id;
            $schedules->save();
         }
-<<<<<<< HEAD
-=======
+
 
         $service->save(); 
         $days = 7; 
@@ -73,7 +72,7 @@ class ServiceController extends Controller
             $service_schedules = new service_schedule();
             $service_schedules->nom=$tab[$i]["nom"];
             }
->>>>>>> 168db442bcb96f68c53d02e0b22160250b2b726c
+
         return response()->json(["message"=>"Services Added"],201);
     }
 
