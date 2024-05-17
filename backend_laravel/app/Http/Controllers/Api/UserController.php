@@ -1,16 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 
-
+use App\Http\Controllers\Controller;
+use App\Models\Notifications;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Notifications\Notification;
 
-class PersonneController extends Controller
+class UserController extends Controller
 {
-
-    
     public function getUsers(){
         $users=User::where("role_number",0)->get();
         return response()->json(["data"=>$users],200);
@@ -35,13 +33,13 @@ class PersonneController extends Controller
     }
 
     public function GetNotif($id){
-        $notifs=Notification::where("user_id",$id)->get();
+        $notifs=Notifications::where("user_id",$id)->get();
         return response()->json(["data"=>$notifs],200);
     }
 
-   
+
     public function UpdateUser(Request $request, $id){
-        
+
         $users=User::find($id);
         $users->update([
             "nom"=>$request->nom,
@@ -57,4 +55,25 @@ class PersonneController extends Controller
         return response()->json(["message"=>"Update user terminé"],200);
     }
     //
+    public function acceptUser($id) {
+        $user = User::findOrFail($id);
+        $user->statut = 1; // ou tout autre valeur qui représente "accepté"
+        $user->save();
+        return response()->json(["message" => "Utilisateur accepté"], 200);
+    }
+
+    public function rejectUser($id) {
+        $user = User::findOrFail($id);
+        $user->statut = 2;
+        $user->save(); // ou marquer comme rejeté, selon votre logique métier
+        return response()->json(["message" => "Utilisateur refusé"], 200);
+    }
+
+    public function getUserByStatus(){
+        $user = User::where("role","Prestataire")->Where("statut",0)->get();
+         return response()->json($user,200);
+
+
+
+    }
 }
