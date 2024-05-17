@@ -8,6 +8,9 @@ const ApiClient = axios.create({
   });
 
 export default {
+  getUserById(id){
+    return ApiClient.get("/usersDetails/"+id);
+  },
 
     AddUser(user){
         console.log(user);
@@ -37,6 +40,7 @@ export default {
        getNotif(id){
         return ApiClient.get("/getNotif/"+id);
     }, 
+    
     UpdateUSer(user,id){
   
       let data=new FormData();

@@ -67,7 +67,7 @@ class ServiceController extends Controller
 
 
         $service->save(); 
-      
+
         return response()->json(["message"=>"Services Added"],201);
     }
 
