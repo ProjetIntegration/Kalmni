@@ -36,12 +36,15 @@
           return ApiClient.post("/service/AddService", payload, config);
 
            
-         }
+         },
 
 
 
   Service_recherche(Service) {
     return ApiClient.get("/Recherche", { params: Service });
+  },
+  Nom_Service(Service) {
+    return ApiClient.get("/Recherche_par_nom", { params: Service });
   },
 
  };

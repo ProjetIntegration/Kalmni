@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('service_schedules', function (Blueprint $table) {
             $table->id();
-            $table->time("heure_debut"); 
-            $table->time("heure_fin"); 
+            $table->string("heure_debut"); 
+            $table->string("heure_fin"); 
             $table->string("jour");
             $table->timestamps();
             $table->foreignId("service_id")->refrences("id")->on("services")->cascadeOnDelete();

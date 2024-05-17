@@ -57,23 +57,17 @@ class ServiceController extends Controller
         $service->save();
         $tab=json_decode($request->tab_schedules, true );
         for ($i=0; $i<count($tab);$i++){
-           $schedules=new service_schedule();
-           $schedules->heure_debut=$tab[$i]["heure_debut"];
-           $schedules-> heure_fin=$tab[$i]["heure_fin"];
-           $schedules->jour=$tab[$i]["jour"];
+            $schedules = new service_schedule();
+            $schedules->heure_debut = date('H:i:s', strtotime($tab[$i]["heure_debut"]));
+            $schedules->heure_fin = date('H:i:s', strtotime($tab[$i]["heure_fin"]));
+            $schedules->jour = $tab[$i]["jour"];
            $schedules->service_id=$service->id;
            $schedules->save();
         }
-<<<<<<< HEAD
-=======
+
 
         $service->save(); 
-        $days = 7; 
-        for(  $i =0 ; $i <$days ;$i++){
-            $service_schedules = new service_schedule();
-            $service_schedules->nom=$tab[$i]["nom"];
-            }
->>>>>>> 168db442bcb96f68c53d02e0b22160250b2b726c
+      
         return response()->json(["message"=>"Services Added"],201);
     }
 
@@ -116,9 +110,9 @@ class ServiceController extends Controller
             return response()->json(['data'=> $Services],200);
         }
         else{
-            if($location2 != null && ($nom_service2)== null )
+            if($location2 != null &&  $nom_service2== null )
             {
-                $Services =Services::where('nom', 'like', '%'.$location2.'%')->get();
+                $Services =Services::where('addresse', 'like', '%'.$location2.'%')->get();
              
               
                 return response()->json(['data'=>$Services],200);
@@ -135,7 +129,14 @@ class ServiceController extends Controller
         
        
     }
+    public function nom_service(Request $request)
+    {
+        $nom_service2 = $request->nom; 
+        $Services =Services::where('nom', 'like', '%'.$nom_service2.'%') ->with('User_owner')->get();
+          
+        return response()->json(['data'=> $Services],200);
+    }
 
 
-    //
+    
 }

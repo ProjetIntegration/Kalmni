@@ -1,12 +1,11 @@
 <?php
 
-<<<<<<< HEAD
-use App\Http\Controllers\Api\ServiceController;
-=======
 
 use App\Http\Controllers\Api\ServiceController;
+
+
+
 use App\Http\Controllers\auth\LoginController;
->>>>>>> 168db442bcb96f68c53d02e0b22160250b2b726c
 use App\Http\Controllers\auth\SignUpController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -32,11 +31,12 @@ Route::group(["prefix"=>"/auth"],function(){
     
 });
 
-<<<<<<< HEAD
 
 Route::group(["prefix"=>"/service"],function(){
     Route::post('/AddService',[ServiceController::class,'addServices']);
 });
-=======
+
 Route::get('/Recherche',[ServiceController::class,'recherche_service']); 
->>>>>>> 168db442bcb96f68c53d02e0b22160250b2b726c
+Route::get('/Recherche_par_nom',[ServiceController::class,'nom_service']); 
+
+
