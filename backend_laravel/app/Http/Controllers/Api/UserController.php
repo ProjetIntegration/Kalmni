@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Notifications;
@@ -37,9 +37,9 @@ class UserController extends Controller
         return response()->json(["data"=>$notifs],200);
     }
 
-   
+
     public function UpdateUser(Request $request, $id){
-        
+
         $users=User::find($id);
         $users->update([
             "nom"=>$request->nom,
@@ -55,4 +55,25 @@ class UserController extends Controller
         return response()->json(["message"=>"Update user terminé"],200);
     }
     //
+    public function acceptUser($id) {
+        $user = User::findOrFail($id);
+        $user->statut = 1; // ou tout autre valeur qui représente "accepté"
+        $user->save();
+        return response()->json(["message" => "Utilisateur accepté"], 200);
+    }
+
+    public function rejectUser($id) {
+        $user = User::findOrFail($id);
+        $user->statut = 2;
+        $user->save(); // ou marquer comme rejeté, selon votre logique métier
+        return response()->json(["message" => "Utilisateur refusé"], 200);
+    }
+
+    public function getUserByStatus(){
+        $user = User::where("role","Prestataire")->Where("statut",0)->get();
+         return response()->json($user,200);
+
+
+
+    }
 }

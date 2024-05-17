@@ -59,6 +59,15 @@ export default {
     }
   return ApiClient.post(`/UpdateUser/${id}`,data,config);
   },
+  AccepterUser(id){
+    return ApiClient.post(`/Accepter/${id}`);
+},
+RejeterUser(id){
+  return ApiClient.post(`/Rejeter/${id}`);
+},
+getUserByStatus(){
+  return ApiClient.get("/DemandePrestataire");
+}
 
 
 
