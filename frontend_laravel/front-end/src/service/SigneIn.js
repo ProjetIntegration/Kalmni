@@ -1,5 +1,5 @@
 import axios from "axios";
-import {AuthStore} from "../store/index";
+import {useAuthStore} from "../store/index";
 const ApiClient = axios.create({
     baseURL: "http://localhost:8000/api",
     withCredentials: false,
@@ -13,7 +13,7 @@ export default{
 
     async signIn(email,password){
       
-        const store=AuthStore();
+        const store=useAuthStore();
         const res=await ApiClient.post('/auth/signin',{email,password});
         
         if(res.status==200){
