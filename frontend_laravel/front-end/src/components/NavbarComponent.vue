@@ -2,7 +2,7 @@
   <div class="max-w-screen-xl mb-20">
     
     <nav
-      class="bg-white shadow-2xl dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600"
+      class="bg-white shadow-2xl light:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 light:border-gray-600"
     >
     
       <div
@@ -20,7 +20,8 @@
             <p>(+255) 24 145 421</p>
           </div>
         </div>
-        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <div v-if="user" class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse" ><h1 class="mt-3  mr-3 font-bold text-xl">{{ user.nom+ " " +user.prenom }}</h1><img class="w-24" :src="'http://localhost:8000'+user.photo"></div>
+        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse" v-else>
           <button
             type="button"
             class="transition ease-in-out delay-150 text-black font-bold mr-3 hover:-translate-y-1 hover:scale-110 duration-300 ..."
@@ -30,14 +31,14 @@
 
           <button
             type="button"
-            class="text-white font-bold transition ease-in-out delay-150 bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-400 rounded-lg text-sm px-4 py-2 text-center dark:bg-amber-500 dark:focus:ring-amber-500 hover:-translate-y-1 hover:scale-110 dark:hover:bg-amber-500 duration-300 ..."
+            class="text-white font-bold transition ease-in-out delay-150 bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-400 rounded-lg text-sm px-4 py-2 text-center light:bg-amber-500 light:focus:ring-amber-500 hover:-translate-y-1 hover:scale-110 light:hover:bg-amber-500 duration-300 ..."
           >
             <router-link to="/SigneUp">sign up</router-link>
           </button>
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
-            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 light:text-gray-400 light:hover:bg-gray-700 light:focus:ring-gray-600"
             aria-controls="navbar-sticky"
             aria-expanded="false"
           >
@@ -64,13 +65,13 @@
           id="navbar-sticky"
         >
           <ul
-            class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-6 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+            class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-6 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white light:bg-gray-800 md:light:bg-gray-900 light:border-gray-700"
           >
             <li>
               <a href=""
                 ><router-link
                   to="/"
-                  class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:dark:hover:text-amber-500 dark:text-white dark:hover:bg-amber-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
+                  class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:light:hover:text-amber-500 light:text-white light:hover:bg-amber-500 light:hover:text-white md:light:hover:bg-transparent light:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
                   >Acceuil</router-link
                 ></a
               >
@@ -95,7 +96,7 @@
               <a href=""
                 ><router-link
                   to="/Acceuill"
-                  class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:dark:hover:text-amber-500 dark:text-white dark:hover:bg-amber-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
+                  class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:light:hover:text-amber-500 light:text-white light:hover:bg-amber-500 light:hover:text-white md:light:hover:bg-transparent light:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
                   >Trouver un pro</router-link
                 ></a
               >
@@ -120,7 +121,7 @@
               <a href=""
                 ><router-link
                   to="/ReserverService"
-                  class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:dark:hover:text-amber-500 dark:text-white dark:hover:bg-amber-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
+                  class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:light:hover:text-amber-500 light:text-white light:hover:bg-amber-500 light:hover:text-white md:light:hover:bg-transparent light:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
                   >Reserver un service</router-link
                 ></a
               >
@@ -145,7 +146,7 @@
               <a href=""
                 ><router-link
                   to="/Dashbord"
-                  class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:dark:hover:text-amber-500 dark:text-white dark:hover:bg-amber-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
+                  class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:light:hover:text-amber-500 light:text-white light:hover:bg-amber-500 light:hover:text-white md:light:hover:bg-transparent light:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
                   >Promos</router-link
                 ></a
               >
@@ -157,3 +158,25 @@
     </nav>
   </div>
 </template>
+<script>
+
+export default {
+  computed: {
+    user() {
+
+      let x = localStorage.getItem("user")
+        ? JSON.parse(localStorage.getItem("user"))
+        : "";
+        console.log(x);
+      return x;
+    },
+  },
+  methods :{
+  
+  
+  
+  },
+
+}  
+
+</script>

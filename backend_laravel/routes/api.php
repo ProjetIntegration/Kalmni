@@ -1,8 +1,10 @@
 <?php
 
+
 use App\Http\Controllers\Api\ServiceController;
 
 use App\Http\Controllers\Api\UserController;
+
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\SignUpController;
 use App\Http\Controllers\chat\ChatController;
@@ -39,7 +41,13 @@ Route::group(["prefix"=>"/service"],function(){
 
 Route::get('/Recherche',[ServiceController::class,'recherche_service']); 
 
+
 route::post("/sendChat",[ChatController::class,'createChat']);
 route::get("/getMessage",[ChatController::class,'getMessages']);
 
 route::get('/usersDetails/{id}',[UserController::class,'getUserById']);
+
+Route::get('/Recherche_par_nom',[ServiceController::class,'nom_service']); 
+
+
+ 
