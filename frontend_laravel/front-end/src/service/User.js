@@ -9,6 +9,7 @@ const ApiClient = axios.create({
 
 export default {
   getUserById(id){
+    console.log(id);
     return ApiClient.get("/usersDetails/"+id);
   },
 

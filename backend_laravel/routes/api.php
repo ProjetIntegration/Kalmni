@@ -1,15 +1,15 @@
 <?php
 
 
+use App\Http\Controllers\Api\personneController;
 use App\Http\Controllers\Api\ServiceController;
-use App\Http\Controllers\api\UserController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\SignUpController;
-use App\Http\Controllers\PersonneController;
 
 
 
 use App\Http\Controllers\chat\ChatController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,25 +35,21 @@ Route::group(["prefix"=>"/auth"],function(){
 
 });
 
-Route::get('/Recherche',[ServiceController::class,'recherche_service']);
+// user Controller 
 
-Route::post('/Accepter/{id}',[UserController::class,'acceptUser']);
+route::get('/usersDetails/{id}',[personneController::class,'getUserById']);
+Route::post('/Accepter/{id}',[personneController::class,'acceptUser']);
+Route::post('/Rejeter/{id}',[personneController::class,'rejectUser']);
+Route::get('/DemandePrestataire',[personneController::class,'getUserByStatus']);
 
-Route::post('/Rejeter/{id}',[UserController::class,'rejectUser']);
-
-Route::get('/DemandePrestataire',[UserController::class,'getUserByStatus']);
-
-Route::group(["prefix"=>"/service"],function(){
-    Route::post('/AddService',[ServiceController::class,'addServices']);
-});
-
-Route::get('/Recherche',[ServiceController::class,'recherche_service']);
-
-
+// chat controller 
 route::post("/sendChat",[ChatController::class,'createChat']);
 route::get("/getMessage",[ChatController::class,'getMessages']);
 
-route::get('/usersDetails/{id}',[UserController::class,'getUserById']);
 
+// service controller 
 Route::get('/Recherche_par_nom',[ServiceController::class,'nom_service']);
-
+Route::get('/Recherche',[ServiceController::class,'recherche_service']);
+Route::group(["prefix"=>"/service"],function(){
+    Route::post('/AddService',[ServiceController::class,'addServices']);
+});
