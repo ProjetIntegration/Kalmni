@@ -12,6 +12,8 @@ import app.project.repository.CategoryRepository;
 import app.project.repository.PersonneRepository;
 import app.project.repository.ServiceRepository;
 
+
+@org.springframework.stereotype.Service
 public class ServiceImp  implements Service{
 	@Autowired 
 	ServiceRepository servicerepository  ;
