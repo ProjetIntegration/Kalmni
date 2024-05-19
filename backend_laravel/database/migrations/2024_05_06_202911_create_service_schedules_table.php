@@ -17,8 +17,7 @@ return new class extends Migration
             $table->string("heure_fin"); 
             $table->string("jour");
             $table->timestamps();
-            $table->foreignId("service_id")->refrences("id")->on("services")->cascadeOnDelete();
-
+            $table->foreignId("services_id")->refrences("id")->on("services")->cascadeOnDelete();
         });
     }
 

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,14 @@ class ProjectsFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            //
-        ];
+       
+            $senderId = User::inRandomOrder()->first()->id;
+            return [
+                'name' => $this->faker->name,
+                'description' => $this->faker->sentence(),
+                'photo' => $this->faker->imageUrl(400, 300), // Example of generating a random image URL
+                'user_id' => $senderId,
+            ];
+        
     }
 }

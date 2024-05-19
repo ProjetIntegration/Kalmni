@@ -52,7 +52,7 @@ class ServiceController extends Controller
         $image_name_certif='/storage/'.$image_certif;
         $service->img_certificat=$image_name_certif;
         $service->img_service=$image_name; 
-        $service->owner_service=$request->user_id;
+        $service->user_id=$request->user_id;
         $service->category_id=$request->category_id;
         $service->save();
         $tab=json_decode($request->tab_schedules, true );
@@ -61,7 +61,7 @@ class ServiceController extends Controller
             $schedules->heure_debut = date('H:i:s', strtotime($tab[$i]["heure_debut"]));
             $schedules->heure_fin = date('H:i:s', strtotime($tab[$i]["heure_fin"]));
             $schedules->jour = $tab[$i]["jour"];
-           $schedules->service_id=$service->id;
+           $schedules->services_id=$service->id;
            $schedules->save();
         }
 

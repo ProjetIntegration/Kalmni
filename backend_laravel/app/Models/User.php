@@ -24,7 +24,7 @@ class User extends Authenticatable
       }
 
 
-      public function Myservices()
+      public function Services()
       {
         return $this->hasMany(Services::class); 
       }
