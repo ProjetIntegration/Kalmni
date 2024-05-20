@@ -237,6 +237,59 @@
                         </div>
                     </div>
                 </div>
+                <div class="flex basis-1/3 ">
+                    <div :style="{ width: '360px', height: '900px' }" class="bg-white rounded-lg fixed p-6 shadow-lg ">
+                        <div class="flex  flex-col items-center">
+                            <form>
+                            <div class="relative mr-2">
+                                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                    <img src="../../assets/search.png" alt=""
+                                        class="w-10 h-10 text-gray-500 dark:text-amber-400" />
+                                </div>
+                                <input name="search" type="search" id="search"
+                                    class="bg-gray-100 w-full shadow-lg p-4 ps-16 text-m px-4 py-3.5 rounded-md outline-amber-500"
+                                    placeholder="Quel prestataire recherchez . . ."  v-model="name"/>
+                                   
+                                </div>
+                                <button type ="button" @click="recher_presta" class=" mt-3 text-white justify-end font-bold block w-300 p-4 text-center border border-gray-300 rounded-lg bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm dark:bg-amber-500 dark:hover:bg-amber-400 dark:focus:ring-amber-500">Chercher</button>
+                                <div v-if="prestataires">
+                                    <!-- houni tebda-->
+
+<div class="w-full mt-5 max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 light:bg-gray-800 light:border-gray-700">
+    <div class="flex items-center justify-between mb-4">
+        <h5 class="text-xl font-bold leading-none text-gray-900 light:text-white">Latest Customers</h5>
+      
+   </div>
+   <div class="flow-root">
+        <ul role="list" class="divide-y divide-gray-200 light:divide-gray-700">
+            <li class="py-3 sm:py-4" v-for="(presta,index) in prestataires" :key="index">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" :src="presta.photo" alt="Neil image">
+                    </div>
+                    <div class="flex-1 min-w-0 ms-4">
+                        <p class="text-sm font-medium text-gray-900 truncate light:text-white">
+                            {{presta.nom+ " "+presta.prenom}}
+                        </p>
+                        <p class="text-sm text-gray-500 truncate light:text-gray-400">
+                           {{presta.addresse}}
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 light:text-white">
+                        $320
+                    </div>
+                </div>
+            </li>
+         
+      
+           
+           
+        </ul>
+   </div>
+</div>
+<!-- houni tekef-->
+                                </div>
+                            </form>
                 <div
                     class="transition ease-in-out mb-4 delay-150 hover:-translate-y-1 hover:scale duration-300  rounded-3xl border-2 border-gray-200 p-4 bg-white lg:p-8 grid grid-cols-12 max-lg:max-w-lg max-lg:mx-auto gap-y-4 ">
                     <div class="col-span-12 lg:col-span-2 img box">
@@ -350,6 +403,8 @@ export default {
             box: false,
             userChat: "",
             id: "",
+            name:"",
+            prestataires:"",
             store: useAuthStore(),
             user: [],
             messages: [],
@@ -364,7 +419,15 @@ export default {
 
 
     methods: {
-
+        recher_presta()
+        {
+            let data ={}; 
+            data.name  =  this.name; 
+            UserService.getPrestataires(data).then((res)=>{
+                console.log(res.data);
+                this.prestataires =  res.data.data; 
+            });
+        },
 
         openChat() {
             if (this.box == true) {

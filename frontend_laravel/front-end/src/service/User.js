@@ -68,8 +68,12 @@ RejeterUser(id){
 },
 getUserByStatus(){
   return ApiClient.get("/DemandePrestataire");
-}
+},
 
+getPrestataires(name)
+{
+  return ApiClient.get("/recherche_prestataire", { params: name });
+},
 
 
 }
