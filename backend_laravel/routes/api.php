@@ -12,6 +12,7 @@ use App\Http\Controllers\chat\ChatController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use PHPUnit\Framework\Attributes\Group;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
+
 Route::group(["prefix"=>"/auth"],function(){
     Route::post('/signup',[SignUpController::class,'Signup']);
     Route::post('/signin',[LoginController::class,'LoginUser']);
@@ -36,6 +38,8 @@ Route::group(["prefix"=>"/auth"],function(){
 });
 
 // user Controller 
+
+// Route::middleware(('auth:api')->group(function(){
 
 route::get('/usersDetails/{id}',[personneController::class,'getUserById']);
 Route::post('/Accepter/{id}',[personneController::class,'acceptUser']);
@@ -53,3 +57,4 @@ Route::get('/Recherche',[ServiceController::class,'recherche_service']);
 Route::group(["prefix"=>"/service"],function(){
     Route::post('/AddService',[ServiceController::class,'addServices']);
 });
+// }));
