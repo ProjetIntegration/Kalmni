@@ -36,11 +36,6 @@ class SignUpController extends Controller
             "tel"=>$request->tel,
             "adresse"=>$request->adresse,
             "date_naissance"=>$request->date,
-            
-
-            
-
-            
 
         ]);
         if($request->role=="Prestataire"){

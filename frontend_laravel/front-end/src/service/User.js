@@ -9,12 +9,12 @@ const ApiClient = axios.create({
 
 export default {
   getUserById(id){
-    console.log(id);
+    // console.log(id);
     return ApiClient.get("/usersDetails/"+id);
   },
 
     AddUser(user){
-        console.log(user);
+        // console.log(user);
         let data=new FormData();
         data.append("nom", user.nom);
         data.append("prenom", user.prenom);

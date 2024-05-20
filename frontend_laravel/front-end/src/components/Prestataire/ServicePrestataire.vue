@@ -1,209 +1,241 @@
 <template>
-    <div class="bg-gray-100 pl-20">
-        <div class="container mx-auto py-8">
-            <div class="flex flex-row gap-6">
-                <div class="flex justify-end basis-1/4">
-                    <div :style="{ width: '360px' }" class="bg-white rounded-lg p-6 fixed shadow-lg">
-                        <div class="flex flex-col items-center">
-                            <img src="../../assets/wessim.jpg"
-                                class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0" />
+    <div class="flex flex-row justify-end basis-3/5">
+        <div class="flex  basis-3/5 ">
+            <div :style="{ width: '360px' }" class="bg-white rounded-lg p-6 fixed shadow-lg">
+                <div class="flex flex-col items-center">
+                    <img src="../../assets/wessim.jpg" class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0" />
 
-                            <h1 class="text-xl font-bold">John Doe</h1>
-                            <p class="text-gray-700">Software Developer</p>
-                        </div>
-                        <hr class="my-6 border-t border-gray-300" />
-                        <div class="flex flex-col">
-                            <h2 class="text-xl font-bold mb-4">About Me</h2>
-                            <ul>
-                                <li class="mb-2">
-                                    <button type="button" data-twe-ripple-init data-twe-ripple-color="dark"
-                                        class="inline-block rounded bg-transparent px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-neutral-100 hover:text-primary-accent-300 focus:text-primary-accent-300 focus:outline-none focus:ring-0 active:text-primary-700 motion-reduce:transition-none dark:text-secondary dark:hover:bg-secondary-900">
-                                        <router-link to="/profile">
-                                            <div class="flex items-center">
-                                                <img src="../../assets/list_alt_20dp_FILL0_wght400_GRAD0_opsz20.png"
-                                                    alt="" class="w-5 h-5 mr-2" />
-                                                <span class="text-sm">Portfolio</span>
+                    <h1 class="text-xl font-bold">John Doe</h1>
+                    <p class="text-gray-700">Software Developer</p>
+                </div>
+                <hr class="my-6 border-t border-gray-300" />
+                <div class="flex flex-col">
+                    <h2 class="text-xl font-bold mb-4">About Me</h2>
+                    <ul>
+                        <li class="mb-2">
+                            <button type="button" data-twe-ripple-init data-twe-ripple-color="dark"
+                                class="inline-block rounded bg-transparent px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-neutral-100 hover:text-primary-accent-300 focus:text-primary-accent-300 focus:outline-none focus:ring-0 active:text-primary-700 motion-reduce:transition-none dark:text-secondary dark:hover:bg-secondary-900">
+                                <router-link to="/profile">
+                                    <div class="flex items-center">
+                                        <img src="../../assets/list_alt_20dp_FILL0_wght400_GRAD0_opsz20.png" alt=""
+                                            class="w-5 h-5 mr-2" />
+                                        <span class="text-sm">Portfolio</span>
+                                    </div>
+                                </router-link>
+                            </button>
+                        </li>
+                        <li class="mb-2">
+                            <button type="button" data-twe-ripple-init data-twe-ripple-color="dark" @click="openChat()"
+                                class="inline-block rounded bg-transparent px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-neutral-100 hover:text-primary-accent-300 focus:text-primary-accent-300 focus:outline-none focus:ring-0 active:text-primary-700 motion-reduce:transition-none dark:text-secondary dark:hover:bg-secondary-900">
+                                <div class="flex items-center">
+                                    <img src="../../assets/message.png" alt="" class="w-5 h-5 mr-2" />
+                                    <span class="text-sm">contacter</span>
+                                </div>
+                            </button>
+                            <!-- chat section  -->
+        <div v-if="this.box == true">
+        <aside
+            class="border-4 border-currentColor-500/50  fixed bottom-4 end-4  items-center justify-center gap-4 rounded-lg bg-white  shadow-2xl">
+            <div class="relative flex items-center overflow-hidden bg-white px-4 h-20 shadow-2xl ">
+                <img v-if="user && user.photo != null" class="h-12 w-12 flex-none rounded-full bg-gray-50"
+                    :src="'http://localhost:8000' + user.photo" alt="" />
+                <div v-else
+                    class="relative inline-flex items-center justify-center h-12 w-12 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+                    <span class="font-medium text-gray-600 dark:text-gray-300">{{ user && user.prenom ? user.prenom.charAt(0) : '' }}.{{ user && user.nom ? user.nom.charAt(0) : '' }}</span>
+                </div>
+                <a  target="_blank" rel="noreferrer" class="text-sm font-medium hover:opacity-75 pl-4">
+                    {{ user.nom + " " + user.prenom }} 👋
+                </a>
+
+                <button type="button" @click="openChat()"
+                    class="absolute right-4 top-4 bg-sky-100 text-gray-400 hover:text-gray-500 sm:right-4 sm:top-4 md:right-6 md:top-6 lg:right-8 lg:top-6">
+                    <span class="sr-only">Close</span>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="col-12 col-lg-7 col-xl-9 bg-slate-100 ">
+                <div class="flex flex-col flex-grow w-full max-w-xl bg-white shadow-xl rounded-lg overflow-hidden ">
+                    <div class="py-2 px-4 border-bottom d-none d-lg-block">
+                        <div>
+                            <div class="flex flex-col flex-grow  p-4 overflow-auto h-72">
+                                <div v-for="chats in chat" :key="chats.id" ref="messsageContainers">
+                                    <div class="flex w-full mt-2 space-x-3 max-w-xs">
+                                        <div v-if="this.envoi_id == chats.receiver_id">
+
+                                            <div class="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg w-52">
+                                                <p class="text-sm">{{ chats.message }}</p>
                                             </div>
-                                        </router-link>
-                                    </button>
-                                </li>
-                                <li class="mb-2">
-                                    <button type="button" data-twe-ripple-init data-twe-ripple-color="dark"
-                                        @click="openChat(2)"
-                                        class="inline-block rounded bg-transparent px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-neutral-100 hover:text-primary-accent-300 focus:text-primary-accent-300 focus:outline-none focus:ring-0 active:text-primary-700 motion-reduce:transition-none dark:text-secondary dark:hover:bg-secondary-900">
-                                        <div class="flex items-center">
-                                            <img src="../../assets/message.png" alt="" class="w-5 h-5 mr-2" />
-                                            <span class="text-sm">contacter</span>
+                                            <span class="text-xs text-gray-500 leading-none">{{
+                                                moment(chats.created_at).format("DD-MM-yy, h:m a") }}</span>
                                         </div>
-                                    </button>
-                                </li>
+                                    </div>
+                                    <div class="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end">
+                                        <div v-if="this.envoi_id == chats.sender_id">
+                                            <div class="bg-blue-600 text-white p-3 rounded-l-lg rounded-br-lg w-52">
+                                                <p class="text-sm"> {{ chats.message }} </p>
+                                            </div>
+                                            <span class="text-xs text-gray-500 leading-none">{{
+                                                moment(chats.created_at).format("DD-MM-yy, h:m a") }}</span>
+                                        </div>
+                                    </div>
+                                </div>
 
-                            </ul>
+
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="w-[40%] shadow-lg ">
-                    <div class="bg-white shadow rounded-lg p-6">
-                        <div
-                            class="transition ease-in-out mb-4 delay-150 hover:-translate-y-1 hover:scale duration-300  rounded-3xl border-2 border-gray-200 p-4 bg-white lg:p-8 grid grid-cols-12 max-lg:max-w-lg max-lg:mx-auto gap-y-4 ">
-                            <div class="col-span-12 lg:col-span-2 img box">
-                                <img src="https://pagedone.io/asset/uploads/1701162826.png" alt="speaker image"
-                                    class="max-lg:w-full lg:w-[180px] ">
-                            </div>
-                            <div class="col-span-12 lg:col-span-10 detail w-full lg:pl-3">
-                                <div class="flex items-center justify-between w-full mb-4">
-                                    <h5 class="font-manrope font-bold text-2xl leading-9 text-gray-900">Round white
-                                        portable
-                                        speaker</h5>
-
-                                </div>
-                                <p class="font-normal text-base leading-7 text-gray-500 mb-6">
-                                    Introducing our sleek round white portable speaker, the epitome of style and
-                                    sound!
-                                    Elevate your auditory experience with this compact yet powerful device that
-                                    delivers
-                                    crystal-clear audio wherever you go.
-                                </p>
-                                <div class="flex justify-between items-center">
-                                    <div class="flex items-center gap-4">
-                                        <a href="#"
-                                            class="text-white justify-end font-bold block w-300 p-4 text-center border border-gray-300 rounded-lg bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm dark:bg-amber-500 dark:hover:bg-amber-400 dark:focus:ring-amber-500">Réserver</a>
-                                    </div>
-                                    <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right">
-                                        220 DT
-                                    </h6>
-                                </div>
+                <div class="flex-grow-0 py-2 px-2 border-top">
+                    <div class="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4">
+                        <div>
+                            <button class="flex items-center justify-center text-gray-400 hover:text-gray-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="flex-grow ml-4">
+                            <div class="relative w-full">
+                                <input type="text" v-model="message"
+                                    class="flex w-full border rounded-xl focus:outline-none focus:border-indigo-300 pl-4 h-10" />
+                                <button
+                                    class="absolute flex items-center justify-center h-full w-12 right-0 top-0 text-gray-400 hover:text-gray-600">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                        </path>
+                                    </svg>
+                                </button>
                             </div>
                         </div>
-                        <div
-                            class="transition ease-in-out mb-4 delay-150 hover:-translate-y-1 hover:scale duration-300  rounded-3xl border-2 border-gray-200 p-4 bg-white lg:p-8 grid grid-cols-12 max-lg:max-w-lg max-lg:mx-auto gap-y-4 ">
-                            <div class="col-span-12 lg:col-span-2 img box">
-                                <img src="https://pagedone.io/asset/uploads/1701162826.png" alt="speaker image"
-                                    class="max-lg:w-full lg:w-[180px] ">
-                            </div>
-                            <div class="col-span-12 lg:col-span-10 detail w-full lg:pl-3">
-                                <div class="flex items-center justify-between w-full mb-4">
-                                    <h5 class="font-manrope font-bold text-2xl leading-9 text-gray-900">Round white
-                                        portable
-                                        speaker</h5>
-
-                                </div>
-                                <p class="font-normal text-base leading-7 text-gray-500 mb-6">
-                                    Introducing our sleek round white portable speaker, the epitome of style and
-                                    sound!
-                                    Elevate your auditory experience with this compact yet powerful device that
-                                    delivers
-                                    crystal-clear audio wherever you go.
-                                </p>
-                                <div class="flex justify-between items-center">
-                                    <div class="flex items-center gap-4">
-                                        <a href="#"
-                                            class="text-white justify-end font-bold block w-300 p-4 text-center border border-gray-300 rounded-lg bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm dark:bg-amber-500 dark:hover:bg-amber-400 dark:focus:ring-amber-500">Réserver</a>
-                                    </div>
-                                    <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right">
-                                        220 DT
-                                    </h6>
-                                </div>
-                            </div>
+                        <div class="ml-4">
+                            <button @click="sentMessage"
+                                class="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0">
+                                <span>Send</span>
+                                <span class="ml-2">
+                                    <svg class="w-4 h-4 transform rotate-45 -mt-px" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                    </svg>
+                                </span>
+                            </button>
                         </div>
-                        <div
-                            class="transition ease-in-out mb-4 delay-150 hover:-translate-y-1 hover:scale duration-300  rounded-3xl border-2 border-gray-200 p-4 bg-white lg:p-8 grid grid-cols-12 max-lg:max-w-lg max-lg:mx-auto gap-y-4 ">
-                            <div class="col-span-12 lg:col-span-2 img box">
-                                <img src="https://pagedone.io/asset/uploads/1701162826.png" alt="speaker image"
-                                    class="max-lg:w-full lg:w-[180px] ">
-                            </div>
-                            <div class="col-span-12 lg:col-span-10 detail w-full lg:pl-3">
-                                <div class="flex items-center justify-between w-full mb-4">
-                                    <h5 class="font-manrope font-bold text-2xl leading-9 text-gray-900">Round white
-                                        portable
-                                        speaker</h5>
-
-                                </div>
-                                <p class="font-normal text-base leading-7 text-gray-500 mb-6">
-                                    Introducing our sleek round white portable speaker, the epitome of style and
-                                    sound!
-                                    Elevate your auditory experience with this compact yet powerful device that
-                                    delivers
-                                    crystal-clear audio wherever you go.
-                                </p>
-                                <div class="flex justify-between items-center">
-                                    <div class="flex items-center gap-4">
-                                        <a href="#"
-                                            class="text-white justify-end font-bold block w-300 p-4 text-center border border-gray-300 rounded-lg bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm dark:bg-amber-500 dark:hover:bg-amber-400 dark:focus:ring-amber-500">Réserver</a>
-                                    </div>
-                                    <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right">
-                                        220 DT
-                                    </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="transition ease-in-out mb-4 delay-150 hover:-translate-y-1 hover:scale duration-300  rounded-3xl border-2 border-gray-200 p-4 bg-white lg:p-8 grid grid-cols-12 max-lg:max-w-lg max-lg:mx-auto gap-y-4 ">
-                            <div class="col-span-12 lg:col-span-2 img box">
-                                <img src="https://pagedone.io/asset/uploads/1701162826.png" alt="speaker image"
-                                    class="max-lg:w-full lg:w-[180px] ">
-                            </div>
-                            <div class="col-span-12 lg:col-span-10 detail w-full lg:pl-3">
-                                <div class="flex items-center justify-between w-full mb-4">
-                                    <h5 class="font-manrope font-bold text-2xl leading-9 text-gray-900">Round white
-                                        portable
-                                        speaker</h5>
-
-                                </div>
-                                <p class="font-normal text-base leading-7 text-gray-500 mb-6">
-                                    Introducing our sleek round white portable speaker, the epitome of style and
-                                    sound!
-                                    Elevate your auditory experience with this compact yet powerful device that
-                                    delivers
-                                    crystal-clear audio wherever you go.
-                                </p>
-                                <div class="flex justify-between items-center">
-                                    <div class="flex items-center gap-4">
-                                        <a href="#"
-                                            class="text-white justify-end font-bold block w-300 p-4 text-center border border-gray-300 rounded-lg bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm dark:bg-amber-500 dark:hover:bg-amber-400 dark:focus:ring-amber-500">Réserver</a>
-                                    </div>
-                                    <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right">
-                                        220 DT
-                                    </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="transition ease-in-out mb-4 delay-150 hover:-translate-y-1 hover:scale duration-300  rounded-3xl border-2 border-gray-200 p-4 bg-white lg:p-8 grid grid-cols-12 max-lg:max-w-lg max-lg:mx-auto gap-y-4 ">
-                            <div class="col-span-12 lg:col-span-2 img box">
-                                <img src="https://pagedone.io/asset/uploads/1701162826.png" alt="speaker image"
-                                    class="max-lg:w-full lg:w-[180px] ">
-                            </div>
-                            <div class="col-span-12 lg:col-span-10 detail w-full lg:pl-3">
-                                <div class="flex items-center justify-between w-full mb-4">
-                                    <h5 class="font-manrope font-bold text-2xl leading-9 text-gray-900">Round white
-                                        portable
-                                        speaker</h5>
-
-                                </div>
-                                <p class="font-normal text-base leading-7 text-gray-500 mb-6">
-                                    Introducing our sleek round white portable speaker, the epitome of style and
-                                    sound!
-                                    Elevate your auditory experience with this compact yet powerful device that
-                                    delivers
-                                    crystal-clear audio wherever you go.
-                                </p>
-                                <div class="flex justify-between items-center">
-                                    <div class="flex items-center gap-4">
-                                        <a href="#"
-                                            class="text-white justify-end font-bold block w-300 p-4 text-center border border-gray-300 rounded-lg bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm dark:bg-amber-500 dark:hover:bg-amber-400 dark:focus:ring-amber-500">Réserver</a>
-                                    </div>
-                                    <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right">
-                                        220 DT
-                                    </h6>
-                                </div>
-                            </div>
-                        </div>
-
-
                     </div>
+                </div>
 
+            </div>
+        </aside>
+
+    </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="shadow-lg basis-4/5">
+            <div class="bg-white shadow rounded-lg p-6">
+                <div
+                    class="transition ease-in-out mb-4 delay-150 hover:-translate-y-1 hover:scale duration-300  rounded-3xl border-2 border-gray-200 p-4 bg-white lg:p-8 grid grid-cols-12 max-lg:max-w-lg max-lg:mx-auto gap-y-4 ">
+                    <div class="col-span-12 lg:col-span-2 img box">
+                        <img src="https://pagedone.io/asset/uploads/1701162826.png" alt="speaker image"
+                            class="max-lg:w-full lg:w-[180px] ">
+                    </div>
+                    <div class="col-span-12 lg:col-span-10 detail w-full lg:pl-3">
+                        <div class="flex items-center justify-between w-full mb-4">
+                            <h5 class="font-manrope font-bold text-2xl leading-9 text-gray-900">Round white
+                                portable
+                                speaker</h5>
+
+                        </div>
+                        <p class="font-normal text-base leading-7 text-gray-500 mb-6">
+                            Introducing our sleek round white portable speaker, the epitome of style and
+                            sound!
+                            Elevate your auditory experience with this compact yet powerful device that
+                            delivers
+                            crystal-clear audio wherever you go.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-4">
+                                <a href="#"
+                                    class="text-white justify-end font-bold block w-300 p-4 text-center border border-gray-300 rounded-lg bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm dark:bg-amber-500 dark:hover:bg-amber-400 dark:focus:ring-amber-500">Réserver</a>
+                            </div>
+                            <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right">
+                                220 DT
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="transition ease-in-out mb-4 delay-150 hover:-translate-y-1 hover:scale duration-300  rounded-3xl border-2 border-gray-200 p-4 bg-white lg:p-8 grid grid-cols-12 max-lg:max-w-lg max-lg:mx-auto gap-y-4 ">
+                    <div class="col-span-12 lg:col-span-2 img box">
+                        <img src="https://pagedone.io/asset/uploads/1701162826.png" alt="speaker image"
+                            class="max-lg:w-full lg:w-[180px] ">
+                    </div>
+                    <div class="col-span-12 lg:col-span-10 detail w-full lg:pl-3">
+                        <div class="flex items-center justify-between w-full mb-4">
+                            <h5 class="font-manrope font-bold text-2xl leading-9 text-gray-900">Round white
+                                portable
+                                speaker</h5>
+
+                        </div>
+                        <p class="font-normal text-base leading-7 text-gray-500 mb-6">
+                            Introducing our sleek round white portable speaker, the epitome of style and
+                            sound!
+                            Elevate your auditory experience with this compact yet powerful device that
+                            delivers
+                            crystal-clear audio wherever you go.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-4">
+                                <a href="#"
+                                    class="text-white justify-end font-bold block w-300 p-4 text-center border border-gray-300 rounded-lg bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm dark:bg-amber-500 dark:hover:bg-amber-400 dark:focus:ring-amber-500">Réserver</a>
+                            </div>
+                            <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right">
+                                220 DT
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="transition ease-in-out mb-4 delay-150 hover:-translate-y-1 hover:scale duration-300  rounded-3xl border-2 border-gray-200 p-4 bg-white lg:p-8 grid grid-cols-12 max-lg:max-w-lg max-lg:mx-auto gap-y-4 ">
+                    <div class="col-span-12 lg:col-span-2 img box">
+                        <img src="https://pagedone.io/asset/uploads/1701162826.png" alt="speaker image"
+                            class="max-lg:w-full lg:w-[180px] ">
+                    </div>
+                    <div class="col-span-12 lg:col-span-10 detail w-full lg:pl-3">
+                        <div class="flex items-center justify-between w-full mb-4">
+                            <h5 class="font-manrope font-bold text-2xl leading-9 text-gray-900">Round white
+                                portable
+                                speaker</h5>
+
+                        </div>
+                        <p class="font-normal text-base leading-7 text-gray-500 mb-6">
+                            Introducing our sleek round white portable speaker, the epitome of style and
+                            sound!
+                            Elevate your auditory experience with this compact yet powerful device that
+                            delivers
+                            crystal-clear audio wherever you go.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-4">
+                                <a href="#"
+                                    class="text-white justify-end font-bold block w-300 p-4 text-center border border-gray-300 rounded-lg bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm dark:bg-amber-500 dark:hover:bg-amber-400 dark:focus:ring-amber-500">Réserver</a>
+                            </div>
+                            <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right">
+                                220 DT
+                            </h6>
+                        </div>
+                    </div>
                 </div>
                 <div class="flex basis-1/3 ">
                     <div :style="{ width: '360px', height: '900px' }" class="bg-white rounded-lg fixed p-6 shadow-lg ">
@@ -258,47 +290,133 @@
 <!-- houni tekef-->
                                 </div>
                             </form>
+                <div
+                    class="transition ease-in-out mb-4 delay-150 hover:-translate-y-1 hover:scale duration-300  rounded-3xl border-2 border-gray-200 p-4 bg-white lg:p-8 grid grid-cols-12 max-lg:max-w-lg max-lg:mx-auto gap-y-4 ">
+                    <div class="col-span-12 lg:col-span-2 img box">
+                        <img src="https://pagedone.io/asset/uploads/1701162826.png" alt="speaker image"
+                            class="max-lg:w-full lg:w-[180px] ">
+                    </div>
+                    <div class="col-span-12 lg:col-span-10 detail w-full lg:pl-3">
+                        <div class="flex items-center justify-between w-full mb-4">
+                            <h5 class="font-manrope font-bold text-2xl leading-9 text-gray-900">Round white
+                                portable
+                                speaker</h5>
 
                         </div>
-
+                        <p class="font-normal text-base leading-7 text-gray-500 mb-6">
+                            Introducing our sleek round white portable speaker, the epitome of style and
+                            sound!
+                            Elevate your auditory experience with this compact yet powerful device that
+                            delivers
+                            crystal-clear audio wherever you go.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-4">
+                                <a href="#"
+                                    class="text-white justify-end font-bold block w-300 p-4 text-center border border-gray-300 rounded-lg bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm dark:bg-amber-500 dark:hover:bg-amber-400 dark:focus:ring-amber-500">Réserver</a>
+                            </div>
+                            <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right">
+                                220 DT
+                            </h6>
+                        </div>
                     </div>
                 </div>
+                <div
+                    class="transition ease-in-out mb-4 delay-150 hover:-translate-y-1 hover:scale duration-300  rounded-3xl border-2 border-gray-200 p-4 bg-white lg:p-8 grid grid-cols-12 max-lg:max-w-lg max-lg:mx-auto gap-y-4 ">
+                    <div class="col-span-12 lg:col-span-2 img box">
+                        <img src="https://pagedone.io/asset/uploads/1701162826.png" alt="speaker image"
+                            class="max-lg:w-full lg:w-[180px] ">
+                    </div>
+                    <div class="col-span-12 lg:col-span-10 detail w-full lg:pl-3">
+                        <div class="flex items-center justify-between w-full mb-4">
+                            <h5 class="font-manrope font-bold text-2xl leading-9 text-gray-900">Round white
+                                portable
+                                speaker</h5>
+
+                        </div>
+                        <p class="font-normal text-base leading-7 text-gray-500 mb-6">
+                            Introducing our sleek round white portable speaker, the epitome of style and
+                            sound!
+                            Elevate your auditory experience with this compact yet powerful device that
+                            delivers
+                            crystal-clear audio wherever you go.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-4">
+                                <a href="#"
+                                    class="text-white justify-end font-bold block w-300 p-4 text-center border border-gray-300 rounded-lg bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm dark:bg-amber-500 dark:hover:bg-amber-400 dark:focus:ring-amber-500">Réserver</a>
+                            </div>
+                            <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right">
+                                220 DT
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
+
         </div>
-        <!-- <chat v-if="chat == true" :recu_id="this.recu_id" :envoi_id="store.getuser['id']" @close-view="closeViewHandler">
-      </chat> -->
-        <chat v-if="chat == true" :recu_id="2" :envoi_id="store.getUser['id']" @close-view="closeViewHandler">
-        </chat>
+        
+
     </div>
+
 
 </template>
 
 <script>
-import comment from "./CommentComponent.vue";
 import chat from "../chat/chatComponent.vue"
-import UserService from "../../service/User"
 import { useAuthStore } from "../../store/index"
+import UserService from "../../service/User"
+import chatService from '../../service/chat'
+
+import moment from 'moment'
+
+
+
 export default {
-    created() {
-
-
+    mounted() {
+        window.Echo.channel('public').listen('ChatMessageSent', (e) => {
+            this.getMessages();
+            this.getUserById(this.recu_id)
+        })
 
     },
+    props: {
+        envoi_id: Number,
+        recu_id: Number,
+    },
+    setup() {
 
-    components: {
-        chat
+    },
+    async created() {
+        if (this.recu_id !== null && this.recu_id !== undefined) {
+            this.getMessages();
+            this.getUserById(this.recu_id);
+            this.moment = moment;
+        }
     },
 
     data() {
         return {
             store: useAuthStore(),
-            chat: false,
+            box: false,
             userChat: "",
             id: "",
             name:"",
             prestataires:"",
+            store: useAuthStore(),
+            user: [],
+            messages: [],
+            chat: [],
+            message: '',
+            isSendingForm: false,
+            name: "",
+            lastName: "",
+
         };
     },
+
 
     methods: {
         recher_presta()
@@ -311,20 +429,71 @@ export default {
             });
         },
 
-        openChat(id) {
-            if (this.chat == true) {
-                this.chat = false
-                console.log(id);
+        openChat() {
+            if (this.box == true) {
+                this.box = false
             }
             else {
-                // this.recu_id = id;
-                this.chat = true;
+                this.box = true;
             }
+            this.scrollToLastMessage();
+
 
         },
-        closeViewHandler() {
-            this.chat = false
+
+        scrollToLastMessage() {
+            this.$nextTick(() => {
+
+                let items = this.$refs.messsageContainers;
+                if (items && items.length > 0) {
+                    let last = items[items.length - 1];
+                    last.scrollIntoView({
+                        block: "nearest",
+                        inline: "center",
+                        behavior: "smooth",
+                        alignToTop: false
+                    });
+                }
+            })
         },
+        async getMessages() {
+            try {
+                const res = await chatService.getMessages({
+                    
+                    envoi_id: this.envoi_id,
+                    recu_id: this.recu_id
+                });
+                console.log(this.envoi_id);
+                this.chat = res.data.data;
+                
+
+
+
+            } catch (error) {
+                console.error('Error fetching messages:', error);
+            }
+        },
+        async sentMessage() {
+            try {
+                this.isSendingForm = true;
+                const res = await chatService.sentMessage({
+                    message: this.message,
+                    envoi_id: this.envoi_id,
+                    recu_id: this.recu_id
+                });
+                this.message = "";
+                this.isSendingForm = false;
+
+            } catch (error) {
+                console.error('Error fetching messages:', error);
+            }
+        },
+        getUserById(id) {
+            UserService.getUserById(id).then((res) => {
+                this.user = res.data.data;
+            })
+        },
+        
 
 
     },

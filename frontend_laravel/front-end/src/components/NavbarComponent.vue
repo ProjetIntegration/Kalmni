@@ -92,31 +92,7 @@
                 />
               </svg>
             </li>
-            <li>
-              <a href=""
-                ><router-link
-                  to="/Acceuill"
-                  class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:light:hover:text-amber-500 light:text-white light:hover:bg-amber-500 light:hover:text-white md:light:hover:bg-transparent light:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
-                  >Trouver un pro</router-link
-                ></a
-              >
-            </li>
-            <li class="text-gray-300">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                stroke="currentColor"
-                class="w-6 h-10"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-                />
-              </svg>
-            </li>
+            
             <li>
               <a href=""
                 ><router-link
@@ -145,9 +121,9 @@
             <li>
               <a href=""
                 ><router-link
-                  to="/Dashbord"
+                  to="/Acceuill"
                   class="transition ease-in-out delay-150 block py-2 px-3 text-2xl text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-500 md:p-0 md:light:hover:text-amber-500 light:text-white light:hover:bg-amber-500 light:hover:text-white md:light:hover:bg-transparent light:border-gray-700 hover:-translate-y-1 hover:scale-110 duration-300 ..."
-                  >Promos</router-link
+                  >Trouver un prestatair</router-link
                 ></a
               >
             </li>
