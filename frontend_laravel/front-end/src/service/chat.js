@@ -12,12 +12,10 @@ const ApiClient = axios.create({
 
   export default {
     getMessages(chat){
-        console.log(chat);
         
         return ApiClient.get("/getMessage",{ params: chat });
     },
     sentMessage(chat){
-      console.log(chat);
       return ApiClient.post("/sendChat", chat);
   }
   }

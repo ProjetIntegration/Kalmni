@@ -56,7 +56,8 @@ route::get("/getMessage",[ChatController::class,'getMessages']);
 // service controller 
 Route::get('/Recherche_par_nom',[ServiceController::class,'nom_service']);
 Route::get('/Recherche',[ServiceController::class,'recherche_service']);
+Route::get('/prestataireSevices/{id}',[ServiceController::class,'getServiceById']);
 Route::group(["prefix"=>"/service"],function(){
-    Route::post('/AddService',[ServiceController::class,'addServices']);
+Route::post('/AddService',[ServiceController::class,'addServices']);
 });
 // }));

@@ -80,14 +80,35 @@ class personneController extends Controller
     }
     public function recherche_prestataire (Request $request)
     {
-        $name = $request->name;
-        $personnes = User::where(function($query) use ($name) {
-                            $query->where('nom', 'like', '%' . $name . '%')
-                                  ->orWhere('prenom', 'like', '%' . $name . '%');
-                        })
-                        ->where('role', 1)
-                        ->get(); 
+        
+            //$users = User::whereNotIn('id', $excludedUserIds)->where('name', 'like', '%' . $request->search . '%')->get();
+            $searchTerm = $request->name;
+
+            $personnes = User::
+                where(function ($query) use ($searchTerm) {
+                    $query->where('nom', 'like', '%' . $searchTerm . '%')
+                        ->orWhere('prenom', 'like', '%' . $searchTerm . '%');
+                })
+                
+                ->orWhere(function ($query) use ($searchTerm) {
+                    $query->whereRaw("CONCAT(nom, ' ', prenom) LIKE ?", ['%' . $searchTerm . '%']);
+                })
+                ->orWhere(function ($query) use ($searchTerm) {
+                    $query->whereRaw("CONCAT(prenom, ' ', nom) LIKE ?", ['%' . $searchTerm . '%']);
+                })
+                
+                ->get();
+                        
         return  response()->json(["data"=>$personnes],200);
+                
+        // $name = $request->name;
+        // $personnes = User::where(function($query) use ($name) {
+        //                     $query->where('nom', 'like', '%' . $name . '%')
+        //                           ->orWhere('prenom', 'like', '%' . $name . '%');
+        //                 })
+        //                 ->where('role', 1)
+        //                 ->get(); 
+        // return  response()->json(["data"=>$personnes],200);
 
     }
 }
