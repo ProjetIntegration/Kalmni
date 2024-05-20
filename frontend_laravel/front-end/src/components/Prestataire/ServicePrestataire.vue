@@ -3,9 +3,9 @@
         <div class="flex  basis-3/5 ">
             <div :style="{ width: '360px' }" class="bg-white rounded-lg p-6 fixed shadow-lg">
                 <div class="flex flex-col items-center">
-                    <img src="../../assets/wessim.jpg" class="w-32 h-32  rounded-full mb-4 shrink-0" />
+                    <img :src="'http://localhost:8000' + user.photo" class="w-32 h-32  rounded-full mb-4 shrink-0" />
 
-                    <h1 class="text-xl font-bold">{{ user.nom }}</h1>
+                    <h1 class="text-xl font-bold">{{ user.nom + " " + user.prenom }}</h1>
                     <p class="text-gray-700">{{ user.adresse }}</p>
                 </div>
                 <hr class="my-6 border-t border-gray-300" />
