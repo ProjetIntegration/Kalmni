@@ -15,7 +15,7 @@
           <div class="flex min-w-0 gap-x-4" >
             <img
               class="h-12 w-12 flex-none rounded-full bg-gray-50"
-              :src="'http://localhost:8081' + user.photo" alt="vgvgbv"            />
+              :src="'http://localhost:8000' + user.photo" alt="vgvgbv"            />
             <div class="min-w-0 flex-auto">
                 <p class="text-sm font-semibold leading-6 text-gray-900">
                   {{ user.nom }}
@@ -100,10 +100,10 @@
                         </button>
                         <div class="w-200 mb-0 mt-6 rounded-lg p-6 shadow-lg sm:p-8 lg:p-10 space-y-8">
   <p class="text-center text-xl font-bold">Données du prestataire</p>
-  <img class="lg:h-80 md:h-64 h-48 w-full object-cover object-center" src="https://dummyimage.com/722x402" alt="blog">
+  <img class="lg:h-80 md:h-64 h-48 w-full object-cover object-center" :src="'http://localhost:8000'+user.photo" alt="blog">
   <div>
     <label for="Username" class="block font-bold text-lg">Titre de la publication:</label>
-    <p class="bg-gray-100 p-4 rounded-md">Title from backend</p>
+    <p class="bg-gray-100 p-4 rounded-md">{{user.addresse}}</p>
   </div>
   <div>
     <label for="description" class="block font-bold text-lg">Description de la publication:</label>

@@ -3,9 +3,11 @@
         <div class="flex  basis-3/5 ">
           <div :style="{ width: '360px' }" class="bg-white rounded-lg p-6 fixed shadow-lg">
             <div class="flex flex-col items-center">
-              <img src="../../assets/wessim.jpg" class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0" />
+              <img :src="'http://localhost:8000'+user.photo" class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0" />
 
-              <h1 class="text-xl font-bold">John Doe</h1>
+              <h1 class="text-xl font-bold" v-if="user">{{user.nom +" " +user.prenom}}</h1>
+              <h1 class="text-xl font-bold" v-else>Jhon kloe</h1>
+
               <p class="text-gray-700">Software Developer</p>
             </div>
             <hr class="my-6 border-t border-gray-300" />
@@ -275,8 +277,20 @@
 
 <script>
 import comment from "./CommentComponent.vue";
-import chat from "../chat/chatComponent.vue"
+import chat from "../chat/chatComponent.vue";
+import { useAuthStore } from "../../store/index"
+
 export default {
+  computed: {
+    user() {
+
+      let x = localStorage.getItem("user")
+        ? JSON.parse(localStorage.getItem("user"))
+        : "";
+        console.log(x);
+      return x;
+    },
+  },
   components: {
     comment,
   },
@@ -287,6 +301,7 @@ export default {
     return {
       com: 0,
       add: false,
+     
     };
   },
   methods: {

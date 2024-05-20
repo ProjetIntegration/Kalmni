@@ -74,6 +74,11 @@ getPrestataires(name)
 {
   return ApiClient.get("/recherche_prestataire", { params: name });
 },
+GetallPrestataires()
+{
 
+  return  ApiClient.get("/GetallPrestataires"); 
+
+}
 
 }
