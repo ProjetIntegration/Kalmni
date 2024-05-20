@@ -78,4 +78,16 @@ class personneController extends Controller
 
 
     }
+    public function recherche_prestataire (Request $request)
+    {
+        $name = $request->name;
+        $personnes = User::where(function($query) use ($name) {
+                            $query->where('nom', 'like', '%' . $name . '%')
+                                  ->orWhere('prenom', 'like', '%' . $name . '%');
+                        })
+                        ->where('role', 1)
+                        ->get(); 
+        return  response()->json(["data"=>$personnes],200);
+
+    }
 }
