@@ -85,7 +85,19 @@ class personneController extends Controller
                             $query->where('nom', 'like', '%' . $name . '%')
                                   ->orWhere('prenom', 'like', '%' . $name . '%');
                         })
-                        ->where('role', 1)
+                        ->where('role', 'Prestataire')
+                        ->get(); 
+        return  response()->json(["data"=>$personnes],200);
+
+    }
+    public function recherche_clients (Request $request)
+    {
+        $name = $request->name;
+        $personnes = User::where(function($query) use ($name) {
+                            $query->where('nom', 'like', '%' . $name . '%')
+                                  ->orWhere('prenom', 'like', '%' . $name . '%');
+                        })
+                        ->where('role', 'Client')
                         ->get(); 
         return  response()->json(["data"=>$personnes],200);
 
@@ -93,6 +105,12 @@ class personneController extends Controller
     public function getAllPrestataires()
     {
         $personnes  =  User::where('role','Prestataire')->get(); 
+        return  response()->json(["data"=>$personnes],200);
+ 
+    }
+    public function GetallClients()
+    {
+        $personnes  =  User::where('role','Client')->get(); 
         return  response()->json(["data"=>$personnes],200);
  
     }

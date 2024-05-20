@@ -47,6 +47,8 @@ Route::post('/Rejeter/{id}',[personneController::class,'rejectUser']);
 Route::get('/DemandePrestataire',[personneController::class,'getUserByStatus']);
 route::get('/recherche_prestataire',[personneController::class,'recherche_prestataire']);
 route::get('/GetallPrestataires',[personneController::class,'getAllPrestataires']);
+route::get('/GetallClients',[personneController::class,'GetallClients']);
+route::get('/recherche_clients',[personneController::class,'recherche_clients']);
 
 
 // chat controller 

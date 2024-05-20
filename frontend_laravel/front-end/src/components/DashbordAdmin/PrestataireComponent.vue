@@ -35,11 +35,11 @@
               </div>
               <input
                 type="search"
-                class="block w-full p-4 ps-10 pe-32 text-sm border rounded-lg dark:text-white"
-                placeholder="Search website..."
+                class="block w-full p-4 ps-10 pe-32 text-sm border rounded-lg dark:text-dark"
+                placeholder="Search website..." v-model="name"
               />
               <button
-                type="button"
+                type="button" @click="recherche_prestataire"
                 class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Search
@@ -132,6 +132,7 @@ export default {
   data() {
     return {
       prestataires: [],
+      name:"",
     };
   },
   created() {
@@ -147,6 +148,17 @@ export default {
         console.error("There was an error retrieving the prestataires:", error);
       });
     },
+    recherche_prestataire()
+    {
+      let data={}; 
+      data.name=this.name;
+      Users.getPrestataires(data).then((res)=>{
+        this.prestataires=res.data.data; 
+      }).catch(error => {
+        console.error("There was an error retrieving the prestataires:", error);
+      });
+    }
+    
   },
 };
 </script>

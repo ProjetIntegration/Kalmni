@@ -80,5 +80,13 @@ GetallPrestataires()
   return  ApiClient.get("/GetallPrestataires"); 
 
 }
-
+,
+GetallClients()
+{
+  return  ApiClient.get("/GetallClients"); 
+},
+recherche_clients(name)
+{
+  return ApiClient.get("/recherche_clients", { params: name }); 
+}
 }
