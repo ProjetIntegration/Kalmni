@@ -11,6 +11,7 @@ import ClientView from "@/views/DashboardAdmin/ClientView.vue";
 import DemandeView from "@/views/DashboardAdmin/DemandeView.vue";
 import PrestataireView from "@/views/DashboardAdmin/PrestataireView.vue";
 import SigneInView from "@/views/SignInView.vue";
+import TrouverPrestataire from "@/views/TrouverPrestataire.vue";
 
 
 
@@ -74,6 +75,12 @@ const routes = [
     name: "DashbordView",
     component: DashbordView,
   },
+  {
+    path: "/TrouverPrestataire",
+    name: "TrouverPrestataire",
+    component: TrouverPrestataire,
+  },
+  
 ];
 
 const router = createRouter({

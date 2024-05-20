@@ -68,18 +68,19 @@ export default {
   },
   methods: {
     signIn() {
-      authService.signIn(this.email, this.password).then((res) => {
+      authService.signIn(this.email, this.password)
+        .then((res) => {
+          this.$router.push({ name: "home" });
 
-        this.$router.push({ name: "home" });
-
-
-
-      }).catch((error) => {
-        console.log(error);
-        this.incorrect = true;
-      })
+          
+        })
+        .catch((error) => {
+          console.log(error);
+          this.incorrect = true;
+        });
     }
   }
+
 }
 
 </script>

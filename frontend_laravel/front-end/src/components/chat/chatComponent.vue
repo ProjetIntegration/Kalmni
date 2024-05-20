@@ -154,6 +154,7 @@ export default {
             this.$nextTick(() => {
 
                 let items = this.$refs.messsageContainers;
+                console.log("hi");
                 if (items && items.length > 0) {
                     let last = items[items.length - 1];
                     last.scrollIntoView({
@@ -168,10 +169,13 @@ export default {
         async getMessages() {
             try {
                 const res = await chatService.getMessages({
-                    envoi_id: this.envoi_id,
+                    envoi_id: store.getUser['id'],
                     recu_id: this.recu_id
                 });
+               
+                
                 this.chat = res.data.data;
+                
                 this.scrollToLastMessage();
 
 
