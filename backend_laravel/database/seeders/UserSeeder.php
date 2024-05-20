@@ -18,13 +18,13 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         // For role 1 users
-        User::factory()->count(5)->create(['role' => 1])->each(function ($user) {
+        User::factory()->count(5)->create(['role' => 'Client'])->each(function ($user) {
             $user->posts()->createMany(Post::factory()->count(5)->make()->toArray());
            
         });
 
         // For role 2 users
-        User::factory()->count(5)->create(['role' => 2])->each(function ($user) {
+        User::factory()->count(5)->create(['role' => 'Prestataire'])->each(function ($user) {
             $user->services()->createMany(Services::factory()->count(3)->make()->toArray());
             $user->projects()->createMany(Projects::factory()->count(2)->make()->toArray());
         });

@@ -111,4 +111,10 @@ class personneController extends Controller
         // return  response()->json(["data"=>$personnes],200);
 
     }
+    public function getAllPrestataires()
+    {
+        $personnes  =  User::where('role','Prestataire')->get(); 
+        return  response()->json(["data"=>$personnes],200);
+ 
+    }
 }
