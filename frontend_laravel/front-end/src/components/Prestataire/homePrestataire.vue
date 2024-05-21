@@ -6,9 +6,8 @@
               <img :src="'http://localhost:8000'+user.photo" class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0" />
 
               <h1 class="text-xl font-bold" v-if="user">{{user.nom +" " +user.prenom}}</h1>
-              <h1 class="text-xl font-bold" v-else>Jhon kloe</h1>
 
-              <p class="text-gray-700">Software Developer</p>
+              <p class="text-gray-700">{{ user.adresse }}</p>
             </div>
             <hr class="my-6 border-t border-gray-300" />
             <div class="flex flex-col">

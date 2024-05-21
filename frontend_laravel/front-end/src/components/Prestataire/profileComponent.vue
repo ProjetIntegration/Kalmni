@@ -6,12 +6,12 @@
           <div class="bg-white shadow rounded-lg p-6">
             <div class="flex flex-col items-center">
               <img
-                src="https://randomuser.me/api/portraits/men/94.jpg"
+              :src="'http://localhost:8000'+user.photo"
                 class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0"
               />
 
-              <h1 class="text-xl font-bold">John Doe</h1>
-              <p class="text-gray-700">electricien</p>
+              <h1 class="text-xl font-bold">{{user.nom +" " +user.prenom}}</h1>
+              <p class="text-gray-700">{{ user.adresse }}</p>
             </div>
             <hr class="my-6 border-t border-gray-300" />
             <div class="flex flex-col">
@@ -24,6 +24,7 @@
                     data-twe-ripple-color="dark"
                     class="inline-block rounded bg-transparent px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-neutral-100 hover:text-primary-accent-300 focus:text-primary-accent-300 focus:outline-none focus:ring-0 active:text-primary-700 motion-reduce:transition-none dark:text-secondary dark:hover:bg-secondary-900"
                   >
+                  <router-link to="/profile">
                     <div class="flex items-center">
                       <img
                         src="../../assets/list_alt_20dp_FILL0_wght400_GRAD0_opsz20.png"
@@ -32,6 +33,7 @@
                       />
                       <span class="text-sm">Portfolio</span>
                     </div>
+                  </router-link>
                   </button>
                 </li>
                 <li class="mb-2">
@@ -41,6 +43,7 @@
                     data-twe-ripple-color="dark"
                     class="inline-block rounded bg-transparent px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-neutral-100 hover:text-primary-accent-300 focus:text-primary-accent-300 focus:outline-none focus:ring-0 active:text-primary-700 motion-reduce:transition-none dark:text-secondary dark:hover:bg-secondary-900"
                   >
+                  <router-link to="/Settings">
                     <div class="flex items-center">
                       <img
                         src="../../assets/tune_20dp_FILL0_wght400_GRAD0_opsz20.png"
@@ -49,6 +52,7 @@
                       />
                       <span class="text-sm">Settings</span>
                     </div>
+                  </router-link>
                   </button>
                 </li>
                 <li class="mb-2">
@@ -248,5 +252,18 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  computed: {
+    user() {
+
+      let x = localStorage.getItem("user")
+        ? JSON.parse(localStorage.getItem("user"))
+        : "";
+      return x;
+    },
+  },
+}
+</script>
 
 
