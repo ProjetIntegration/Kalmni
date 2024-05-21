@@ -16,7 +16,7 @@ import axios from "axios";
 
 
       AddPost(Post){
-
+        console.log(Post);
         let data=new FormData();   
         data.append("nom",Post.nom);
         data.append("description",Post.description);

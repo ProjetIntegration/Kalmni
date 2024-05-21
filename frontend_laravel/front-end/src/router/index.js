@@ -12,6 +12,7 @@ import DemandeView from "@/views/DashboardAdmin/DemandeView.vue";
 import PrestataireView from "@/views/DashboardAdmin/PrestataireView.vue";
 import SigneInView from "@/views/SignInView.vue";
 import TrouverPrestataire from "@/views/TrouverPrestataire.vue";
+import ProfileRecherch from "@/views/ProfileRecherch.vue";
 
 
 
@@ -51,7 +52,12 @@ const routes = [
     name: "PrestataireView",
     component: PrestataireView,
   },
-
+  
+  {
+    path: "/ProfileRechecheView",
+    name: "ProfileRechecheView",
+    component: ProfileRecherch,
+  },
 
   {
     path: "/profile",
