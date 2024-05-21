@@ -78,7 +78,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                           </svg>
                         </button>
-                        <form @submit.prevent="SavePost()"enctype="multipart/form-data"
+                        <form @submit.prevent="SavePost()" enctype="multipart/form-data"
                           class="w-200 mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
                           <p class="text-center text-lg font-medium">
                             cree une poste
@@ -295,9 +295,7 @@ export default {
       return x;
     },
   },
-  components: {
-    comment,
-  },
+  
   components: {
     chat
   },
