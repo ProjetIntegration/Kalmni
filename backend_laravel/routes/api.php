@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Api\personneController;
+use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\SignUpController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\auth\SignUpController;
 
 
 use App\Http\Controllers\chat\ChatController;
+
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -59,5 +61,12 @@ Route::get('/Recherche',[ServiceController::class,'recherche_service']);
 Route::get('/prestataireSevices/{id}',[ServiceController::class,'getServiceById']);
 Route::group(["prefix"=>"/service"],function(){
 Route::post('/AddService',[ServiceController::class,'addServices']);
+
+
+//Post Controller
+Route::post('/AddPost',[PostController::class,'addPost']);
+Route::get('/getPostById/{id}',[PostController::class,'getPostById']);
+Route::get('/postes',[PostController::class,'getproduit']);
+Route::delete('/deletePost/{id}',[PostController::class,'deletePost']);
 });
 // }));
