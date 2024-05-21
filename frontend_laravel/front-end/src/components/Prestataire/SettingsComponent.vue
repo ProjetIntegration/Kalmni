@@ -5,11 +5,11 @@
         <div class="col-span-4 sm:col-span-3">
           <div class="bg-white shadow rounded-lg p-6">
             <div class="flex flex-col items-center">
-              <img src="https://randomuser.me/api/portraits/men/94.jpg"
-                class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0" />
+              <img :src="'http://localhost:8000'+user.photo" class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0"
+                 />
 
-              <h1 class="text-xl font-bold">John Doe</h1>
-              <p class="text-gray-700">electricien</p>
+              <h1 class="text-xl font-bold">{{user.nom +" " +user.prenom}}</h1>
+              <p class="text-gray-700">{{ user.adresse }}</p>
             </div>
             <hr class="my-6 border-t border-gray-300" />
             <div class="flex flex-col">
@@ -18,11 +18,13 @@
                 <li class="mb-2">
                   <button type="button" data-twe-ripple-init data-twe-ripple-color="dark"
                     class="inline-block rounded bg-transparent px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-neutral-100 hover:text-primary-accent-300 focus:text-primary-accent-300 focus:outline-none focus:ring-0 active:text-primary-700 motion-reduce:transition-none dark:text-secondary dark:hover:bg-secondary-900">
+                    <router-link to="/profile">
                     <div class="flex items-center">
                       <img src="../../assets/list_alt_20dp_FILL0_wght400_GRAD0_opsz20.png" alt=""
                         class="w-5 h-5 mr-2" />
                       <span class="text-sm">Portfolio</span>
                     </div>
+                  </router-link>
                   </button>
                 </li>
                 <li class="mb-2">
@@ -399,8 +401,8 @@
                     <div class="col-span-full">
                       <label for="photo" class="block text-sm font-medium leading-6 text-gray-900">Photo</label>
                       <div class="mt-2 flex items-center gap-x-3">
-                        <img src="https://randomuser.me/api/portraits/men/94.jpg"
-                          class="w-25 h-25 bg-gray-300 rounded-full mb-4 shrink-0" />
+                        <img :src="'http://localhost:8000'+user.photo" class="w-20 h-20 bg-gray-300 rounded-full mb-4 shrink-0"
+                           />
                         <input type="file" ref="photo" id="formFile"
                           class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300   ">
                       </div>
@@ -549,6 +551,15 @@
 <script>
 import Service from '@/service/Service';
 export default {
+  computed: {
+    user() {
+
+      let x = localStorage.getItem("user")
+        ? JSON.parse(localStorage.getItem("user"))
+        : "";
+      return x;
+    },
+  },
 
   data() {
     return {

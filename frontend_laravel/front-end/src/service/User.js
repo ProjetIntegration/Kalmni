@@ -75,6 +75,19 @@ getPrestataires(name)
   // return ApiClient.get(`/recherche_prestataire/${id}?${name!=''?'name='+name:''}`);
   return ApiClient.get("/recherche_prestataire", { params: name });
 },
+GetallPrestataires()
+{
 
+  return  ApiClient.get("/GetallPrestataires"); 
 
+}
+,
+GetallClients()
+{
+  return  ApiClient.get("/GetallClients"); 
+},
+recherche_clients(name)
+{
+  return ApiClient.get("/recherche_clients", { params: name }); 
+}
 }

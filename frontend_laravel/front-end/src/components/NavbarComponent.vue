@@ -96,7 +96,6 @@ export default {
       let x = localStorage.getItem("user")
         ? JSON.parse(localStorage.getItem("user"))
         : "";
-      console.log(x);
       return x;
     },
   },
