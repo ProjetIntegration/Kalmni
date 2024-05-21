@@ -13,130 +13,135 @@ class ServiceController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function deleteServices($id){
-        $services=Services::find($id);
-        $message ="";
-        if($services==null){
-            $message="Services with $id not found";
-            return response()->json(["message"=>$message],404);
-        }
-        else{
+    public function deleteServices($id)
+    {
+        $services = Services::find($id);
+        $message = "";
+        if ($services == null) {
+            $message = "Services with $id not found";
+            return response()->json(["message" => $message], 404);
+        } else {
             $services->delete();
-            return response()->json(["message"=>"services deleted"],200);
+            return response()->json(["message" => "services deleted"], 200);
         }
     }
 
-    public function getServicesById($id){
-        $services=Services::find($id);
-        return response()->json(["data"=>$services],200);
+    public function getServicesById($id)
+    {
+        $services = Services::find($id);
+        return response()->json(["data" => $services], 200);
     }
-    
 
-    public function addServices(Request $request){
-        $image_service="";
-        $image_certif="";  
-        $service =new Services(); 
-        $service->nom=$request->nom; 
-        $service->description=$request->description; 
-        $service->addresse= $request->addresse; 
+
+    public function addServices(Request $request)
+    {
+        $image_service = "";
+        $image_certif = "";
+        $service = new Services();
+        $service->nom = $request->nom;
+        $service->description = $request->description;
+        $service->addresse = $request->addresse;
         //$service->date=  now(); 
         if ($request->hasFile('photo')) {
-            $file_name = time() . '_' .$request->photo->getClientOriginalName();
-            $image=$request->file('photo')->storeAs('users',$file_name,'public');
-            $image_name='/storage/'.$image;
-        }else{
-            $image_name=$request->nom[0].''.$request->prenom[0];
+            $file_name = time() . '_' . $request->photo->getClientOriginalName();
+            $image = $request->file('photo')->storeAs('users', $file_name, 'public');
+            $image_name = '/storage/' . $image;
+        } else {
+            $image_name = $request->nom[0] . '' . $request->prenom[0];
         }
-        $file_name_certif = time() . '_' .$request->photo_certif->getClientOriginalName();
-        $image_certif=$request->file('photo_certif')->storeAs('users',$file_name_certif,'public');
-        $image_name_certif='/storage/'.$image_certif;
-        $service->img_certificat=$image_name_certif;
-        $service->img_service=$image_name; 
-        $service->user_id=$request->user_id;
-        $service->category_id=$request->category_id;
+        $file_name_certif = time() . '_' . $request->photo_certif->getClientOriginalName();
+        $image_certif = $request->file('photo_certif')->storeAs('users', $file_name_certif, 'public');
+        $image_name_certif = '/storage/' . $image_certif;
+        $service->img_certificat = $image_name_certif;
+        $service->img_service = $image_name;
+        $service->user_id = $request->user_id;
+        $service->category_id = $request->category_id;
         $service->save();
-        $tab=json_decode($request->tab_schedules, true );
-        for ($i=0; $i<count($tab);$i++){
+        $tab = json_decode($request->tab_schedules, true);
+        for ($i = 0; $i < count($tab); $i++) {
             $schedules = new service_schedule();
             $schedules->heure_debut = date('H:i:s', strtotime($tab[$i]["heure_debut"]));
             $schedules->heure_fin = date('H:i:s', strtotime($tab[$i]["heure_fin"]));
             $schedules->jour = $tab[$i]["jour"];
-           $schedules->services_id=$service->id;
-           $schedules->save();
+            $schedules->services_id = $service->id;
+            $schedules->save();
         }
 
 
-        $service->save(); 
+        $service->save();
 
-        return response()->json(["message"=>"Services Added"],201);
+        return response()->json(["message" => "Services Added"], 201);
     }
 
-    public function UpdateServices(Request $request, $id){
-        
-        $services=Services::find($id);
+    public function UpdateServices(Request $request, $id)
+    {
+
+        $services = Services::find($id);
         $services->update([
-            "nom"=>$request->nom,
-            "description"=>$request->description,
-            "addresse"=>$request->addresse,
-            "heure_debut"=>$request->heure_debut,
-            "heure_fin"=>$request->heure_fin,
-            "date"=>$request->date,
+            "nom" => $request->nom,
+            "description" => $request->description,
+            "addresse" => $request->addresse,
+            "heure_debut" => $request->heure_debut,
+            "heure_fin" => $request->heure_fin,
+            "date" => $request->date,
         ]);
-        return response()->json(["message"=>"Update Services terminé"],200);
+        return response()->json(["message" => "Update Services terminé"], 200);
     }
 
     public function Used_services_byUser($id)
     {
-        $services = Services::with('Services_users')->wherehas('Services_users',function($query) use  ($id) 
-        {
-            $query->where('user_id',$id); 
+        $services = Services::with('Services_users')->wherehas('Services_users', function ($query) use ($id) {
+            $query->where('user_id', $id);
         })->get();
-        return response()->json(['data'=>$services],200); 
+        return response()->json(['data' => $services], 200);
 
-    }   
+    }
 
     public function recherche_service(Request $request)
     {
-     
-        $nom_service2 =$request->nom_service;
 
-        $location2 =$request->location;
-    
-        if($location2 == null && $nom_service2!= null )
-        {
-        
-            $Services =Services::where('nom', 'like', '%'.$nom_service2.'%')->get();
-          
-            return response()->json(['data'=> $Services],200);
-        }
-        else{
-            if($location2 != null &&  $nom_service2== null )
-            {
-                $Services =Services::where('addresse', 'like', '%'.$location2.'%')->get();
-             
-              
-                return response()->json(['data'=>$Services],200);
-            }
-            else{
+        $nom_service2 = $request->nom_service;
+
+        $location2 = $request->location;
+
+        if ($location2 == null && $nom_service2 != null) {
+
+            $Services = Services::where('nom', 'like', '%' . $nom_service2 . '%')->get();
+
+            return response()->json(['data' => $Services], 200);
+        } else {
+            if ($location2 != null && $nom_service2 == null) {
+                $Services = Services::where('addresse', 'like', '%' . $location2 . '%')->get();
+
+
+                return response()->json(['data' => $Services], 200);
+            } else {
                 $Services = Services::where('nom', 'like', "%$nom_service2%")
-              ->where('addresse', 'like', "%$location2%")
-              ->get(); 
-              return response()->json(['data'=>$Services],200);
+                    ->where('addresse', 'like', "%$location2%")
+                    ->get();
+                return response()->json(['data' => $Services], 200);
             }
         }
-     
-        
-        
-       
     }
     public function nom_service(Request $request)
     {
-        $nom_service2 = $request->nom; 
-        $Services =Services::where('nom', 'like', '%'.$nom_service2.'%') ->with('User_owner')->get();
-          
-        return response()->json(['data'=> $Services],200);
+        $nom_service2 = $request->nom;
+        $Services = Services::where('nom', 'like', '%' . $nom_service2 . '%')->with('User_owner')->get();
+
+        return response()->json(['data' => $Services], 200);
+    }
+    public function getServiceById($id)
+    {
+        $service = Services::where('user_id', $id)->first();
+
+    if (!$service) {
+        return response()->json(['error' => 'Service not found'], 404);
+    }
+
+    return response()->json(['data' => $service], 200);
+        
     }
 
 
-    
+
 }
