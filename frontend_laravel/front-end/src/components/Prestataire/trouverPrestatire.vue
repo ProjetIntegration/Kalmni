@@ -3,7 +3,7 @@
     <div class="container mx-auto py-8">
       <div class="flex flex-row gap-6 ">
         <home v-if="this.rechercher === false"></home>
-        <service v-if="this.rechercher ===  true" :recu_id="this.recu_id" :envoi_id="this.envoi_id"></service>
+        <service v-if="this.rechercher ===  true" :recu_id="this.recu_id" :envoi_id="this.envoi_id" :key="serviceKey"></service>
         <div class="flex basis-2/5">
           <div :style="{ width: '360px' }" class="bg-white rounded-lg  p-6 shadow-lg ">
             <div class="flex  flex-col items-center">
@@ -74,6 +74,7 @@ export default {
       id:"",
       rechercher: false,
       recu_id : "",
+      serviceKey: 0,
       
 
 
@@ -100,10 +101,9 @@ export default {
       this.rechercher=true;
       this.recu_id=user.id;
       this.envoi_id = this.store.getUser['id'];
+      this.serviceKey++;
 
     }
-
-
   },
 };
 </script>
