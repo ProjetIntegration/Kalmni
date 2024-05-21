@@ -169,11 +169,11 @@ export default {
         console.error("Error fetching user data:", error);
       }
     },
-    RejeterUser(){
-      RejeterService.RejeterUser(user.id)
+    RejeterUser(id){
+      RejeterService.RejeterUser(id)
     },
-    AccepterUser(){
-      AccepterService.AccepterUser(user.id)
+    AccepterUser(id){
+      AccepterService.AccepterUser(id)
     },
     // getUserByStatus(){
     //   getUserByStatusService.getUserByStatus()
