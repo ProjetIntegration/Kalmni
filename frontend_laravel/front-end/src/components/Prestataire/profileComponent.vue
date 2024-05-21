@@ -267,3 +267,33 @@ export default {
 </script>
 
 
+<script>
+
+
+import UserService from "../../service/User"; 
+
+
+export default{
+
+ data()
+ {
+  return {
+        nom: "",
+        prenom: "",
+        email: "",
+        password: "",
+        photo: "",
+        tel: "",
+        adresse: "",
+        date: "",
+        photo_certif:"",
+        description:"",
+        title:"",
+  }
+ }
+
+}
+
+
+
+</script>
