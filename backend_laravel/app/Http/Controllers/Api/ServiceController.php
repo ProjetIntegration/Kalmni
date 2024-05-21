@@ -132,15 +132,13 @@ class ServiceController extends Controller
     }
     public function getServiceById($id)
     {
-        $service = Services::where('user_id', $id)->first();
+        $services = Services::where('user_id', $id)->get();
 
-    if (!$service) {
-        return response()->json(['error' => 'Service not found'], 404);
-    }
-
-    return response()->json(['data' => $service], 200);
         
+
+        return response()->json(['data' => $services], 200);
     }
+
 
 
 

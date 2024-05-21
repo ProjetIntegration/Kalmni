@@ -78,7 +78,8 @@
                                                                         <p class="text-sm">{{ chats.message }}</p>
                                                                     </div>
                                                                     <span class="text-xs text-gray-500 leading-none">{{
-                moment(chats.created_at).format("DD-MM-yy,h:ma") }}</span>
+                moment(chats.created_at).format("DD-MM-yy,h:ma")
+            }}</span>
                                                                 </div>
                                                             </div>
                                                             <div
@@ -88,8 +89,9 @@
                                                                         class="bg-blue-600 text-white p-3 rounded-l-lg rounded-br-lg w-52">
                                                                         <p class="text-sm"> {{ chats.message }} </p>
                                                                     </div>
-                                                                    <span
-                                                                        class="text-xs text-gray-500 leading-none">{{moment(chats.created_at).format("DD-MM-yy,h:ma") }}</span>
+                                                                    <span class="text-xs text-gray-500 leading-none">{{
+                moment(chats.created_at).format("DD-MM-yy,h:ma")
+                                                                        }}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -160,68 +162,42 @@
         </div>
 
         <div class="shadow-lg basis-4/5">
-            <div v-for="service in services" :key="service.id" class="bg-white shadow rounded-lg p-6">
-                <div
-                    class="transition ease-in-out mb-4 delay-150 hover:-translate-y-1 hover:scale duration-300  rounded-3xl border-2 border-gray-200 p-4 bg-white lg:p-8 grid grid-cols-12 max-lg:max-w-lg max-lg:mx-auto gap-y-4 ">
-                    <div class="col-span-12 lg:col-span-2 img box">
-                        <img :src="'http://localhost:8000' + service.img_service" alt="speaker image"
-                            class="max-lg:w-full lg:w-[180px] ">
-                    </div>
-                    <div class="col-span-12 lg:col-span-10 detail w-full lg:pl-3">
-                        <div class="flex items-center justify-between w-full mb-4">
-                            <h5 class="font-manrope font-bold text-2xl leading-9 text-gray-900">{{service.nom}}</h5>
-
-                        </div>
-                        <p class="font-normal text-base leading-7 text-gray-500 mb-6">
-                            {{service.description}}
-                        </p>
-                        <h6 class="text-indigo-600 font-manrope font-bold text-xl leading-9 text-right">
-                            {{service.adresse}}
-                            </h6>
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center gap-4">
-                                <a href="#"
-                                    class="text-white justify-end font-bold block w-300 p-4 text-center border border-gray-300 rounded-lg bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm dark:bg-amber-500 dark:hover:bg-amber-400 dark:focus:ring-amber-500">Réserver</a>
-                            </div>
-                            <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right">
-                                220 DT
-                            </h6>
-                        </div>
-                    </div>
-                </div>
-                
+            <div v-if="services.length === 0" class="bg-white shadow rounded-lg p-6">
+                Aucun service trouvé.
             </div>
-            <div class="bg-white shadow rounded-lg p-6">
-                <div
-                    class="transition ease-in-out mb-4 delay-150 hover:-translate-y-1 hover:scale duration-300  rounded-3xl border-2 border-gray-200 p-4 bg-white lg:p-8 grid grid-cols-12 max-lg:max-w-lg max-lg:mx-auto gap-y-4 ">
-                    <div class="col-span-12 lg:col-span-2 img box">
-                        <img src="https://pagedone.io/asset/uploads/1701162826.png" alt="speaker image"
-                            class="max-lg:w-full lg:w-[180px] ">
-                    </div>
-                    <div class="col-span-12 lg:col-span-10 detail w-full lg:pl-3">
-                        <div class="flex items-center justify-between w-full mb-4">
-                            <h5 class="font-manrope font-bold text-2xl leading-9 text-gray-900">Round white
-                                portable
-                                speaker</h5>
+            <div v-else>
+                <div v-for="service in services" :key="service.id" class="bg-white shadow rounded-lg p-6">
+                    <div
+                        class="transition ease-in-out mb-4 delay-150 hover:-translate-y-1 hover:scale duration-300  rounded-3xl border-2 border-gray-200 p-4 bg-white lg:p-8 grid grid-cols-12 max-lg:max-w-lg max-lg:mx-auto gap-y-4 ">
+                        <div class="col-span-12 lg:col-span-2 img box">
+                            <img :src="'http://localhost:8000' + service.img_service" alt="speaker image"
+                                class="max-lg:w-full lg:w-[180px] ">
+                        </div>
+                        <div class="col-span-12 lg:col-span-10 detail w-full lg:pl-3">
+                            <div class="flex items-center justify-between w-full mb-4">
+                                <h5 class="font-manrope font-bold text-2xl leading-9 text-gray-900">{{service.nom}}</h5>
 
-                        </div>
-                        <p class="font-normal text-base leading-7 text-gray-500 mb-6">
-                            Introducing our sleek round white portable speaker, the epitome of style and
-                            sound!
-                            Elevate your auditory experience with this compact yet powerful device that
-                            delivers
-                            crystal-clear audio wherever you go.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center gap-4">
-                                <a href="#"
-                                    class="text-white justify-end font-bold block w-300 p-4 text-center border border-gray-300 rounded-lg bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm dark:bg-amber-500 dark:hover:bg-amber-400 dark:focus:ring-amber-500">Réserver</a>
                             </div>
-                            <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right">
-                                220 DT
+                            <p class="font-normal text-base leading-7 text-gray-500 mb-6">
+                                {{service.description}}
+                            </p>
+                            <h6 class="text-indigo-600 font-manrope font-bold text-xl leading-9 text-right">
+                                {{service.adresse}}
                             </h6>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center gap-4">
+                                    <a href="#"
+                                        class="text-white justify-end font-bold block w-300 p-4 text-center border border-gray-300 rounded-lg bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm dark:bg-amber-500 dark:hover:bg-amber-400 dark:focus:ring-amber-500">Réserver</a>
+                                </div>
+                                <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right">
+                                    220 DT
+                                </h6>
+                            </div>
                         </div>
                     </div>
+
+
+
                 </div>
             </div>
 
@@ -259,7 +235,7 @@ export default {
 
     },
     async created() {
-        // this.getServices(this.recu_id)
+        this.getServices(this.recu_id)
         this.getMessages();
         this.getUserById(this.recu_id);
         this.moment = moment;
@@ -285,11 +261,7 @@ export default {
 
         };
     },
-    async created() {
-        this.getUserById(this.recu_id);
-        this.moment = moment;
 
-    },
 
 
     methods: {
@@ -357,14 +329,17 @@ export default {
             }
         },
         getUserById(id) {
+
             UserService.getUserById(id).then((res) => {
                 this.user = res.data.data;
             })
         },
         getServices(id) {
-            console.log(id);
+
             servicesService.getServiceById(id).then((res) => {
                 this.services = res.data.data;
+
+
             })
         },
 
