@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Projects;
 use App\Models\service_schedule;
 use App\Models\Services;
 use Illuminate\Http\Request;
@@ -30,6 +31,14 @@ class ServiceController extends Controller
     {
         $services = Services::find($id);
         return response()->json(["data" => $services], 200);
+    }
+    public function getProjectById($id)
+    {
+        $services = Projects::where('user_id', $id)->get();
+
+        
+
+        return response()->json(['data' => $services], 200);
     }
 
 

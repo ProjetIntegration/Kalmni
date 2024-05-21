@@ -73,3 +73,6 @@ Route::get('/postes',[PostController::class,'getproduit']);
 Route::delete('/deletePost/{id}',[PostController::class,'deletePost']);
 });
 // }));
+
+// service controller 
+Route::get('/prestataireProject/{id}',[ServiceController::class,'getProjectById']);
