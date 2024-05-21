@@ -102,16 +102,16 @@
   <p class="text-center text-xl font-bold">Données du prestataire</p>
   <img class="lg:h-80 md:h-64 h-48 w-full object-cover object-center" :src="'http://localhost:8000'+user.photo" alt="blog">
   <div>
-    <label for="Username" class="block font-bold text-lg">Titre de la publication:</label>
-    <p class="bg-gray-100 p-4 rounded-md">{{user.addresse}}</p>
+    <label for="Username" class="block font-bold text-lg">Addresse du prestataire:</label>
+    <p class="bg-gray-100 p-4 rounded-md">{{user.adresse}}</p>
   </div>
   <div>
-    <label for="description" class="block font-bold text-lg">Description de la publication:</label>
-    <p class="bg-gray-100 p-4 rounded-md">Description from backend</p>
+    <label for="description" class="block font-bold text-lg">Email du prestataire :</label>
+    <p class="bg-gray-100 p-4 rounded-md">{{ user.email }}</p>
   </div>
   <div class="flex justify-center space-x-4">
-        <button class="rounded-lg bg-green-500 hover:bg-green-600 px-6 py-4 text-lg font-medium text-white transition-colors" type="button" @click="accept()">Accepter</button>
-        <button class="rounded-lg bg-red-500 hover:bg-red-600 px-6 py-4 text-lg font-medium text-white transition-colors" type="button" @click="reject()">Rejeter</button>
+        <button class="rounded-lg bg-green-500 hover:bg-green-600 px-6 py-4 text-lg font-medium text-white transition-colors" type="button" @click="AccepterUser(user.id)">Accepter</button>
+        <button class="rounded-lg bg-red-500 hover:bg-red-600 px-6 py-4 text-lg font-medium text-white transition-colors" type="button" @click="RejeterUser(user.id)">Rejeter</button>
       </div>
 </div>
 
@@ -169,11 +169,11 @@ export default {
         console.error("Error fetching user data:", error);
       }
     },
-    RejeterUser(){
-      RejeterService.RejeterUser()
+    RejeterUser(id){
+      RejeterService.RejeterUser(id)
     },
-    AccepterUser(){
-      AccepterService.AccepterUser()
+    AccepterUser(id){
+      AccepterService.AccepterUser(id)
     },
     // getUserByStatus(){
     //   getUserByStatusService.getUserByStatus()
