@@ -42,6 +42,14 @@ class personneController extends Controller
 
     public function UpdateUser(Request $request, $id){
 
+        if ($request->hasFile('photo')) {
+            $file_name = time() . '_' .$request->photo->getClientOriginalName();
+            $image=$request->file('photo')->storeAs('users',$file_name,'public');
+            $image_name='/storage/'.$image;
+        }else{
+            $image_name=$request->nom[0].''.$request->prenom[0];
+        }
+
         $users=User::find($id);
         $users->update([
             "nom"=>$request->nom,
@@ -49,7 +57,7 @@ class personneController extends Controller
             "email"=>$request->email,
             "password"=>$request->password,
             "role_number"=>$request->role_number,
-            'photo'=>$request->image,
+            'photo'=>$image_name,
             "tel"=>$request->tel,
             "adresse"=>$request->adresse,
             "date"=>$request->date,

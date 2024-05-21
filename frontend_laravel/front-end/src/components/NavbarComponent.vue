@@ -17,7 +17,7 @@
         <div v-if="user" class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse pr-10">
           <div class="flex items-center gap-4">
             <img class="w-10 h-10 rounded-full" :src="'http://localhost:8000' + user.photo" alt="">
-            <div class="font-medium dark:text-white">
+            <div class="font-medium dark:text-dark">
               <div>{{ user.nom + " " + user.prenom }}</div>
               <button @click="signOut()" class="text-sm text-gray-500 dark:text-gray-400">sign out</button>
             </div>
