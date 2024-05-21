@@ -80,6 +80,25 @@ class personneController extends Controller
     }
     public function recherche_prestataire (Request $request)
     {
+        $name = $request->name;
+        $personnes = User::where(function($query) use ($name) {
+                            $query->where('nom', 'like', '%' . $name . '%')
+                                  ->orWhere('prenom', 'like', '%' . $name . '%');
+                        })
+                        ->where('role', 'Prestataire')
+                        ->get(); 
+        return  response()->json(["data"=>$personnes],200);
+
+    }
+    public function recherche_clients (Request $request)
+    {
+        $name = $request->name;
+        $personnes = User::where(function($query) use ($name) {
+                            $query->where('nom', 'like', '%' . $name . '%')
+                                  ->orWhere('prenom', 'like', '%' . $name . '%');
+                        })
+                        ->where('role', 'Client')
+                        ->get(); 
         
             //$users = User::whereNotIn('id', $excludedUserIds)->where('name', 'like', '%' . $request->search . '%')->get();
             $searchTerm = $request->name;
@@ -99,6 +118,7 @@ class personneController extends Controller
                 
                 ->get();
                         
+      
         return  response()->json(["data"=>$personnes],200);
                 
         // $name = $request->name;
@@ -114,6 +134,12 @@ class personneController extends Controller
     public function getAllPrestataires()
     {
         $personnes  =  User::where('role','Prestataire')->get(); 
+        return  response()->json(["data"=>$personnes],200);
+ 
+    }
+    public function GetallClients()
+    {
+        $personnes  =  User::where('role','Client')->get(); 
         return  response()->json(["data"=>$personnes],200);
  
     }
