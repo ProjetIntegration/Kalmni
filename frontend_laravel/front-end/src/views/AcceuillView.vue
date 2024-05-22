@@ -22,7 +22,6 @@ export default {
   },
   computed: {
     user() {
-
       let x = localStorage.getItem("user")
         ? JSON.parse(localStorage.getItem("user"))
         : "";
