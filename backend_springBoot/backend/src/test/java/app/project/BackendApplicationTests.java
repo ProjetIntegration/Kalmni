@@ -1,6 +1,11 @@
 package app.project;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +37,20 @@ class BackendApplicationTests {
 	        }
 		System.out.println("hello");
 	}
-	/*@Test void finder()
+	
+	@Test 
+	public void finder() throws ParseException
 	{
-		Personne  p  = personneRepository.findById(1L); 
-	}*/
+		SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+		Date dateCreation = dateformat.parse(String.valueOf("12-10-2002"));
+		Personne  p  = new Personne(); 
+		p.setAddresse("tunis");
+		p.setPrenom("akram");
+		p.setNom("zaabi");
+		p.setPassword("123");
+		p.setEmail("akram@gmail.com");
+		p.setDate(dateCreation);
+		personneRepository.save(p); 
+	}
 
 }

@@ -22,7 +22,6 @@ class MessageFactory extends Factory
         
         return [
             'message' => $this->faker->sentence,
-            'date' => $this->faker->date,
             'sender_id' => $senderId,
             'receiver_id' => $receiverId,
         ];

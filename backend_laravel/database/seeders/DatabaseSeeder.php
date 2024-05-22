@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CategorySeeder::class,
             ServicesSeeder::class,
-            // MessageSeeder::class,
-            NotificationsSeeder::class,
+             MessageSeeder::class,
+            
             // Add other seeders here if needed
         ]);
     }

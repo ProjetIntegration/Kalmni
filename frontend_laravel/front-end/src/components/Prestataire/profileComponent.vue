@@ -6,12 +6,12 @@
           <div class="bg-white shadow rounded-lg p-6">
             <div class="flex flex-col items-center">
               <img
-              :src="'http://localhost:8000'+user.photo"
+              :src="'http://localhost:8000'"
                 class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0"
               />
 
-              <h1 class="text-xl font-bold">{{user.nom +" " +user.prenom}}</h1>
-              <p class="text-gray-700">{{ user.adresse }}</p>
+              <h1 class="text-xl font-bold">akram</h1>
+              <p class="text-gray-700">zaabi</p>
             </div>
             <hr class="my-6 border-t border-gray-300" />
             <div class="flex flex-col">
@@ -252,48 +252,6 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  computed: {
-    user() {
-
-      let x = localStorage.getItem("user")
-        ? JSON.parse(localStorage.getItem("user"))
-        : "";
-      return x;
-    },
-  },
-}
-</script>
-
-
-<script>
-
-
-import UserService from "../../service/User"; 
-
-
-export default{
-
- data()
- {
-  return {
-        nom: "",
-        prenom: "",
-        email: "",
-        password: "",
-        photo: "",
-        tel: "",
-        adresse: "",
-        date: "",
-        photo_certif:"",
-        description:"",
-        title:"",
-  }
- }
-
-}
 
 
 
-</script>

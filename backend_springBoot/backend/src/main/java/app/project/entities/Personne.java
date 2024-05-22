@@ -28,8 +28,8 @@ public class Personne {
 	  private String email ;
 	  @Column(name="Password")
 	  private String password ;
-	  @Column(name="role_number")
-	  private int role_number  ;
+	  @Column(name="Role")
+	  private String Role  ;
 	  @Column(name="addresse")
 	  private String addresse ;
 	  @Column(name="Date")
@@ -119,13 +119,13 @@ public class Personne {
 	}
 
 
-	public int getRole_number() {
-		return role_number;
+	public String getRole_number() {
+		return this.Role;
 	}
 
 
-	public void setRole_number(int role_number) {
-		this.role_number = role_number;
+	public void setRole_number(String role_number) {
+		this.Role = role_number;
 	}
 
 
@@ -214,14 +214,15 @@ public class Personne {
 	 {
 		 super(); 
 	 }
-	 public Personne(String nom , String prenom , String email ,  String password , int role_number ,  String addresse ,  Date date)
+	 public Personne(String nom , String prenom , String email ,  String password , String role_number ,  String addresse ,  Date date)
 	 {
+		 super(); 
 		 this.nom=nom ; 
 		 this.prenom=prenom; 
 		 this.addresse=addresse; 
 		 this.date=date; 
 		 this.email=email; 
-		 this.role_number=role_number; 
+		 this.Role=role_number; 
 		 this.password=password; 
 		 
 	 }
