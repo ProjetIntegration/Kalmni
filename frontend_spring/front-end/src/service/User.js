@@ -8,9 +8,13 @@ const ApiClient = axios.create({
   });
 
 export default {
+  getUserById(id){
+    // console.log(id);
+    return ApiClient.get("/usersDetails/"+id);
+  },
 
     AddUser(user){
-        console.log(user);
+        // console.log(user);
         let data=new FormData();
         data.append("nom", user.nom);
         data.append("prenom", user.prenom);
@@ -37,6 +41,7 @@ export default {
        getNotif(id){
         return ApiClient.get("/getNotif/"+id);
     }, 
+    
     UpdateUSer(user,id){
   
       let data=new FormData();
@@ -55,7 +60,35 @@ export default {
     }
   return ApiClient.post(`/UpdateUser/${id}`,data,config);
   },
+  AccepterUser(id){
+    return ApiClient.post(`/Accepter/${id}`);
+},
+RejeterUser(id){
+  return ApiClient.post(`/Rejeter/${id}`);
+},
+getUserByStatus(){
+  return ApiClient.get("/DemandePrestataire");
+},
 
+getPrestataires(name)
+{
+  // return ApiClient.get(`/recherche_prestataire/${id}?${name!=''?'name='+name:''}`);
+  return ApiClient.get("/recherche_prestataire", { params: name });
+},
+GetallPrestataires()
+{
 
+  return  ApiClient.get("/GetallPrestataires"); 
+
+}
+,
+GetallClients()
+{
+  return  ApiClient.get("/GetallClients"); 
+},
+recherche_clients(name)
+{
+  return ApiClient.get("/recherche_clients", { params: name }); 
+},
 
 }

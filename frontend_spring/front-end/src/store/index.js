@@ -1,12 +1,16 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia';
+import { ref, computed } from 'vue'; // Import computed from the 'vue' package
 
-import { ref } from 'vue'; // Import ref from the 'vue' package
-
-export const AuthStore = defineStore('auth', () => {
+export const useAuthStore = defineStore('auth', () => {
     const token = ref(localStorage.getItem('token') ?? null);
-    const isAuth = ref(localStorage.getItem('token') && localStorage.getItem('user'));
+    const isAuth = ref(!!localStorage.getItem('token') && !!localStorage.getItem('user'));
     const user = ref(JSON.parse(localStorage.getItem('user')) ?? null);
     const role = ref(localStorage.getItem('role') ?? null);
+
+    const getToken = computed(() => token.value);
+    const getIsAuth = computed(() => isAuth.value);
+    const getUser = computed(() => user.value);
+    const getIsAdmin = computed(() => role.value === 'admin'); // Adjust based on your role logic
 
     function login(t, u, r) {
         token.value = t;
@@ -35,5 +39,17 @@ export const AuthStore = defineStore('auth', () => {
         localStorage.setItem('user', JSON.stringify(u));
     }
 
-    return { token, user, isAuth, role, login, setUser, logout };
+    return {
+        token,
+        user,
+        isAuth,
+        role,
+        login,
+        setUser,
+        logout,
+        getToken,
+        getIsAuth,
+        getUser,
+        getIsAdmin,
+    };
 });

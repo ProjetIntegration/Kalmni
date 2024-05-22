@@ -26,19 +26,24 @@
         <div>
           <label class="text-sm mb-2 block" for="email">Email</label>
           <input name="email" type="email" id="email" v-model="email"
-            class="bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-amber-500" placeholder="Enter email"
+          :class="incorrect ? 'bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:border-red-500 block w-full p-4 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500' : 'bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-amber-500'"
+
+             placeholder="Enter email"
             required />
         </div>
         <div>
           <label class="text-sm mb-2 block" for="password">Mot de passe</label>
           <input name="password" type="password" id="password" v-model="password"
-            class="bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-amber-500" placeholder="Enter password"
+           :class="incorrect ? 'bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:border-red-500 block w-full p-4 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500' : 'bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-amber-500'"
+            placeholder="Enter password"
             required />
         </div>
 
 
         <a class="text-sm text-end font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot
           password?</a>
+          <p v-if="incorrect == true" class="mt-2 text-sm text-red-600 text-center dark:text-red-500"> Identifiant ou Mot de passe
+            incorrect.</p>
 
         <div class="!mt-10 grid grid-cols-3 gap-4 mb-5 ">
           <div></div>
@@ -63,23 +68,25 @@ export default {
     return {
       password: "",
       email: "",
+      incorrect: false,
     }
 
   },
   methods: {
     signIn() {
-      authService.signIn(this.email, this.password).then((res) => {
+      authService.signIn(this.email, this.password)
+        .then((res) => {
+          this.$router.push({ name: "home" });
 
-        this.$router.push({ name: "home" });
-
-
-
-      }).catch((error) => {
-        console.log(error);
-        this.incorrect = true;
-      })
+          
+        })
+        .catch((error) => {
+          console.log(error);
+          this.incorrect = true;
+        });
     }
   }
+
 }
 
 </script>
