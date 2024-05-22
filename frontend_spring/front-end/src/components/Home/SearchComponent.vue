@@ -138,18 +138,20 @@ export default {
   },
   methods: {
 
-    recherche_service()
-    {
+    recherche_service() {
+      let data2 = {
+        nom_service: this.nom_service,
+        location: this.location,
+      };
+      console.log(data2);
 
-     let data = {}; 
-     data.nom_service=this.nom_service;
-     data.location=this.location; 
-     console.log(data);
-
-      service.Service_recherche(data).then((res)=>{
-        console.log(this.res.data);
-      })
-
+      service.Service_recherche(data2)
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     },
 
 
