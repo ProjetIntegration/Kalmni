@@ -265,19 +265,20 @@ export default {
       //   return;
       // }
       // this.loading = true;
+    
       signUpService.signUp({
         "nom": this.form.nom,
         "prenom": this.form.prenom,
         "email": this.form.email,
-        "tel": this.form.tel,
+      //  "tel": this.form.tel,
         "password": this.form.password,
-        "adresse": this.form.adresse,
-        "date": this.form.date,
-        "title": this.form.title,
-        "description": this.form.description,
-        "photo": this.form.photo,
-        "photo_certif": this.form.photo_certif,
-        "role":this.SelectedRole,
+        "addresse": this.form.adresse,
+        "date": new Date( this.form.date).toISOString(),
+       // "title": this.form.title,
+       // "description": this.form.description,
+        "photo": "this.form.photo",
+        //"photo_certif": this.form.photo_certif,
+        "role_number":this.SelectedRole,
         
       }).then((res) => {
         this.form.nom = "";

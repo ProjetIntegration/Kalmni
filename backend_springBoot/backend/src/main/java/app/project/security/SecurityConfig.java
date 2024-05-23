@@ -96,7 +96,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Bean
 	public CorsConfigurationSource corsConfigurationSource() {
 	    CorsConfiguration configuration = new CorsConfiguration();
-	    configuration.setAllowedOrigins(Arrays.asList("http://localhost:8080")); // Allow requests from your Angular app's origin
+	    configuration.setAllowedOrigins(Arrays.asList("http://localhost:8081")); // Allow requests from your Angular app's origin
 	    configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
 	    configuration.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
 	 

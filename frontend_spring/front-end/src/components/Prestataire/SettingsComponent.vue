@@ -5,11 +5,11 @@
         <div class="col-span-4 sm:col-span-3">
           <div class="bg-white shadow rounded-lg p-6">
             <div class="flex flex-col items-center">
-              <img :src="'http://localhost:8000'+user.photo" class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0"
-                 />
+              <img src="https://randomuser.me/api/portraits/men/94.jpg"
+                class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0" />
 
-              <h1 class="text-xl font-bold">{{user.nom +" " +user.prenom}}</h1>
-              <p class="text-gray-700">{{ user.adresse }}</p>
+              <h1 class="text-xl font-bold">John Doe</h1>
+              <p class="text-gray-700">electricien</p>
             </div>
             <hr class="my-6 border-t border-gray-300" />
             <div class="flex flex-col">
@@ -18,13 +18,11 @@
                 <li class="mb-2">
                   <button type="button" data-twe-ripple-init data-twe-ripple-color="dark"
                     class="inline-block rounded bg-transparent px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-neutral-100 hover:text-primary-accent-300 focus:text-primary-accent-300 focus:outline-none focus:ring-0 active:text-primary-700 motion-reduce:transition-none dark:text-secondary dark:hover:bg-secondary-900">
-                    <router-link to="/profile">
                     <div class="flex items-center">
                       <img src="../../assets/list_alt_20dp_FILL0_wght400_GRAD0_opsz20.png" alt=""
                         class="w-5 h-5 mr-2" />
                       <span class="text-sm">Portfolio</span>
                     </div>
-                  </router-link>
                   </button>
                 </li>
                 <li class="mb-2">
@@ -128,7 +126,7 @@
                             <select id="categorieses"
                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                               <option selected>Choisir Categorie</option>
-                              <option>1</option>
+                              <option>XXXX</option>
                             </select>
                           </label>
                         </div>
@@ -137,14 +135,14 @@
                             certificate</label>
                           <input
                             class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
-                            ref="photo_certif" @change="SavePhotoCertif" type="file" id="formFile" />
+                            ref="photo_certif" @change="SavePhotoCertif" type="file" id="certif" />
                         </div>
                         <div class="mb-2">
                           <label for="formFile" class="mb-2 inline-block text-neutral-700 dark:text-neutral-200">image
                             srvice</label>
                           <input
                             class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
-                           @change="SavePhoto" ref="photo_name" type="file" id="formFile"  />
+                           @change="SavePhoto" ref="photo_name" type="file" id="photo"  />
                         </div>
                         <!-- date section -->
                         <div class="max-h-[200px] overflow-auto">
@@ -401,8 +399,8 @@
                     <div class="col-span-full">
                       <label for="photo" class="block text-sm font-medium leading-6 text-gray-900">Photo</label>
                       <div class="mt-2 flex items-center gap-x-3">
-                        <img :src="'http://localhost:8000'+user.photo" class="w-20 h-20 bg-gray-300 rounded-full mb-4 shrink-0"
-                           />
+                        <img src="https://randomuser.me/api/portraits/men/94.jpg"
+                          class="w-25 h-25 bg-gray-300 rounded-full mb-4 shrink-0" />
                         <input type="file" ref="photo" id="formFile"
                           class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300   ">
                       </div>
@@ -551,15 +549,6 @@
 <script>
 import Service from '@/service/Service';
 export default {
-  computed: {
-    user() {
-
-      let x = localStorage.getItem("user")
-        ? JSON.parse(localStorage.getItem("user"))
-        : "";
-      return x;
-    },
-  },
 
   data() {
     return {
@@ -596,13 +585,23 @@ export default {
     afficher() {
       console.log(this.nom + this.prenom + this.mail + this.password + this.adresse + this.tel)
     },
+  
     SavePhotoCertif() {
       //console.log(this.$refs.photo_certif.files[0]);
-      this.photo_certif = this.$refs.photo_certif.files[0];
+            const file = document.querySelector("#certif").files[0];
+            const reader = new FileReader();
+            reader.onloadend = () => {
+               this.photo_certif = reader.result;
+           };
+           reader.readAsDataURL(file);
     },
     SavePhoto() {
-      this.photo = this.$refs.photo_name.files[0];
-      console.log(this.photo);
+      const file = document.querySelector("#photo").files[0];
+            const reader = new FileReader();
+            reader.onloadend = () => {
+               this.photo = reader.result;
+           };
+           reader.readAsDataURL(file);
     },
     FillTabSchedules() {
       this.tab_schedules.push(
@@ -616,7 +615,7 @@ export default {
       );
     },
     SaveService() {
-      this.FillTabSchedules();
+      /*this.FillTabSchedules();
       Service.AddService({
         nom: this.title,
         description: this.description,
@@ -628,7 +627,9 @@ export default {
         tab_schedules: this.tab_schedules
       }).then((res) => {
         console.log(res);
-      })
+      })*/
+      console.log(this.photo);
+      console.log(this.photo_certif);
     },
     close() {
       this.add = false;

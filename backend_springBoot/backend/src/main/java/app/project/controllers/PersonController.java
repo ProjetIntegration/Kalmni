@@ -52,13 +52,5 @@ public class PersonController {
 	{
 		PersonneService.UpdatePersonne(person); 
 	}
-	@PostMapping("/SignUp")
-	public Personne SignUp(@RequestBody Personne person)
-	{
-		
-		
-		
-		return null;
-	}
 	
 }
