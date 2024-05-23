@@ -3,7 +3,7 @@ import { createPinia } from 'pinia'
 import App from "./App.vue";
 const pinia = createPinia()
 const app = createApp(App)
-import Echo from "laravel-echo"
+/*import Echo from "laravel-echo"
 window.Pusher = require('pusher-js');
 
 window.Echo = new Echo({
@@ -14,7 +14,7 @@ window.Echo = new Echo({
    cluster: "mt1",
    forceTLS: false,
    disableStats: true,
-});
+});*/
 
 import router from "./router";
 import "./assets/style.css";
