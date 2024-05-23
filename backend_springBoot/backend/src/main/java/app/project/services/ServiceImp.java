@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import app.project.entities.Category;
+import app.project.entities.PayloadService;
+import app.project.entities.Paylod;
 import app.project.entities.Personne;
 import app.project.entities.Projects;
 import app.project.entities.Services;
@@ -29,12 +31,18 @@ public class ServiceImp  implements Service{
 	}
 
 	@Override
-	public Services saveService(Services services,Long IdCtaegory,Long IdPersonne) {
-		// TODO Auto-generated method stub
-		Category p =  categoryrepository.findById(IdCtaegory).get(); 
-		Personne p2=  personnerepository.findById(IdPersonne).get(); 
+	public Services saveService(PayloadService s) {
+		Services services = new Services();
+		Category p =  categoryrepository.findById(s.getCategory_id()).get(); 
+		Personne p2=  personnerepository.findById(s.getUser_id()).get(); 
 		services.setCategory(p);
 		services.setOwner(p2);
+		services.setAdresse(s.getAddresse());
+		services.setDescription(s.getDescription());
+		services.setNom(s.getNom());
+		services.setHeure_debut(s.getHeure_debut());
+		services.setHeure_fin(s.getHeure_fin());
+		services.setPhoto(s.getPhoto());
 		servicerepository.save(services); 
 		return  services; 
 	}
