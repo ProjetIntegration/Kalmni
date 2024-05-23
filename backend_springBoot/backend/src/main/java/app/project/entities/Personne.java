@@ -43,8 +43,12 @@ public class Personne {
 	  private String addresse ;
 	  @Column(name="Date")
 	  private Date date; 
-	  
-	  @OneToMany(mappedBy="Owner")
+	  @Column(name="photo",length=99999999)
+	  private String photo; 
+	
+
+	
+	@OneToMany(mappedBy="Owner")
 	  private List<Services>  services; 
 	  
 	 public List<Services> getServices() {
@@ -234,6 +238,22 @@ public class Personne {
 		 this.password=password; 
 		 
 	 }
+
+
+	public String getPhoto() {
+		// TODO Auto-generated method stub
+		return this.photo;
+	}
+
+
+	
+
+
+	public void setPhoto(String photo2) {
+		// TODO Auto-generated method stub
+		this.photo = photo2;
+	}
+	
 	 
 	 
 }
