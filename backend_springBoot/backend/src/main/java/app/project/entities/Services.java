@@ -36,10 +36,10 @@ private Category category_id;
 private String adresse; 
 
 @Column(name="heure_debut")
-private int heure_debut; 
+private String  heure_debut; 
 
 @Column(name="heure_fin")
-private int heure_fin; 
+private String heure_fin; 
 
 @Column(length = 999999999) 
 private String Photo;
@@ -72,8 +72,8 @@ public void setOwner(Personne owner) {
 }
 
 
-public Services(Long serviceId, String nom, String description, Category category_id, String adresse, int heure_debut,
-	int heure_fin,String photo) {
+public Services(Long serviceId, String nom, String description, Category category_id, String adresse, String heure_debut,
+		String heure_fin,String photo) {
 	super();
 	ServiceId = serviceId;
 	this.nom = nom;
@@ -156,25 +156,25 @@ public void setAdresse(String adresse) {
 
 
 
-public int getHeure_debut() {
+public String getHeure_debut() {
 	return heure_debut;
 }
 
 
 
-public void setHeure_debut(int heure_debut) {
+public void setHeure_debut(String heure_debut) {
 	this.heure_debut = heure_debut;
 }
 
 
 
-public int getHeure_fin() {
+public String getHeure_fin() {
 	return heure_fin;
 }
 
 
 
-public void setHeure_fin(int heure_fin) {
+public void setHeure_fin(String heure_fin) {
 	this.heure_fin = heure_fin;
 }
 
