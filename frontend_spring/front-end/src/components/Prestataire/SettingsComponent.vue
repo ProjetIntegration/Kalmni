@@ -4,6 +4,15 @@
       <div class="grid grid-cols-4 sm:grid-cols-12 gap-6 px-4">
         <div class="col-span-4 sm:col-span-3">
           <div class="bg-white shadow rounded-lg p-6">
+
+            <div class="flex flex-col items-center">
+              <img src="https://randomuser.me/api/portraits/men/94.jpg"
+                class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0" />
+
+              <h1 class="text-xl font-bold">John Doe</h1>
+              <p class="text-gray-700">electricien</p>
+            </div>
+
            <!-- <div class="flex flex-col items-center">
               <img
                 :src="'http://localhost:8000' + user.photo"
@@ -15,11 +24,13 @@
               </h1>
               <p class="text-gray-700">{{ user.adresse }}</p>
             </div>-->
+
             <hr class="my-6 border-t border-gray-300" />
             <div class="flex flex-col">
               <h2 class="text-xl font-bold mb-4">About Me</h2>
               <ul>
                 <li class="mb-2">
+
                   <button
                     type="button"
                     data-twe-ripple-init
@@ -36,6 +47,7 @@
                         <span class="text-sm">Portfolio</span>
                       </div>
                     </router-link>
+
                   </button>
                 </li>
                 <li class="mb-2">
@@ -214,7 +226,7 @@
                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             >
                               <option selected>Choisir Categorie</option>
-                              <option>1</option>
+                              <option>XXXX</option>
                             </select>
                           </label>
                         </div>
@@ -226,10 +238,14 @@
                           >
                           <input
                             class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+
+                            ref="photo_certif" 
+
                             @change="base64()"
                             type="file"
                             id="file"
                           />
+
                         </div>
                         <div class="mb-2">
                           <label
@@ -239,9 +255,13 @@
                           >
                           <input
                             class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
-                            type="date"
+
+                           @change="SavePhoto" ref="photo_name" type="file" id="photo" 
+
+                           
                             v-model="date_debut"
                           />
+
                         </div>
                         <div class="mb-2">
                           <label
@@ -316,16 +336,12 @@
                         >Photo</label
                       >
                       <div class="mt-2 flex items-center gap-x-3">
-                        <img
-                          :src="'http://localhost:8000' + user.photo"
-                          class="w-20 h-20 bg-gray-300 rounded-full mb-4 shrink-0"
-                        />
-                        <input
-                          type="file"
-                          ref="photo"
-                          id="formFile"
-                          class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300"
-                        />
+
+                        <img src="https://randomuser.me/api/portraits/men/94.jpg"
+                          class="w-25 h-25 bg-gray-300 rounded-full mb-4 shrink-0" />
+                        <input type="file" ref="photo" id="formFile"
+                          class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300   ">
+
                       </div>
                     </div>
                   </div>
@@ -539,6 +555,7 @@
 <script>
 import Service from "@/service/Service";
 export default {
+
   computed: {
     user() {
       console.log("test");
@@ -548,6 +565,7 @@ export default {
       return true;
     },
   },
+
 
   data() {
     return {
@@ -568,13 +586,37 @@ export default {
   },
   methods: {
     afficher() {
-      console.log(
-        this.nom +
-          this.prenom +
-          this.mail +
-          this.password +
-          this.adresse +
-          this.tel
+
+      console.log(this.nom + this.prenom + this.mail + this.password + this.adresse + this.tel)
+    },
+  
+    SavePhotoCertif() {
+      //console.log(this.$refs.photo_certif.files[0]);
+            const file = document.querySelector("#certif").files[0];
+            const reader = new FileReader();
+            reader.onloadend = () => {
+               this.photo_certif = reader.result;
+           };
+           reader.readAsDataURL(file);
+    },
+    SavePhoto() {
+      const file = document.querySelector("#photo").files[0];
+            const reader = new FileReader();
+            reader.onloadend = () => {
+               this.photo = reader.result;
+           };
+           reader.readAsDataURL(file);
+    },
+    FillTabSchedules() {
+      this.tab_schedules.push(
+        { jour: "lundi", heure_debut: this.start_lundi, heure_fin: this.end_lundi },
+        { jour: "mardi", heure_debut: this.start_mardi, heure_fin: this.end_mardi },
+        { jour: "mercredi", heure_debut: this.start_maredredi, heure_fin: this.end_maredredi },
+        { jour: "jeudi", heure_debut: this.start_jeudi, heure_fin: this.end_jeudi },
+        { jour: "vendredi", heure_debut: this.start_vendredi, heure_fin: this.end_vendredi },
+        { jour: "samedi", heure_debut: this.start_samedi, heure_fin: this.end_samedi },
+        { jour: "dimanche", heure_debut: this.start_dimanche, heure_fin: this.end_dimanche }
+
       );
     },
     base64() {
@@ -586,6 +628,9 @@ export default {
       reader.readAsDataURL(file);
     },
     SaveService() {
+
+      /*this.FillTabSchedules();
+
       Service.AddService({
         nom: this.title,
         description: this.description,
@@ -597,7 +642,11 @@ export default {
         category_id: 1,
       }).then((res) => {
         console.log(res);
-      });
+
+      })*/
+      console.log(this.photo);
+      console.log(this.photo_certif);
+
     },
     close() {
       this.add = false;
