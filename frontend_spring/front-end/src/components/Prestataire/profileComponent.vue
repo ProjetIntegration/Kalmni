@@ -136,15 +136,7 @@
               </div>
             </div>
           </div>
-          <!-- <div class="my-10 lg:w-[70%] md:h-[14rem] xs:w-full xs:h-[10rem]">
-            <h1 class="text-xl font-bold mt-6 mb-4">My Location</h1> -->
-
-          <!-- Location -->
-          <!-- <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252230.02028974562!2d38.613328040215286!3d8.963479542403238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85cef5ab402d%3A0x8467b6b037a24d49!2sAddis%20Ababa!5e0!3m2!1sen!2set!4v1710567234587!5m2!1sen!2set"
-              class="rounded-lg w-full h-full" style="border: 0" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe> -->
-          <!-- </div> -->
+          
         </div>
       </div>
     </div>

@@ -66,7 +66,11 @@ public class PersonneServiceImp  implements PersonneService{
 		return  personneRepository.save(p);
 	}
 
-	
+	 @Override
+	    public Personne findPersonById(Long id) {
+	        Optional<Personne> person = personneRepository.findById(id);
+	        return person.orElse(null);
+	    }
 	
 	
 

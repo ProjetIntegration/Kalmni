@@ -12,4 +12,6 @@ public interface PersonneService {
 	public void DeletePersonneById(Long id ); 
 	public void DeletePersonne(Personne p); 
 	public Personne UpdatePersonne(Personne p); 
+    Personne findPersonById(Long id);
+
 }
