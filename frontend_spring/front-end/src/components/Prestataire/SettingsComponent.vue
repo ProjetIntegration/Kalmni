@@ -151,7 +151,7 @@
                         </svg>
                       </button>
                       <form
-                        @submit.prevent="SaveService()"
+                        
                         enctype="multipart/form-data"
                         class="w-200 mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
                       >
@@ -184,7 +184,7 @@
                           >
                             <input
                               type="text"
-                              v-model="adress"
+                              v-model="adresse"
                               class="w-[500px] peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 p-4 pe-12"
                               placeholder="adresse"
                             />
@@ -262,7 +262,7 @@
 
                            type="date"
 
-                           
+                           v-model="date_debut"
                             
                           />
 
@@ -280,7 +280,7 @@
                           />
                         </div>
                         <button
-                          type="submit"
+                         @click="SaveService()"
                           class="block w-full rounded-lg bg-amber-400 px-5 py-3 text-sm font-medium text-white"
                         >
                           ajouter
@@ -557,7 +557,7 @@
 </template>
 
 <script>
-import Service from "@/service/Service";
+import serviceService from "../../service/Service";
 export default {
 
   computed: {
@@ -586,6 +586,8 @@ export default {
       photo: null,
       date_debut: "",
       date_fin: "",
+      serviceId:"",
+      CategoryId:"",
     };
   },
   methods: {
@@ -633,23 +635,37 @@ export default {
     },
     SaveService() {
 
-      /*this.FillTabSchedules();
-
-      Service.AddService({
+      this.CategoryId=1;
+      let Service  = {
         nom: this.title,
         description: this.description,
-        addresse: this.adress,
+        addresse: this.adresse,
         photo: this.photo,
         heure_debut: this.date_debut,
         heure_fin: this.date_fin,
-        user_id: 1,
-        category_id: 1,
-      }).then((res) => {
-        console.log(res);
+        CategoryId: this.CategoryId,
+        PersonneId: "1",
+        
+        
+      }
+      
 
-      })*/
-      console.log(this.photo);
-      console.log(this.photo_certif);
+      serviceService.AddService({
+        nom: this.title,
+        description: this.description,
+        addresse: this.adresse,
+        photo: this.photo,
+        heure_debut: this.date_debut,
+        heure_fin: this.date_fin,
+        CategoryId: this.CategoryId,
+        PersonneId: "1",
+        
+        
+      }).then((res) => {
+        console.log(res.data);
+
+      })
+      
 
     },
     close() {

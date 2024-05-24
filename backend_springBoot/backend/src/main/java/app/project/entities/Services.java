@@ -16,6 +16,7 @@ import javax.persistence.Table;
 @Table(name="Services")
 
 public class Services {
+
 	
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
@@ -84,6 +85,7 @@ public Services(Long serviceId, String nom, String description, Category categor
 	this.heure_fin = heure_fin;
 	this.Photo = photo; 
 }
+
 
 
 public Services() {
@@ -200,6 +202,11 @@ public Set<ServiceUser> getService_registrated() {
 
 public void setService_registrated(Set<ServiceUser> service_registrated) {
 	this.service_registrated = service_registrated;
+}
+
+
+public Long getUser_id() {
+	return null;
 } 
 
 

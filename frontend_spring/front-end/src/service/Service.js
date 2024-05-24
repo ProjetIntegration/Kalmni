@@ -4,8 +4,11 @@ import "../plugins/axios.js";
 export default {
   
  
-  AddService(data) {
-    return Axios.post("/AddService", data);
+  AddService(Service) {
+    
+    //const requestData = { "Service" :Service, "category" :category ,"Personne" :Personne};
+    //console.log(requestData);
+    return Axios.post("/AddService", Service);
   },
   Service_recherche(Service) {
     return Axios.get("/Recherche", { params: Service });

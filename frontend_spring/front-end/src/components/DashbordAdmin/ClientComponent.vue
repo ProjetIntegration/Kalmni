@@ -136,6 +136,7 @@ export default {
   },
   created() {
     this.GetClients();
+    console.log(this.clients);
   },
   methods: {
     recherche_prestataire()
@@ -143,7 +144,7 @@ export default {
       let data = {}; 
       data.name =  this.name;
       Users.recherche_clients(data).then((res) =>{
-        this.clients = res.data.data;
+        this.clients = res.data;
 
         console.log(this.clients);
       })
