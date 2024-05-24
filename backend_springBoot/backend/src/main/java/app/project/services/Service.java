@@ -16,5 +16,7 @@ public interface Service {
 	Services  findServiceById(Long id);
 	List<Services> findAllServices();
 	List<Services>FindServicesByLocation(String name , String Location ); 	
-	Personne GetOwnerofService(Long id); 
+	Personne GetOwnerofService(Long id);
+	List<Services> findByNomContaining(String nom);
+	List<Services> findByAddresseContaining(String adresse); 
 }

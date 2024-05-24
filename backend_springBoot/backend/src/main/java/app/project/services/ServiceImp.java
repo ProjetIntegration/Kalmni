@@ -52,18 +52,28 @@ public class ServiceImp  implements Service{
 		servicerepository.findById(id); 
 		return null;
 	}
+	@Override
+	public List<Services> findByNomContaining(String nom) {
+        return servicerepository.findByNomContaining(nom);
+    }
 
 	@Override
 	public List<Services> findAllServices() {
 		// TODO Auto-generated method stub
-		List<Services>s = servicerepository.findAll();
-		return s; 
+		//System.out.println("FindServicesByLocation called with name: ");
+
+		return servicerepository.findAll();
 	}
+	@Override
+	public List<Services> findByAddresseContaining(String adresse) {
+        return servicerepository.findByAdresseContaining(adresse);
+    }
 
 	@Override
 	public List<Services> FindServicesByLocation(String name, String Location) {
 		// TODO Auto-generated method stub
-		return null; //servicerepository.FindByNameAndLocation(name, Location);
+		//System.out.println("FindServicesByLocation called with name: " + name + " and location: " + Location);
+        return servicerepository.findByNomContainingAndAdresseContaining(name, Location);
 	}
 
 	@Override

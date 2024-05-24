@@ -140,8 +140,8 @@ export default {
 
     recherche_service() {
       let data2 = {
-        nom_service: this.nom_service,
-        location: this.location,
+        nom: this.nom_service,
+        adresse: this.location,
       };
       console.log(data2);
 

@@ -263,7 +263,7 @@
                            type="date"
 
                            
-                            v-model="date_debut"
+                            
                           />
 
                         </div>
