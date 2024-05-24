@@ -15,6 +15,7 @@ import app.project.repository.PersonneRepository;
 import app.project.repository.ServiceRepository;
 
 
+
 @org.springframework.stereotype.Service
 public class ServiceImp  implements Service{
 	@Autowired 
@@ -31,20 +32,25 @@ public class ServiceImp  implements Service{
 	}
 
 	@Override
-	public Services saveService(PayloadService s) {
-		Services services = new Services();
-		Category p =  categoryrepository.findById(s.getCategory_id()).get(); 
-		Personne p2=  personnerepository.findById(s.getUser_id()).get(); 
-		services.setCategory(p);
-		services.setOwner(p2);
-		services.setAdresse(s.getAddresse());
-		services.setDescription(s.getDescription());
-		services.setNom(s.getNom());
-		services.setHeure_debut(s.getHeure_debut());
-		services.setHeure_fin(s.getHeure_fin());
-		services.setPhoto(s.getPhoto());
-		servicerepository.save(services); 
-		return  services; 
+	public Services saveService(Services s) {
+	    Services services = new Services();
+	    services.setNom(s.getNom());
+	    services.setDescription(s.getDescription());
+	    services.setAdresse(s.getAdresse());
+	    services.setHeure_debut(s.getHeure_debut());
+	    services.setHeure_fin(s.getHeure_fin());
+	    services.setPhoto(s.getPhoto());
+
+	    //Category p = categoryrepository.findById(s.getCategory_id()).orElse(null); 
+	    //Personne p2 = personnerepository.findById(s.getUser_id()).orElse(null); 
+
+	    // Set the retrieved Category and Personne objects
+	    //services.setCategory(p);
+	    //services.setOwner(p2);
+
+	    // Save the Services object to the repository
+	    System.out.println("service add ");
+	    return servicerepository.save(services); 
 	}
 	@Override
 	public Services findServiceById(Long id) {

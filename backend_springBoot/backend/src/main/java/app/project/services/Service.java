@@ -12,11 +12,11 @@ public interface Service {
 	
 	
 	void deleteService(Long id);
-	Services saveService(PayloadService services) ;
 	Services  findServiceById(Long id);
 	List<Services> findAllServices();
 	List<Services>FindServicesByLocation(String name , String Location ); 	
 	Personne GetOwnerofService(Long id);
 	List<Services> findByNomContaining(String nom);
-	List<Services> findByAddresseContaining(String adresse); 
+	List<Services> findByAddresseContaining(String adresse);
+	Services saveService(Services service); 
 }

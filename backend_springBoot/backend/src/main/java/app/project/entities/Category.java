@@ -25,7 +25,7 @@ public class Category {
 	@Column(name="nom")
 	private String nom; 
 	@OneToMany(mappedBy="category")
-	private Set<Services>services;
+    private Set<Services> services;
 	
 	public Category(Long categoryId, String nom, Set<Services> services) {
 		super();
