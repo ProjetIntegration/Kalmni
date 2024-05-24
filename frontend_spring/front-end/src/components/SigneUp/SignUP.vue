@@ -105,7 +105,7 @@
               <label for="file-upload"
                 class="relative cursor-pointer rounded-md bg-white font-semibold text-amber-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-amber-600 focus-within:ring-offset-2 hover:text-amber-500">
                 <span>ajouter une photo</span>
-                <input @change="saveImage()" id="file-upload" name="file-upload" type="file" class="sr-only"
+                <input @change="base64_function()" id="file-upload" name="file-upload" type="file" class="sr-only"
                   ref="photo" />
               </label>
             </div>
@@ -170,9 +170,9 @@
                   <div class="mb-3">
                     <label for="formFile" class="mb-2 inline-block text-neutral-700 dark:text-neutral-200">image
                       certificat</label>
-                    <input @change="saveImageCertif()"
+                    <input @change="base64_function2()"
                       class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
-                      ref="photo_certif" type="file" required />
+                      ref="photo_certif" type="file" required  id="file-certif"/>
                   </div>
                   <button type="submit"
                     class="block w-full rounded-lg bg-amber-400 px-5 py-3 text-sm font-medium text-white">
@@ -241,6 +241,22 @@ export default {
     closePrestataire(){
       this.add = false;
     },
+    base64_function() {
+      const file = document.querySelector("#file-upload").files[0];
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        this.form.photo = reader.result;
+      };
+      reader.readAsDataURL(file);
+    },
+    base64_function2() {
+      const file = document.querySelector("#file-certif").files[0];
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        this.form.photo_certif = reader.result;
+      };
+      reader.readAsDataURL(file);
+    },
 
     CheckRole() {
       if (this.SelectedRole == "Prestataire") {
@@ -248,15 +264,7 @@ export default {
         this.add = true
       }
     },
-    saveImage() {
-      this.form.photo = this.$refs.photo.files[0];
-      
-    },
-    saveImageCertif() {
-      this.form.photo_certif = this.$refs.photo_certif.files[0];
-      
-      
-    },
+ 
     
     signUp() {
       // this.$v.form.$touch();
@@ -265,9 +273,13 @@ export default {
       //   return;
       // }
       // this.loading = true;
-    
-      signUpService.signUp({
-        "nom": this.form.nom,
+      let project  = {
+    "projectName": this.form.title,
+    "projectdescription": this.form.description,
+    "projectphoto": this.form.photo_certif,
+}
+    let user  = {
+      "nom": this.form.nom,
         "prenom": this.form.prenom,
         "email": this.form.email,
       //  "tel": this.form.tel,
@@ -279,8 +291,12 @@ export default {
         "photo": "this.form.photo",
         //"photo_certif": this.form.photo_certif,
         "role_number":this.SelectedRole,
-        
-      }).then((res) => {
+    }
+    console.log(user,project);
+      signUpService.signUp(
+        user,
+       project,
+      ).then((res) => {
         this.form.nom = "";
         this.form.prenom = "";
         this.form.email = "";
@@ -299,7 +315,7 @@ export default {
         this.loading = false;
         console.log(error);
       })
-      this.$router.push({ name: "SigneInView", query: { content: "Register successfully" } });
+     // this.$router.push({ name: "SigneInView", query: { content: "Register successfully" } });
     },
 
 

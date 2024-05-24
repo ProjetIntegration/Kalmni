@@ -29,7 +29,8 @@ public class Personne {
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  @Column(name="id")
 	  private Long PersonneId ;
-	  @Column(name="nom")
+	
+	@Column(name="nom")
 	  private String nom ; 
 	  @Column(name="Prenom")
 	  private String prenom ;
@@ -80,6 +81,28 @@ public class Personne {
 	 
 	 @OneToMany(mappedBy="user_service_registrated")
 	 private List<ServiceUser>Personnes_registrated;
+ 
+	 @OneToMany(mappedBy="person_projects")
+	 private List<Projects>my_projects; 
+
+	public String getRole() {
+		return Role;
+	}
+
+
+	public void setRole(String role) {
+		Role = role;
+	}
+
+
+	public List<Projects> getMy_projects() {
+		return my_projects;
+	}
+
+
+	public void setMy_projects(List<Projects> my_projects) {
+		this.my_projects = my_projects;
+	}
 
 
 	public Long getPersonneId() {
@@ -120,7 +143,14 @@ public class Personne {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	  @Override
+		public String toString() {
+			return "Personne [PersonneId=" + PersonneId + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email
+					+ ", password=" + password + ", Role=" + Role + ", addresse=" + addresse + ", date=" + date + ", photo="
+					+ photo + ", services=" + services + ", messages=" + messages + ", Notifs=" + Notifs + ", posts="
+					+ posts + ", comments=" + comments + ", PersonProjects=" + PersonProjects + ", Personnes_registrated="
+					+ Personnes_registrated + "]";
+		}
 
 	public String getPassword() {
 		return password;
