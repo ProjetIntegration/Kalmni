@@ -87,6 +87,7 @@ public Services(Long serviceId, String nom, String description, Category categor
 }
 
 
+
 public Services() {
 	super();
 	// TODO Auto-generated constructor stub
@@ -201,6 +202,11 @@ public Set<ServiceUser> getService_registrated() {
 
 public void setService_registrated(Set<ServiceUser> service_registrated) {
 	this.service_registrated = service_registrated;
+}
+
+
+public Long getUser_id() {
+	return null;
 } 
 
 
