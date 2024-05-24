@@ -89,7 +89,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		        .antMatchers("/AddService").permitAll()
 
 		        .antMatchers("/login").permitAll()
+
+		        .antMatchers("/AddPost").permitAll()
+
+				.anyRequest().authenticated()
+
 				.anyRequest().permitAll()
+
 		        .and()
 			    .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);

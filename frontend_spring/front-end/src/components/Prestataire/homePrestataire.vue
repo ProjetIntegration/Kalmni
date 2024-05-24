@@ -106,11 +106,23 @@
                           </span>
                         </label>
                       </div>
+                      <div>
+                        <label for="description" class="relative block rounded-md border border-gray-200 shadow-sm">
+                          <textarea type="text" v-model="montant"
+                            class="w-[500px] peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 p-4 pe-12"
+                            placeholder="Montant du publication"></textarea>
+
+                          <span
+                            class="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white p-0.5 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs">
+                            Montant du publication
+                          </span>
+                        </label>
+                      </div>
                       <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
                       <label for="file-upload"
                         class=" relative cursor-pointer rounded-md bg-white font-semibold text-amber-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-amber-600 focus-within:ring-offset-2 hover:text-amber-500">
                         <span>ajouter une photo</span>
-                        <input @change="SavePhoto()" id="file-upload" name="file-upload" type="file" class="sr-only"
+                        <input  @change="base64_function()" id="file-upload" name="file-upload" type="file" class="sr-only"
                           ref="photo" />
                       </label>
                       <button @click="afficher()" type="submit"
@@ -301,6 +313,8 @@ export default {
       nom: "",
       description: "",
       photo: "",
+      montant:"",
+      date:"",
 
     };
   },
@@ -318,16 +332,27 @@ export default {
     close() {
       this.add = false;
     },
-    SavePhoto() {
-      this.photo = this.$refs.photo.files[0];
+     base64_function() {
+      const file = document.querySelector("#file-upload").files[0];
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        this.photo = reader.result;
+      };
+      reader.readAsDataURL(file);
     },
     SavePost() {
+       console.log(this.user.personneId)
       Post.AddPost({
+        personne_id:this.user.personneId,
         nom: this.nom,
         description: this.description,
         photo: this.photo,
+        montant : this.montant,
+        
       }).then((res) => {
         console.log(res);
+      }).catch((Error)=>{
+        
       })
     }
   },

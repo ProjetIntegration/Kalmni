@@ -30,7 +30,7 @@ public class Post{
 	@Column(name="description")
 	private String Postdescription  ;
 	
-	@Column(name="photo")
+	@Column(name="photo", length = 999999999)
 	private String Postphoto  ;
 	
 	@Column(name="Date")
