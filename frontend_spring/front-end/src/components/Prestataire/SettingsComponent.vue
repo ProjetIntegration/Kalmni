@@ -259,7 +259,7 @@
                            @change="SavePhoto" ref="photo_name" type="file" id="photo" 
 
                            
-                            v-model="date_debut"
+                            
                           />
 
                         </div>
