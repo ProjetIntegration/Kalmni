@@ -28,7 +28,7 @@ public class Projects{
 	private String Projectdescription  ;
 	
 	
-	@Column(name="photo")
+	@Column(name="photo" ,length =99999999)
 	private String Projectphoto  ;
 	
 	@ManyToOne

@@ -74,6 +74,10 @@ export default {
   },
   methods: {
     signIn() {
+      let Credentials  = {};
+      Credentials.email = this.email;
+      Credentials.password = this.password; 
+
       authService.signIn(this.email, this.password)
         .then((res) => {
           this.$router.push({ name: "home" });
