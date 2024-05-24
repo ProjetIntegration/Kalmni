@@ -1,39 +1,22 @@
-import axios from "axios";
-
+import Axios from "axios";
+import "../plugins/axios.js";
 
 export default {
   getUserById(id){
     // console.log(id);
-    return ApiClient.get("/usersDetails/"+id);
+    return Axios.get("/usersDetails/"+id);
   },
 
-    AddUser(user){
-        // console.log(user);
-        let data=new FormData();
-        data.append("nom", user.nom);
-        data.append("prenom", user.prenom);
-        data.append("email", user.email);
-        data.append("tel", user.tel);
-        data.append("password", user.password);
-        data.append("adresse", user.adresse);
-        data.append("photo", user.photo);
-        data.append("date", user.date);
-        const config={
-            Headers:{
-                "content-Type":"multipart/form-data"
-            }
-        }
-        return ApiClient.post("/addUser",data,config)
-    },
+
 
     DeletUser(id){
-        return ApiClient.delete(`/deleteUser/${id}`);
+        return Axios.delete(`/deleteUser/${id}`);
     },
        getUsers(){
-        return ApiClient.get("/Users");
+        return Axios.get("/Users");
     },
        getNotif(id){
-        return ApiClient.get("/getNotif/"+id);
+        return Axios.get("/getNotif/"+id);
     }, 
     
     UpdateUSer(user,id){
@@ -52,37 +35,37 @@ export default {
      "content-Type":"multipart/form-data"
       }
     }
-  return ApiClient.post(`/UpdateUser/${id}`,data,config);
+  return Axios.post(`/UpdateUser/${id}`,data,config);
   },
 AccepterUser(id){
-    return ApiClient.post(`/PersonneAccept` , id);
+    return Axios.put(`/PersonneAccept/${id}`);
 },
 RejeterUser(id){
-  return ApiClient.post(`/Rejeter/${id}`);
+  return Axios.put(`/PersonneReject/${id}`);
 },
 getUserByStatus(){
-  return ApiClient.get("/DemandePrestataire");
+  return Axios.get("/GetDemandes");
 },
 
 getPrestataires(name)
 {
   // return ApiClient.get(`/recherche_prestataire/${id}?${name!=''?'name='+name:''}`);
-  return ApiClient.get("/recherche_prestataire", { params: name });
+  return Axios.get("/recherche_prestataire", { params: name });
 },
 GetallPrestataires()
 {
 
-  return  ApiClient.get("/GetallPrestataires"); 
+  return  Axios.get("/GetallPrestataires"); 
 
 }
 ,
 GetallClients()
 {
-  return  ApiClient.get("/GetallClients"); 
+  return  Axios.get("/GetallClients"); 
 },
 recherche_clients(name)
 {
-  return ApiClient.get("/recherche_clients", { params: name }); 
+  return Axios.get("/recherche_clients", { params: name }); 
 },
 
 

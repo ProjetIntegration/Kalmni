@@ -283,15 +283,17 @@ export default {
         "prenom": this.form.prenom,
         "email": this.form.email,
       //  "tel": this.form.tel,
-        "password": this.form.password,
-        "addresse": this.form.adresse,
-        "date": new Date( this.form.date).toISOString(),
+      "password": this.form.password,
+      "addresse": this.form.adresse,
+      "date": new Date( this.form.date).toISOString(),
        // "title": this.form.title,
        // "description": this.form.description,
-        "photo": "this.form.photo",
+       "photo": this.form.photo,
         //"photo_certif": this.form.photo_certif,
         "role_number":this.SelectedRole,
     }
+
+    
     console.log(user,project);
       signUpService.signUp(
         user,
