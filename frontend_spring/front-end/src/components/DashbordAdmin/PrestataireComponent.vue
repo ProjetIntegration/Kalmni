@@ -141,7 +141,8 @@ export default {
   methods: {
     GetPrestataires() {
       Users.GetallPrestataires().then((res) => {
-        this.prestataires = res.data.data;
+        console.log(res.data);
+        this.prestataires = res.data;
 
         console.log(this.prestataires);
       }).catch(error => {

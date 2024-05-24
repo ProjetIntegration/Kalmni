@@ -70,7 +70,6 @@ export default {
       email: "",
       incorrect: false,
     }
-
   },
   methods: {
     signIn() {
