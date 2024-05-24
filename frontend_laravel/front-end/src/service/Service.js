@@ -13,13 +13,7 @@
     return ApiClient.get("/Recherche", { params: Service });
   },
 
-        Service_recherche(Service)
-         {
-            let data = new FormData();
-
-            data.append("nom_service", user.nom_service);
-            data.append("location", user.location);
-         },
+        
          
          AddService(data){
           let payload = new FormData();
@@ -42,9 +36,7 @@
            
          },
 
-  Service_recherche(Service) {
-    return ApiClient.get("/Recherche", { params: Service });
-  },
+ 
   Nom_Service(Service) {
     return ApiClient.get("/Recherche_par_nom", { params: Service });
   },
