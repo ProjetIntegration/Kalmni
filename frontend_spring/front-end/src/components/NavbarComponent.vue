@@ -14,7 +14,9 @@
           </div>
         </div>
 
+
         <div v-if="user" class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse pr-10">
+
           <div class="flex items-center gap-4">
             <img class="w-10 h-10 rounded-full" :src="'http://localhost:8000' + user.photo" alt="">
             <div class="font-medium dark:text-dark">
@@ -25,7 +27,9 @@
 
           </div>
         </div>
+
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse" v-else>
+
           <button type="button"
             class="transition ease-in-out delay-150 text-black font-bold mr-3 hover:-translate-y-1 hover:scale-110 duration-300 ...">
             <router-link to="/SigneIn">sign in</router-link>
@@ -94,6 +98,7 @@ export default {
     user() {
 
       let x = localStorage.getItem("user")
+
         ? JSON.parse(localStorage.getItem("user"))
         : "";
       return x;

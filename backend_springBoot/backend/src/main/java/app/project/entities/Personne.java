@@ -15,6 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -46,7 +49,15 @@ public class Personne {
 	  private Date date; 
 	  @Column(name="photo",length=99999999)
 	  private String photo; 
+	  @Column(name="status")
+	  private int Status; 
 	
+
+	
+	public int getStatus() {
+		return Status;
+	}
+
 
 	
 	@OneToMany(mappedBy="Owner")
@@ -60,28 +71,29 @@ public class Personne {
 	public void setServices(List<Services> services) {
 		this.services = services;
 	}
+	@JsonIgnore
 	@OneToMany(mappedBy="person_receiver")
 	 private List<Message>messages;
-	
+	@JsonIgnore
 	 @OneToMany(mappedBy="person_notifications_receiver")
 	 private List<Notifications>Notifs; 
 	 
-	 
+	@JsonIgnore
 	 @OneToMany(mappedBy="person_posts")
 	 private List<Post>posts; 
 	 
 	
-	 
+	@JsonIgnore
 	 @OneToMany(mappedBy="person_id_comments")
 	 private List<Comments>comments; 
-	 
+	@JsonIgnore
 	 @OneToMany(mappedBy="person_projects")
 	 private List<Projects>PersonProjects; 
 	 
-	 
+	@JsonIgnore
 	 @OneToMany(mappedBy="user_service_registrated")
 	 private List<ServiceUser>Personnes_registrated;
- 
+	@JsonManagedReference
 	 @OneToMany(mappedBy="person_projects")
 	 private List<Projects>my_projects; 
 
@@ -282,6 +294,13 @@ public class Personne {
 	public void setPhoto(String photo2) {
 		// TODO Auto-generated method stub
 		this.photo = photo2;
+	}
+
+
+	public void setStatus(int accepted) {
+		// TODO Auto-generated method stub
+		this.Status =  accepted ;  
+		
 	}
 	
 	 
