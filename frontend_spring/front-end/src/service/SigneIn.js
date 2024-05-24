@@ -1,21 +1,15 @@
-import axios from "axios";
+import Axios from "axios";
+import "../plugins/axios.js";
 import {useAuthStore} from "../store/index";
 
-const ApiClient = axios.create({
-    baseURL: "http://localhost:8000/api",
-    withCredentials: false,
-    headers: {
-      accept: "application/json",
-      "content-type": "application/json",
-    },
-  });
 
 export default{
     async signIn(email,password){
         const store=useAuthStore();
-        const res=await ApiClient.post('/auth/signin',{email,password});
+        const res= await Axios.post('/login',{email,password});
         if(res.status==200){
-          store.login(res.data.data.token,res.data.data.user,res.data.data.role);
+          console.log(res.data.user);
+          store.login(res.data.token,res.data.user,res.data.user.role_number);
         }else{
           store.logout();
         }
