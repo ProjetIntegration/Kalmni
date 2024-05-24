@@ -1,11 +1,5 @@
 import axios from "axios";
 
-const ApiClient = axios.create({
-    baseURL: "http://localhost:8000/api",
-    withCredentials: false,
-    
-    
-  });
 
 export default {
   getUserById(id){
@@ -60,8 +54,8 @@ export default {
     }
   return ApiClient.post(`/UpdateUser/${id}`,data,config);
   },
-  AccepterUser(id){
-    return ApiClient.post(`/Accepter/${id}`);
+AccepterUser(id){
+    return ApiClient.post(`/PersonneAccept` , id);
 },
 RejeterUser(id){
   return ApiClient.post(`/Rejeter/${id}`);
@@ -90,5 +84,6 @@ recherche_clients(name)
 {
   return ApiClient.get("/recherche_clients", { params: name }); 
 },
+
 
 }

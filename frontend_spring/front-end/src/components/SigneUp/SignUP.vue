@@ -315,7 +315,7 @@ export default {
         this.loading = false;
         console.log(error);
       })
-     // this.$router.push({ name: "SigneInView", query: { content: "Register successfully" } });
+      this.$router.push({ name: "SigneInView", query: { content: "Register successfully" } });
     },
 
 
