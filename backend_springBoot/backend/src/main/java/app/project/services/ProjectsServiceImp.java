@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import app.project.entities.Personne;
 import app.project.entities.Projects;
 import app.project.repository.ProjectsRepository;
 @Service
@@ -19,10 +20,10 @@ public class ProjectsServiceImp implements ProjectsService {
     }
 
 	@Override
-    public Projects findProjectById(Long id) {
-        Projects result = projectsRepository.getById(id);;
-        return result;
-    }
+	public Projects findProjectById(Long id) {
+	    return projectsRepository.findById(id).orElse(null);
+	}
+
 
 	@Override
     public Projects saveProject(Projects project) {
@@ -34,4 +35,15 @@ public class ProjectsServiceImp implements ProjectsService {
         projectsRepository.deleteById(id);
     }
 
+	
+
+	@Override
+	public Personne findPersonById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+    public List<Projects> findProjectsByPerson(Personne person) {
+        return projectsRepository.findByPersonProjects(person);
+    }
 }
