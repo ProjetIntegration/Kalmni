@@ -29,7 +29,7 @@
             <div class="flex flex-col">
               <h2 class="text-xl font-bold mb-4">About Me</h2>
               <ul>
-                <li class="mb-2">
+                <li class="mb-2" >
 
                   <button
                     type="button"

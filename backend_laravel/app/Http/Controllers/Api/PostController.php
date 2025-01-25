@@ -13,20 +13,20 @@ class PostController extends Controller
 
     public function addPost(Request $request){
 
-        // $file_name = time() . '_' . $request->photo->getClientOriginalName();
-        // $image = $request->file('photo')->storeAs('images', $file_name, 'public');
+        $file_name = time() . '_' . $request->photo->getClientOriginalName();
+        $image = $request->file('photo')->storeAs('images', $file_name, 'public');
 
-        // Post::create([
-        //     "nom"=>$request->nom,
-        //     "description"=>$request->description,
-        //     "montant"=>$request->montant,
-        //     "Date"=>date("Y-m-d"),
-        //     "user_id"=>$request->user_id,
+        Post::create([
+            "nom"=>$request->nom,
+            "description"=>$request->description,
+            "montant"=>$request->montant,
+            "Date"=>date("Y-m-d"),
+            "user_id"=>$request->user_id,
 
-        //     'photo'=>'/storage/' . $image,
+            'photo'=>'/storage/' . $image,
 
-        // ]);
-        // return response()->json(["message"=>"Post Added"],201);
+        ]);
+        return response()->json(["message"=>"Post Added"],201);
     }
 
 

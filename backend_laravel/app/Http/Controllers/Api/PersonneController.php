@@ -7,7 +7,7 @@ use App\Models\Notifications;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class personneController extends Controller
+class PersonneController extends Controller
 {
     public function getUsers()
     {
@@ -48,7 +48,7 @@ class personneController extends Controller
         if ($request->hasFile('photo')) {
             $file_name = time() . '_' .$request->photo->getClientOriginalName();
             $image=$request->file('photo')->storeAs('users',$file_name,'public');
-            $image_name='/storage/'.$image;
+            $image_name='./storage/'.$image;
         }else{
             $image_name=$request->nom[0].''.$request->prenom[0];
         }
