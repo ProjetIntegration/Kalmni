@@ -34,7 +34,7 @@
                                             <div class="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg w-52">
                                                 <p class="text-sm">{{ chats.message }}</p>
                                             </div>
-                                            <span class="text-xs text-gray-500 leading-none">{{
+                                            <span class="text-xs text-gray-500 leading-none">{{ 
                                                 moment(chats.created_at).format("DD-MM-yy, h:m a") }}</span>
                                         </div>
                                     </div>

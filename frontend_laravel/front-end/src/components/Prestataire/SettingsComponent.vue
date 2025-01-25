@@ -15,7 +15,7 @@
             <div class="flex flex-col">
               <h2 class="text-xl font-bold mb-4">About Me</h2>
               <ul>
-                <li class="mb-2">
+                <li class="mb-2" v-if="user.role === 'Prestataire'">
                   <button type="button" data-twe-ripple-init data-twe-ripple-color="dark"
                     class="inline-block rounded bg-transparent px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-neutral-100 hover:text-primary-accent-300 focus:text-primary-accent-300 focus:outline-none focus:ring-0 active:text-primary-700 motion-reduce:transition-none dark:text-secondary dark:hover:bg-secondary-900">
                     <router-link to="/profile">

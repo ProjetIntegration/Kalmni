@@ -129,18 +129,20 @@
           <div>
             <h1
               class="text-2xl mt-2 ml-4 font-bold text-gray-800 cursor-pointer hover:text-gray-900 transition duration-100">
-              Service plambier
+              SOS plomberie !
             </h1>
             <p class="ml-4 mt-1 mb-2 text-gray-700">
-              J'ai besoin de plambier chez manar
+              😩 Grosse galère, mes canalisations font des siennes à Lafayette.
+🔧 Je cherche un plombier dispo rapidement (et pas hors de prix 🙃).
+💌 Merci pour vos suggestions ou numéros en DM !
             </p>
           </div>
           <div class="flex p-4 justify-between">
             <div class="flex items-center space-x-2">
               <img class="w-10 rounded-full"
-                src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg" alt="sara" />
+                src="../../assets/lyna.jpg" alt="sara" />
               <h2 class="text-gray-800 font-bold cursor-pointer">
-                Felipe Sacudon
+                Lyna Moujahed
               </h2>
             </div>
             <div class="flex space-x-2" @click="getComments()">
@@ -152,7 +154,59 @@
                       d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                   </svg>
                 </span>
-                <span>22</span>
+                <span>30</span>
+              </div>
+              <div class="flex space-x-1 items-center">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-7 w-7 text-red-500 hover:text-red-400 transition duration-100 cursor-pointer"
+                    viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                      d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                      clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <span>10</span>
+              </div>
+            </div>
+          </div>
+          <comment v-if="com == 1"></comment>
+        </div>
+        <div class="max-w-md container bg-white border border-gray-200 rounded-lg mb-5 shadow-lg">
+          <div>
+            <h1
+              class="text-2xl mt-2 ml-4 font-bold text-gray-800 cursor-pointer hover:text-gray-900 transition duration-100">
+              Électricien Professionnel
+            </h1>
+            <p class="ml-4 mt-1 mb-2 text-gray-700">⚡ Problème d’électricité ? Nous sommes là !
+<br>🔌 Services proposés :
+<br>✔ Réparation de pannes électriques
+<br>✔ Installation de luminaires et prises électriques
+<br>✔ Mise aux normes des installations
+<br>📍 Intervention rapide sur Tunis et banlieues.
+<br>📞 Appelez-nous au XX XXX XXX</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <img class="h-60 w-auto" src="../../assets/téléchargement (8).jpeg" />
+          </div>
+          <div class="flex p-4 justify-between">
+            <div class="flex items-center space-x-2">
+              <img class="w-10 rounded-full"
+                src="../../assets/iheb.png" alt="sara" />
+              <h2 class="text-gray-800 font-bold cursor-pointer">
+                Iheb Sessi
+              </h2>
+            </div>
+            <div class="flex space-x-2" @click="getComments()">
+              <div class="flex space-x-1 items-center">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-600 cursor-pointer" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                </span>
+                <span>10</span>
               </div>
               <div class="flex space-x-1 items-center">
                 <span>
@@ -174,19 +228,25 @@
           <div>
             <h1
               class="text-2xl mt-2 ml-4 font-bold text-gray-800 cursor-pointer hover:text-gray-900 transition duration-100">
-              Service plambier
+              Jardinage et Aménagement Paysager
             </h1>
-            <p class="ml-4 mt-1 mb-2 text-gray-700">quelque description</p>
+            <p class="ml-4 mt-1 mb-2 text-gray-700">🌿 Transformez votre espace vert avec nous !
+              <br>🌱 Services proposés :
+              <br>✔ Tonte de pelouse et taille des haies
+              <br>✔ Plantation et entretien des jardins
+              <br>✔ Systèmes d’arrosage automatique
+              <br>📍 Disponible sur Tunis, Ariana, La Marsa
+              <br>📞 Réservez dès maintenant : XX XXX XXX</p>
           </div>
           <div class="flex flex-col items-center">
-            <img class="h-60 w-auto" src="../../assets/lavage.jpeg" />
+            <img class="h-60 w-auto" src="../../assets/téléchargement (7).jpeg" />
           </div>
           <div class="flex p-4 justify-between">
             <div class="flex items-center space-x-2">
               <img class="w-10 rounded-full"
-                src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg" alt="sara" />
+                src="../../assets/akarm.jpg" alt="sara" />
               <h2 class="text-gray-800 font-bold cursor-pointer">
-                Felipe Sacudon
+                Akram Zaabi
               </h2>
             </div>
             <div class="flex space-x-2" @click="getComments()">
@@ -210,53 +270,7 @@
                       clip-rule="evenodd" />
                   </svg>
                 </span>
-                <span>20</span>
-              </div>
-            </div>
-          </div>
-          <comment v-if="com == 1"></comment>
-        </div>
-        <div class="max-w-md container bg-white border border-gray-200 rounded-lg mb-5 shadow-lg">
-          <div>
-            <h1
-              class="text-2xl mt-2 ml-4 font-bold text-gray-800 cursor-pointer hover:text-gray-900 transition duration-100">
-              Service plambier
-            </h1>
-            <p class="ml-4 mt-1 mb-2 text-gray-700">quelque description</p>
-          </div>
-          <div class="flex flex-col items-center">
-            <img class="h-60 w-auto" src="../../assets/lavage.jpeg" />
-          </div>
-          <div class="flex p-4 justify-between">
-            <div class="flex items-center space-x-2">
-              <img class="w-10 rounded-full"
-                src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg" alt="sara" />
-              <h2 class="text-gray-800 font-bold cursor-pointer">
-                Felipe Sacudon
-              </h2>
-            </div>
-            <div class="flex space-x-2" @click="getComments()">
-              <div class="flex space-x-1 items-center">
-                <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-600 cursor-pointer" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                  </svg>
-                </span>
-                <span>22</span>
-              </div>
-              <div class="flex space-x-1 items-center">
-                <span>
-                  <svg xmlns="http://www.w3.org/2000/svg"
-                    class="h-7 w-7 text-red-500 hover:text-red-400 transition duration-100 cursor-pointer"
-                    viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd"
-                      d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                      clip-rule="evenodd" />
-                  </svg>
-                </span>
-                <span>20</span>
+                <span>30</span>
               </div>
             </div>
           </div>

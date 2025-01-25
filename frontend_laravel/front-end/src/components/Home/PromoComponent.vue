@@ -37,17 +37,17 @@
             <div
               class="w-1/3 bg-cover"
               style="
-                background-image: url('https://images.unsplash.com/photo-1494726161322-5360d4d0eeae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80');
+                background-image: url('https://services-demenagement.com/wp-content/uploads/2023/08/services-demenagement-pourquoi-nous-choisir.jpg');
               "
             ></div>
 
             <div class="w-2/3 p-4 md:p-4">
               <h1 class="text-xl font-bold text-gray-800 dark:text-white">
-                Backpack
+                Services de déménagement
               </h1>
 
               <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit In odit
+                Déménagement rapide et sécurisé, incluant transport et main-d'œuvre.
               </p>
 
               <div class="flex mt-2 item-center">
@@ -69,7 +69,7 @@
                 <h1
                   class="text-lg font-bold text-gray-700 dark:text-gray-200 md:text-xl"
                 >
-                  $220
+                500DT → 400DT
                 </h1>
                 <button
                   class="px-2 py-1 text-xs font-bold text-black uppercase transition-colors duration-300 transform bg-amber-400 rounded hover:bg-amber-600 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"
@@ -87,17 +87,17 @@
             <div
               class="w-1/3 bg-cover"
               style="
-                background-image: url('https://images.unsplash.com/photo-1494726161322-5360d4d0eeae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80');
+                background-image: url('https://servicesjma.ca/assets/images/new_img/testi1.webp');
               "
             ></div>
 
             <div class="w-2/3 p-4 md:p-4">
               <h1 class="text-xl font-bold text-gray-800 dark:text-white">
-                Backpack
+                Réparation d’électroménagers
               </h1>
 
               <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit In odit
+                Réparation rapide pour lave-linge, réfrigérateurs, et autres appareils.
               </p>
 
               <div class="flex mt-2 item-center">
@@ -119,7 +119,7 @@
                 <h1
                   class="text-lg font-bold text-gray-700 dark:text-gray-200 md:text-xl"
                 >
-                  $220
+                100DT → 80DT
                 </h1>
                 <button
                   class="px-2 py-1 text-xs font-bold text-black uppercase transition-colors duration-300 transform bg-amber-400 rounded hover:bg-amber-600 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"
@@ -137,17 +137,17 @@
             <div
               class="w-1/3 bg-cover"
               style="
-                background-image: url('https://images.unsplash.com/photo-1494726161322-5360d4d0eeae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80');
+                background-image: url('https://www.teclab.fr/wp-content/uploads/2024/04/repairman-checking-smartphone-battery-768x512.jpg');
               "
             ></div>
 
             <div class="w-2/3 p-4 md:p-4">
               <h1 class="text-xl font-bold text-gray-800 dark:text-white">
-                Backpack
+                Réparation de smartphones
               </h1>
 
               <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit In odit
+                Réparation d’écran, batterie et autres problèmes techniques avec garantie.
               </p>
 
               <div class="flex mt-2 item-center">
@@ -169,7 +169,7 @@
                 <h1
                   class="text-lg font-bold text-gray-700 dark:text-gray-200 md:text-xl"
                 >
-                  $220
+                80DT → 60DT
                 </h1>
                 <button
                   class="px-2 py-1 text-xs font-bold text-black uppercase transition-colors duration-300 transform bg-amber-400 rounded hover:bg-amber-600 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"
@@ -187,17 +187,17 @@
             <div
               class="w-1/3 bg-cover"
               style="
-                background-image: url('https://images.unsplash.com/photo-1494726161322-5360d4d0eeae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80');
+                background-image: url('https://www.lesjardinsdumoulin.com/wp-content/uploads/2023/07/JARDINSDUMOULINENTRETIEN_taille-768x517.webp');
               "
             ></div>
 
             <div class="w-2/3 p-4 md:p-4">
               <h1 class="text-xl font-bold text-gray-800 dark:text-white">
-                Backpack
+                Entretien de jardin
               </h1>
 
               <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit In odit
+                Tonte de pelouse, taille des haies et entretien général de votre jardin.
               </p>
 
               <div class="flex mt-2 item-center">
@@ -219,7 +219,7 @@
                 <h1
                   class="text-lg font-bold text-gray-700 dark:text-gray-200 md:text-xl"
                 >
-                  $220
+                150DT → 120DT
                 </h1>
                 <button
                   class="px-2 py-1 text-xs font-bold text-black uppercase transition-colors duration-300 transform bg-amber-400 rounded hover:bg-amber-600 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"

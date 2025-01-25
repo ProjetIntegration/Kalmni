@@ -10,8 +10,8 @@
                                     <img src="../../assets/search.png" alt=""
                                         class="w-10 h-10 text-gray-500 dark:text-amber-400 mb-12" />
                                 </div>
-                                <form methode="GET" @submit.prevent="fetchServiceData">
-                                <input name="search" type="search" id="search" v-model="nom"
+                                <form methode="GET" >
+                                <input name="search" type="search" id="search" v-model="nom" @keyup="fetchServiceData()"
                                     class="bg-gray-100 w-full shadow-lg p-4 mt-6 ps-16 text-m px-4 py-3.5 rounded-md outline-amber-500"
                                     placeholder="Quel service recherchez . . ." />
                                     <button
@@ -21,12 +21,12 @@
                                 </button>
                                 </form>
                                 </div>
-                            
+                                
                         </div>
 
                     </div>
                 </div>
-<div v-if="services">
+<div >
                 <div class="flex flex-col gap-4"  v-for="(ser,index) in  services"  :key="index" >
                    
                     <div 
@@ -64,7 +64,7 @@
                     
                 </div>
                 </div>
-                <div  class="flex flex-col gap-4" v-else>
+                <!-- <div  class="flex flex-col gap-4" >
                     <div
                         class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale duration-300  rounded-3xl border-2 border-gray-200 p-4 bg-white lg:p-8 w-[80%] grid grid-cols-12 max-lg:max-w-lg max-lg:mx-auto gap-y-4 ">
                         <div class="col-span-12 lg:col-span-2 img box">
@@ -131,7 +131,7 @@
                         </div>
                         
                     </div>
-                </div>
+                </div> -->
                 </div>
             </div>
         </div>
@@ -146,6 +146,7 @@ export default {
       services:""
     };
   },
+  
   methods: {
     fetchServiceData() {
         let data2 = {
@@ -159,6 +160,10 @@ export default {
         console.error(error);
       });
     }
+  },
+  mounted() {
+    
+    this.fetchServiceData();
   }
 };
 </script>

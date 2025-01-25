@@ -23,7 +23,7 @@
           <h5
             class="text-xl mb-10 font-semibold tracking-tight text-gray-900 dark:text-white"
           >
-            installation climatiseur
+          Réparation de chauffe-eau
           </h5>
 
           <h5 class="text-md tracking-tight text-gray-900 dark:text-white">
@@ -111,23 +111,23 @@
       >
         <div class="pt-50 mb-5">
           <img
-            class="p-8 w-75 h-160 rounded-t-lg"
-            src="../../assets/reserve1.jpeg"
+            class="p-8 w-full h-160 rounded-t-lg"
+            src="../../assets/reserve3.jpg"
             alt="product image"
           />
           <span class="font-bold text-gray-900 dark:text-white pl-10"
-            >A partir de 70DT</span
+            >A partir de 120DT</span
           >
         </div>
         <div class="px-5 pb-5 mt-10">
           <h5
             class="text-xl mb-10 font-semibold tracking-tight text-gray-900 dark:text-white"
           >
-            installation climatiseur
+          Nettoyage domestique
           </h5>
 
           <h5 class="text-md tracking-tight text-gray-900 dark:text-white">
-            Par nous meilleurs prestataires
+            Service de nettoyage professionnel pour maisons et appartements.
           </h5>
           <div class="flex items-center mt-5 mb-5">
             <div class="flex items-center space-x-1 rtl:space-x-reverse">
@@ -195,7 +195,7 @@
           <h5
             class="text-md font-semibold tracking-tight text-gray-900 dark:text-white"
           >
-            Sur toute la tunisie
+          Disponible dans toutes les régions de Tunisie.
           </h5>
           <div class="flex items-center justify-between">
             <a
@@ -212,22 +212,22 @@
         <div class="pt-50 mb-5">
           <img
             class="p-8 w-75 h-160 rounded-t-lg"
-            src="../../assets/reserve2.jpeg"
+            src="../../assets/reserve2.jpg"
             alt="product image"
           />
           <span class="font-bold text-gray-900 dark:text-white pl-10"
-            >A partir de 70DT</span
+            >A partir de 100DT</span
           >
         </div>
         <div class="px-5 pb-5 mt-10">
           <h5
             class="text-xl mb-10 font-semibold tracking-tight text-gray-900 dark:text-white"
           >
-            installation climatiseur
+          Peinture et rénovation
           </h5>
 
           <h5 class="text-md tracking-tight text-gray-900 dark:text-white">
-            Par nous meilleurs prestataires
+            Travaux de peinture intérieure ou extérieure réalisés par des experts.
           </h5>
           <div class="flex items-center mt-5 mb-5">
             <div class="flex items-center space-x-1 rtl:space-x-reverse">
@@ -295,7 +295,7 @@
           <h5
             class="text-md font-semibold tracking-tight text-gray-900 dark:text-white"
           >
-            Sur toute la tunisie
+          Service sur mesure selon vos besoins.
           </h5>
           <div class="flex items-center justify-between">
             <a
